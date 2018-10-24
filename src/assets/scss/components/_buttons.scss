@@ -1,0 +1,64 @@
+.button {
+
+  @each $name, $color in $foundation-palette {
+
+    &.#{$name} {
+
+      border-width: 0.25em;
+      border-color: $color;
+
+      @include foundation-button-fix( $color );
+
+      &:hover, &:focus {
+
+        background: #fff;
+        color: $color;
+        border-width: 0.25em;
+
+      }
+
+    }
+
+    &.hollow.#{$name} {
+
+      color: $color;
+      border-width: 0.25em;
+      font-weight: 600;
+
+      &:hover, &:focus {
+
+        background-color: $color;
+        border-color: $color;
+        @include light-or-dark-text( $color );
+
+      }
+
+    }
+
+  }
+
+}
+
+.give-btn, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt, input[type="submit"], #site-content .tribe-events-button, #site-content #tribe-events .tribe-events-button, .tribe_community_edit #site-content .tribe-button, .tribe_community_list #site-content .tribe-button {
+
+  @include button( false, $secondary-color, scale-color( $secondary-color, $lightness: $button-background-hover-lightness ), 'auto', 'solid' );
+
+  border-width: 0.25em;
+  border-color: $secondary-color;
+
+  @include foundation-button-fix( $secondary-color );
+
+  text-decoration: none;
+	
+  height: auto;
+	margin-bottom: 0;
+
+  &:hover, &:focus {
+
+    background: #fff;
+    color: $secondary-color;
+    border-width: 0.25em;
+
+  }
+
+}

@@ -1,0 +1,55 @@
+@charset 'utf-8';
+
+// Used by FoundationPress' Navigation CSS
+$dark-nav-color: #2C3840;
+
+$light-color: #fff;
+$dark-color: #222;
+
+@import 'settings'; // Copied from FoundationPress. Added !default to any variables we're overriding
+
+@import "settings-overrides";
+
+@include add-foundation-colors();
+
+@import 'foundation';
+
+// Foundation
+// Here we control all of the various foundation components to use
+@include foundation-global-styles;
+
+@include foundation-visibility-classes;
+@include foundation-grid;
+@include foundation-accordion;
+//@import "../vendor/sass/foundation/components/block-grid";
+@include foundation-button;
+@include foundation-typography;
+@include foundation-forms;
+@include foundation-table;
+@include foundation-close-button;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+
+@import "functions";
+@import "mixins";
+
+// Global
+@import "global/accessibility";
+@import "global/colors";
+@import "global/wp-admin";
+@import "global/wp-overrides";
+
+// Modules
+@import "modules/navigation";
+@import "modules/content";
+@import "modules/footer";
+@import "modules/editor-style";
+
+// Components
+@import "components/buttons";
+@import "components/cards";
+@import "components/featured-image";
+@import "components/dividers";
+@import "components/links";
+@import "components/grid";
+@import "components/accordion";

@@ -1,0 +1,192 @@
+// Navigation breakpoints
+.mobile-menu,
+.site-title-bar {
+  @include hide-for(medium);
+}
+
+.desktop-menu,
+.site-navigation .top-bar-left {
+  @include show-for(medium);
+}
+
+// Site title
+.site-desktop-title a {
+  font-weight: bold;
+}
+
+// Mobile menu
+.mobile-menu {
+  display: none; // prevents repaint caused by JS hiding menu onload
+}
+
+.off-canvas {
+  > ul.menu {
+    height: 100vh;
+    padding: 1rem;
+
+    a {
+      color: $white;
+      font-weight: 600;
+      font-size: rem-calc(15);
+    }
+  }
+
+  .menu .active > a { background-color: #ccc; }
+
+}
+
+.title-bar-title {
+  a {
+    font-size: 1rem;
+    color: #B9B9B9;
+  }
+}
+
+.mobile-menu,
+.mobile-off-canvas-menu {
+
+  .menu .is-active > a {
+    background-color: lighten($secondary-color, 5%);
+  }
+}
+
+// Tablet and desktop menu
+
+.sticky-top-bar {
+  background-color: $primary-color;
+  
+  &, * {
+    transition: ease all 300ms;
+  }
+  
+}
+
+.top-bar {
+
+  .top-bar-title a {
+    font-size: 1rem;
+    color: #B9B9B9;
+    padding-left: 1rem;
+    line-height: 1.8;
+  }
+
+  .menu a {
+    color: #fff;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-weight: bold;
+    font-size: 0.8rem;
+    line-height: 1;
+
+    &:hover:not(.button) {
+      background-color: $secondary-color;
+    }
+  }
+
+  .menu .active > a { background-color: #ccc; }
+
+  .menu>li:not(.menu-text)>a { padding: 1rem; }
+
+  .dropdown.menu .submenu { border: 0; }
+  .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
+  .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
+  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
+}
+
+.site-navigation {
+  @include breakpoint(small only) {
+    padding: 0; // prevents container visibility on small screens
+  }
+}
+
+// WP post navigation
+.post-navigation {
+  @include clearfix;
+}
+
+.nav-previous {
+  float:left;
+}
+
+.nav-next {
+  float:right;
+}
+
+.svg-container.small-version {
+  display: none;
+}
+
+.svg-container {
+	
+	svg {
+		fill: #fff;
+	}
+	
+}
+
+@include breakpoint(small only) {
+
+  .title-bar {
+    
+    padding: 0;
+
+    svg {
+      width: 75%;
+      margin-top: 1rem;
+      margin-left: 0.5rem;
+    }
+    
+    .menu-icon {
+      margin-top: 3.25rem;
+      margin-right: 0.5rem;
+    }
+
+  }
+  
+  .is-stuck.sticky-top-bar {
+    
+    .title-bar-title {
+      //margin-top: 2.25rem;
+    }
+    
+    .menu-icon {
+      //margin-top: 4.25rem;
+    }
+    
+    .svg-container {
+      
+      //display: none;
+      
+      &.small-version {
+        display: inline-block;
+      }
+      
+    }
+    
+  }
+
+}
+
+@include breakpoint(medium) {
+  
+  .is-stuck.sticky-top-bar {
+    
+    .top-bar-title {
+      margin-top: -1rem;
+      margin-bottom: -1rem;
+    }
+    
+    .svg-container {
+      
+      svg {
+      
+        width: 70%;
+        height: auto;
+        
+      }
+      
+    }
+    
+  }
+  
+}

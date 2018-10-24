@@ -1,0 +1,28 @@
+.home {
+
+	// Transparent to overlay on top of Hero
+	.sticky-top-bar {
+		//background: transparent;
+	}
+
+	.is-stuck.sticky-top-bar {
+		//@include background-opacity( $primary-color, 0.6 );
+	}
+
+	.site-header {
+
+		position: absolute;
+		width: 100%;
+		z-index: 999;
+
+		.top-bar, .title-bar {
+			position: relative;
+		}
+
+	}
+	
+	.footer-container {
+		margin: 0;
+	}
+
+}
