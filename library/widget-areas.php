@@ -17,15 +17,35 @@ function foundationpress_sidebar_widgets() {
 		'before_title' => '<h6>',
 		'after_title' => '</h6>',
 	));
+	
+	register_sidebar(array(
+		'id' => 'footer-left',
+		'name' => __( 'Footer - Left', 'vibrant-life-theme' ),
+		'description' => __( 'Drag widgets to this footer container', 'vibrant-life-theme' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget' => '</section>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	));
 
 	register_sidebar(array(
-		'id' => 'footer-widgets',
-		'name' => __( 'Footer widgets', 'vibrant-life-theme' ),
+		'id' => 'footer-center',
+		'name' => __( 'Footer - Center', 'vibrant-life-theme' ),
 		'description' => __( 'Drag widgets to this footer container', 'vibrant-life-theme' ),
-		'before_widget' => '<section id="%1$s" class="large-4 columns widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget' => '</section>',
-		'before_title' => '<h6>',
-		'after_title' => '</h6>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	));
+	
+	register_sidebar(array(
+		'id' => 'footer-right',
+		'name' => __( 'Footer - Right', 'vibrant-life-theme' ),
+		'description' => __( 'Drag widgets to this footer container', 'vibrant-life-theme' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget' => '</section>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
 	));
 }
 

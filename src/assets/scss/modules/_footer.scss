@@ -3,11 +3,10 @@
 	background-color: $primary-color;
 }
 
-.footer {
-
-	@include xy-grid-container;
-	@include xy-grid;
-	padding: rem-calc(30) 0;
+.footer-top {
+	
+	position: relative;
+	overflow: hidden;
 
 	section {
 		@include xy-cell(auto);
@@ -18,61 +17,129 @@
 		margin: 0;
 		padding: 0;
 	}
+	
+	.flourish {
+		
+		position: relative;
+		height: 366px; // Height of the SVG. This was the height of the version used in the mock.
+		
+		svg {
+			
+			height: 366px;
+			width: auto;
+		
+			position: absolute;
+			bottom: 0;
+			top: 1rem;
+			right: auto;
+			left: auto;
+			
+			path {
+				opacity: 0.217466518; // Oddly specific
+			}
+			
+		}
+		
+		&.flourish-left {
+			
+			svg {
+				
+				transform: scaleX( -1 );
+				left: 1rem;
+				
+			}
+			
+		}
+		
+		&.flourish-right {
+			
+			svg {
+				
+				right: 1rem;
+				
+			}
+			
+		}
+		
+	}
+	
+	& > .content {
+		
+		position: absolute;
+		
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		
+		padding: rem-calc(30);
+		
+		@include breakpoint(medium) {
+			padding: rem-calc(60) 0;
+		}
+		
+	}
+	
+	svg {
 
-	.footer-widgets {
+		path {
+			fill: #fff;
+		}
 
+	}
+	
+	.footer-contact {
+		
+		svg {
+			margin-bottom: 1rem;
+		}
+		
+	}
+
+	@include light-or-dark-text( $primary-color );
+
+	.widget-title {
 		@include light-or-dark-text( $primary-color );
+	}
 
-		padding-bottom: 30px * 2;
+	.gform_title, .gfield_label, label, .gfield_description, .ginput_counter, .gform_wrapper .gfield_required {
+		@include light-or-dark-text( $primary-color );
+	}
 
-		.widget-title {
-			@include light-or-dark-text( $primary-color );
-			margin-top: 0.9677em;
-			margin-bottom: 0.9677em;
-		}
+	input[type="submit"] {
 
-		.gform_title, .gfield_label, label, .gfield_description, .ginput_counter, .gform_wrapper .gfield_required {
-			@include light-or-dark-text( $primary-color );
-		}
+		display: block !important;
+		width: 100% !important;
 
-		input[type="submit"] {
+		@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
 
-			display: block !important;
-			width: 100% !important;
+		border-width: 0.25em;
+		border-color: $secondary-color;
 
-			@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
+		@include foundation-button-fix( $secondary-color );
 
+		&:hover, &:focus {
+
+			background: #fff;
+			color: $secondary-color;
 			border-width: 0.25em;
-			border-color: $secondary-color;
-
-			@include foundation-button-fix( $secondary-color );
-
-			&:hover, &:focus {
-
-				background: #fff;
-				color: $secondary-color;
-				border-width: 0.25em;
-
-			}
 
 		}
 
-		a {
+	}
 
-			color: $white;
-			text-decoration: underline;
+	a {
 
-			&:hover {
-				color: scale-color( $secondary-color, $lightness: 15% );
-				text-decoration: none;
-			}
+		color: $white;
 
+		&:hover {
+			color: scale-color( $secondary-color, $lightness: 15% );
 		}
 
-		&, a {
-			font-weight: bold;
-		}
+	}
 
+	&, a {
+		font-weight: bold;
 	}
 
 	.footer-menu {
@@ -96,10 +163,18 @@
 
 	}
 
+	
+
+}
+
+.footer-bottom {
+	
+	background: #fff;
+	padding: rem-calc(15) 0;
+	
 	.copyright {
 
-		@include light-or-dark-text( $primary-color );
-		text-transform: uppercase;
+		@include light-or-dark-text( #fff );
 
 		.svg-container {
 			svg {
@@ -108,11 +183,9 @@
 		}
 
 		.text {
-			padding: 0.7rem 1rem;
 			position: relative;
-			top: -0.6rem;
 		}
 
 	}
-
+	
 }

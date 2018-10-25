@@ -9,7 +9,8 @@
 
 register_nav_menus( array(
 	'primary'  => esc_html__( 'Primary', 'vibrant-life-theme' ),
-	'footer'  => esc_html__( 'Footer', 'vibrant-life-theme' ),
+	'footer-center'  => esc_html__( 'Footer - Center', 'vibrant-life-theme' ),
+	'footer-right'  => esc_html__( 'Footer - Right', 'vibrant-life-theme' ),
 ));
 
 
