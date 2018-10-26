@@ -12,7 +12,7 @@ body.admin-bar {
   // Offset mobile off-canvas menu
   &.offcanvas {
     
-    .off-canvas.is-open {
+    .off-canvas {
       padding-top: rem-calc(46);
       @include breakpoint(783) {
         padding-top: rem-calc(32);
@@ -23,14 +23,6 @@ body.admin-bar {
   
   #wpadminbar {
     top: 0;
-  }
-  
-  &.off-canvas-open {
-    
-    #wpadminbar {
-      top: rem-calc(-46);
-    }
-    
   }
   
 }

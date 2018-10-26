@@ -1,0 +1,104 @@
+.top-bar.extra {
+
+	background: #fff;
+	border-bottom: rem-calc(1) solid $dark-color;
+	
+	// Hides forceful border heights
+	overflow: hidden;
+	
+	@include breakpoint( medium ) {
+
+		padding: 0 0.5625rem;
+
+	}
+
+	// Phablet Landscape and Portrait iPad Fix
+	@media #{$phablet-landscape}, #{$ipad-portrait} {
+
+		padding: 0 $topbar-padding / 4;
+
+	}
+
+	a, button {
+
+		color: #6C094B;
+
+		&:hover {
+			color: scale-color( #6C094B, $lightness: -10% );
+		}
+
+	}
+
+	.social, .phone, .search {
+
+		display: inline-block;
+		width: auto;
+		
+		div {
+			
+			&:before {
+				content: '';
+				position: absolute;
+				top: -50%;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				width: 1px;
+				height: 500%;
+				background: $dark-color;
+			}
+			
+			display: inline-block;
+			position: relative;
+			
+			$topbar-title-spacing-list: str-split( inspect( $topbar-title-spacing ), ' ' );
+		
+			// The things I'll do to keep things scalable with Foundation's units
+			padding: to-number( nth( $topbar-title-spacing-list, 1 ) ) 0;
+			
+		}
+
+		a, button {
+			padding: .7rem 1rem;
+		}
+
+	}
+
+	.logo {
+
+		@include breakpoint( small only ) {
+			width: 100%;
+			text-align: center;
+		}
+		
+		a {
+		
+			svg {
+				path {
+					fill: $anchor-color;
+				}
+			}
+			
+			&:hover {
+				
+				svg {
+					path {
+						fill: $anchor-color-hover;
+					}
+				}
+				
+			}
+			
+		}
+
+	}
+
+	.phone {
+
+		@include breakpoint( small only ) {
+			float: left;
+		}
+
+	}
+
+}

@@ -1,192 +1,326 @@
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {
-  @include hide-for(medium);
+	@include hide-for(medium);
 }
 
 .desktop-menu,
 .site-navigation .top-bar-left {
-  @include show-for(medium);
+	@include show-for(medium);
 }
 
 // Site title
 .site-desktop-title a {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 // Mobile menu
 .mobile-menu {
-  display: none; // prevents repaint caused by JS hiding menu onload
+	display: none; // prevents repaint caused by JS hiding menu onload
 }
 
 .off-canvas {
-  > ul.menu {
-    height: 100vh;
-    padding: 1rem;
+	> ul.menu {
+		
+		height: 100vh;
+		
+		.nested {
+			margin-left: 0;
+		}
 
-    a {
-      color: $white;
-      font-weight: 600;
-      font-size: rem-calc(15);
-    }
-  }
+		a {
+			color: $white;
+			font-weight: 600;
+			font-size: rem-calc(15);
+		}
+	}
 
-  .menu .active > a { background-color: #ccc; }
+	.menu .active > a { background-color: #ccc; }
 
 }
 
 .title-bar-title {
-  a {
-    font-size: 1rem;
-    color: #B9B9B9;
-  }
+	a {
+		font-size: 1rem;
+		color: #B9B9B9;
+	}
 }
 
 .mobile-menu,
-.mobile-off-canvas-menu {
+.mobile-off-canvas-menu, .dropdown.desktop-menu {
 
-  .menu .is-active > a {
-    background-color: lighten($secondary-color, 5%);
-  }
+	.current-menu-item, .current-menu-ancestor {
+		& > a {
+			background-color: lighten($secondary-color, 5%);
+			@include light-or-dark-text( lighten($secondary-color, 5%) );
+		}
+	}
 }
 
 // Tablet and desktop menu
 
 .sticky-top-bar {
-  background-color: $primary-color;
-  
-  &, * {
-    transition: ease all 300ms;
-  }
-  
+	background-color: #fff;
+
+	&, * {
+		transition: ease all 300ms;
+	}
+
+}
+
+.is-stuck.sticky-top-bar {
+
+	.hide-on-scroll {
+		display: none;
+	}
+	
+	.svg-container {
+		margin-top: .1rem;
+		margin-bottom: -.1rem;
+	}
+
 }
 
 .top-bar {
 
-  .top-bar-title a {
-    font-size: 1rem;
-    color: #B9B9B9;
-    padding-left: 1rem;
-    line-height: 1.8;
-  }
+	.top-bar-title a {
+		font-size: 1rem;
+		color: #B9B9B9;
+		padding-left: 1rem;
+		line-height: 1.8;
+	}
 
-  .menu a {
-    color: #fff;
-    padding-top: 0;
-    padding-bottom: 0;
-    font-weight: bold;
-    font-size: 0.8rem;
-    line-height: 1;
+	.circle-backdrop {
 
-    &:hover:not(.button) {
-      background-color: $secondary-color;
-    }
-  }
+		display: none;
+		transition: unset;
+		position: absolute;
+		top: -10px;
+		left: -240px;
+		right: auto;
+		bottom: 0;
+		background: #fff;
+		width: 300px;
+		height: 75px;
+		border-radius: 300px / 250px;
+	}
 
-  .menu .active > a { background-color: #ccc; }
+	.svg-container {
+		position: relative;
+	}
 
-  .menu>li:not(.menu-text)>a { padding: 1rem; }
+	.menu a {
 
-  .dropdown.menu .submenu { border: 0; }
-  .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
-  .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
-  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
+		color: $dark-color;
+
+		&:hover, &:focus {
+			@include light-or-dark-text( $secondary-color );
+		}
+
+		padding-top: 0;
+		padding-bottom: 0;
+		font-weight: bold;
+		font-size: 0.8rem;
+		line-height: 1;
+
+		&:hover:not(.button) {
+			background-color: $secondary-color;
+		}
+	}
+
+	.menu .active > a { background-color: #ccc; }
+
+	.menu>li:not(.menu-text)>a { padding: 1rem; }
+
+	.dropdown.menu .submenu { border: 0; }
+	.dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
+	.dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
+	.dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
 }
 
 .site-navigation {
-  @include breakpoint(small only) {
-    padding: 0; // prevents container visibility on small screens
-  }
+	@include breakpoint(small only) {
+		padding: 0; // prevents container visibility on small screens
+	}
 }
 
 // WP post navigation
 .post-navigation {
-  @include clearfix;
+	@include clearfix;
 }
 
 .nav-previous {
-  float:left;
+	float:left;
 }
 
 .nav-next {
-  float:right;
+	float:right;
 }
 
 .svg-container.small-version {
-  display: none;
+	display: none;
 }
 
-.svg-container {
-	
-	svg {
-		fill: #fff;
+.sticky-top-bar {
+
+	.circle-backdrop-clip {
+
+		position: relative;
+		overflow: hidden;
+		
 	}
 	
+	.circle-backdrop-clip, .top-bar-right {
+
+		@include breakpoint( medium ) {
+
+			padding: 0 0.5625rem;
+
+		}
+
+		// Phablet Landscape and Portrait iPad Fix
+		@media #{$phablet-landscape}, #{$ipad-portrait} {
+
+			padding: 0 $topbar-padding / 4;
+
+		}
+	
+	}
+
 }
 
 @include breakpoint(small only) {
 
-  .title-bar {
-    
-    padding: 0;
+	.title-bar {
 
-    svg {
-      width: 75%;
-      margin-top: 1rem;
-      margin-left: 0.5rem;
-    }
-    
-    .menu-icon {
-      margin-top: 3.25rem;
-      margin-right: 0.5rem;
-    }
+		padding: 0;
+		
+		.title-bar-title {
+			display: inline-block;
+		}
+		
+		.svg-container {
 
-  }
-  
-  .is-stuck.sticky-top-bar {
-    
-    .title-bar-title {
-      //margin-top: 2.25rem;
-    }
-    
-    .menu-icon {
-      //margin-top: 4.25rem;
-    }
-    
-    .svg-container {
-      
-      //display: none;
-      
-      &.small-version {
-        display: inline-block;
-      }
-      
-    }
-    
-  }
+			svg {
+				width: 50%;
+				height: auto;
+				margin-top: 1rem;
+				margin-left: 0.5rem;
+			}
+			
+		}
+
+		.menu-icon {
+			
+			&:before {
+				content: '';
+				position: absolute;
+				top: -1.25rem;
+				right: auto;
+				bottom: auto;
+				left: -0.9rem;
+				height: 2.75rem;
+				width: 2.75rem;
+				border-radius: 50%;
+				background: $primary-color;
+			}
+			
+			&:after {
+				top: -0.4rem;
+				left: -.1rem;
+			}
+			
+			margin-top: 2.25rem;
+			margin-right: 1.5rem;
+			
+		}
+
+	}
+
+	.is-stuck.sticky-top-bar {
+
+		.title-bar-title {
+			//margin-top: 2.25rem;
+		}
+
+		.menu-icon {
+			
+			margin-top: 2.35rem;
+			
+			&:after {
+				top: -0.3rem;
+			}
+			
+		}
+
+		.svg-container {
+
+			//display: none;
+
+			&.small-version {
+				display: inline-block;
+			}
+
+		}
+
+	}
 
 }
 
 @include breakpoint(medium) {
-  
-  .is-stuck.sticky-top-bar {
-    
-    .top-bar-title {
-      margin-top: -1rem;
-      margin-bottom: -1rem;
-    }
-    
-    .svg-container {
-      
-      svg {
-      
-        width: 70%;
-        height: auto;
-        
-      }
-      
-    }
-    
-  }
-  
+
+	.sticky-top-bar {
+
+		.top-bar-title {
+			margin-top: -1rem;
+			margin-bottom: -1rem;
+		}
+
+		.svg-container {
+
+			svg {
+
+				width: 70%;
+				height: auto;
+
+			}
+
+		}
+
+		&.is-stuck {
+			
+			background-color: $primary-color;
+
+			.circle-backdrop {
+				display: block;
+			}
+
+			.top-bar-title {
+				margin-top: -1.5rem;
+				margin-bottom: -1.5rem;
+			}
+
+			.menu {
+
+				a {
+					color: #fff;
+				}
+
+			}
+
+			.svg-container {
+
+				svg {
+
+					width: 50%;
+					height: auto;
+
+				}
+
+			}
+
+		}
+
+	}
+
 }

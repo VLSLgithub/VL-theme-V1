@@ -1,0 +1,42 @@
+body {
+    
+    background-color: darken( $primary-color, 15% );
+    
+}
+
+.off-canvas-content {
+	position: relative;
+	
+    box-shadow: none;
+    // For something that has to wrap your Site Content, this is a really silly default...
+    
+}
+
+.off-canvas {
+
+    > .menu {
+        
+        .fa {
+            margin-top: -0.2em;
+        }
+
+        > li {
+
+            background-color: $primary-color; /* Top Level */
+            
+            a {
+                color: #fff !important;
+            }
+
+            ul {
+                li {
+                    background-color: darken( $primary-color, 5% );
+                    padding-left: 1.25rem;
+                }
+            }
+
+        }
+
+    }
+
+}

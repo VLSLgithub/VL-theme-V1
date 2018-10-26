@@ -41,7 +41,7 @@ if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 			'container'      => false,                         // Remove nav container
 			'menu_class'     => 'vertical menu',
 			'theme_location' => 'primary',
-			'items_wrap'     => '<ul id="%1$s" class="%2$s" data-accordion-menu data-submenu-toggle="true">%3$s</ul>',
+			'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			'fallback_cb'    => false,
 			'walker'         => new Foundationpress_Mobile_Walker(),
 		));
