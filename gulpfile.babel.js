@@ -13,6 +13,7 @@ import webpack2      from 'webpack';
 import named         from 'vinyl-named';
 import log           from 'fancy-log';
 import colors        from 'ansi-colors';
+import path          from 'path';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -78,7 +79,7 @@ function copy() {
 // In production, the CSS is compressed
 function sass() {
 
-	return gulp.src( PATHS.entries.scss, { allowEmpty: true } )
+	return gulp.src( PATHS.entries.scss, { allowEmpty: true, base: '*' } )
 		.pipe( named() )
 		.pipe( $.sourcemaps.init() )
 		.pipe(
@@ -96,6 +97,10 @@ function sass() {
 		.pipe(
 			$.if( PRODUCTION, $.cleanCss( { compatibility: 'ie9' } ) )
 		)
+		.pipe( $.rename( function( file ) {
+			file.dirname = file.dirname.replace( '../src/assets/scss', '' );
+			return file;
+		 } ) )
 		.pipe(
 			$.if( ! PRODUCTION, $.sourcemaps.write() )
 		)
@@ -117,6 +122,7 @@ function sass() {
 // Combine JavaScript into one file
 // In production, the file is minified
 const webpack = {
+	
   config: {
     module: {
       rules: [
@@ -170,10 +176,44 @@ const webpack = {
       )
       .pipe(gulp.dest(PATHS.dist + '/assets/js'));
   },
+	
+  gutenberg_build() {
+    return gulp.src(PATHS.entries.gutenberg, { allowEmpty: true } )
+      .pipe(named())
+      .pipe(webpackStream(webpack.config, webpack2))
+      .pipe($.if(PRODUCTION, $.uglify()
+        .on('error', e => { console.log(e); }),
+      ))
+      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
+      .pipe(gulp.dest(PATHS.dist + '/assets/js/gutenberg'))
+      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
+      .pipe(gulp.dest(PATHS.dist + '/assets/js/gutenberg'));
+  },
+
+  gutenberg_watch() {
+    const watchConfig = Object.assign(webpack.config, {
+      watch: true,
+      devtool: 'inline-source-map',
+    });
+
+    return gulp.src(PATHS.entries.gutenberg, { allowEmpty: true } )
+      .pipe(named())
+      .pipe(webpackStream(watchConfig, webpack2, webpack.changeHandler)
+        .on('error', (err) => {
+          log('[webpack:error]', err.toString({
+            colors: true,
+          }));
+        }),
+      )
+      .pipe(gulp.dest(PATHS.dist + '/assets/js/gutenberg'));
+  },
+	
 };
 
 gulp.task('webpack:build', webpack.build);
 gulp.task('webpack:watch', webpack.watch);
+gulp.task('webpack:gutenberg_build', webpack.gutenberg_build);
+gulp.task('webpack:gutenberg_watch', webpack.gutenberg_watch);
 
 function tinymce() {
 
@@ -221,13 +261,14 @@ function watch() {
   gulp.watch(PATHS.assets, copy);
   gulp.watch('src/assets/scss/**/*.scss').on('all', sass);
   gulp.watch('**/*.php').on('all', browser.reload);
-  gulp.watch('src/assets/js/**/*.js').on('all', gulp.series('webpack:build', tinymce, browser.reload));
+  gulp.watch( ['src/assets/js/**/*.js', '!src/assets/js/admin/gutenberg/**/*.js'] ).on('all', gulp.series('webpack:build', tinymce, browser.reload));
+  gulp.watch( 'src/assets/js/admin/gutenberg/**/*.js' ).on('all', gulp.series('webpack:gutenberg_build', browser.reload));
   gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
 }
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
- gulp.series(clean, sass, 'webpack:build', tinymce, images, copy));
+ gulp.series(clean, sass, 'webpack:build', 'webpack:gutenberg_build', tinymce, images, copy));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',

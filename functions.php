@@ -117,6 +117,9 @@ require_once( 'library/admin/extra-meta/page.php' );
 // Shortcodes
 require_once( 'library/shortcodes/vibrant-life-button.php' );
 
+// Gutenberg functionality
+require_once( 'library/admin/gutenberg/columns.php' );
+
 // TinyMCE functionality
-require_once( 'library/admin/tinymce/localization.php' );
-require_once( 'library/admin/tinymce/vibrant-life-button.php' );
+//require_once( 'library/admin/tinymce/localization.php' );
+//require_once( 'library/admin/tinymce/vibrant-life-button.php' );

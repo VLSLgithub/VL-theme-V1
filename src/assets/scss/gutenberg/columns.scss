@@ -1,0 +1,17 @@
+@charset 'utf-8';
+
+// Used by FoundationPress' Navigation CSS
+$dark-nav-color: #2C3840;
+
+$light-color: #fff;
+$dark-color: #222;
+
+@import '../settings'; // Copied from FoundationPress. Added !default to any variables we're overriding
+
+@import "../settings-overrides";
+
+@include add-foundation-colors();
+
+@import 'foundation';
+
+@include foundation-grid;
