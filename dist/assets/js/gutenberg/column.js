@@ -97,58 +97,31 @@
 
 		description: 'A single column within a columns block.',
 
-		attributes: {
-			smallColumns: {
-				type: 'number',
-				default: 1
-			},
-			mediumColumns: {
-				type: 'number',
-				default: 2
-			},
-			largeColumns: {
-				type: 'number',
-				default: 2
-			},
-			xlargeColumns: {
-				type: 'number',
-				default: 2
-			}
-		},
-
 		category: 'common',
 
 		supports: {
-			inserter: false
+			inserter: true
 		},
 
 		edit: function edit(_ref) {
 			var attributes = _ref.attributes,
 			    setAttributes = _ref.setAttributes,
 			    className = _ref.className;
-			var smallColumns = attributes.smallColumns,
-			    mediumColumns = attributes.mediumColumns,
-			    largeColumns = attributes.largeColumns,
-			    xlargeColumns = attributes.xlargeColumns;
 
 
 			return wp.element.createElement(
 				'div',
-				{ className: 'small-' + 12 / smallColumns + ' medium-' + 12 / mediumColumns + ' large-' + 12 / largeColumns + ' xlarge-' + 12 / xlargeColumns + ' columns' },
+				{ className: 'column column-block' },
 				wp.element.createElement(InnerBlocks, { templateLock: false })
 			);
 		},
 		save: function save(_ref2) {
 			var attributes = _ref2.attributes;
-			var smallColumns = attributes.smallColumns,
-			    mediumColumns = attributes.mediumColumns,
-			    largeColumns = attributes.largeColumns,
-			    xlargeColumns = attributes.xlargeColumns;
 
 
 			return wp.element.createElement(
 				'div',
-				{ className: 'small-' + 12 / smallColumns + ' medium-' + 12 / mediumColumns + ' large-' + 12 / largeColumns + ' xlarge-' + 12 / xlargeColumns + ' columns' },
+				{ className: 'column column-block' },
 				wp.element.createElement(InnerBlocks.Content, null)
 			);
 		}

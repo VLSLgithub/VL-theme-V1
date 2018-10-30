@@ -111,9 +111,9 @@ $breakpoints: (
   large: 1024px,
   xlarge: 1200px,
   xxlarge: 1440px,
-);
+) !default;
 $print-breakpoint: large !default;
-$breakpoint-classes: (small medium large);
+$breakpoint-classes: (small medium large) !default;
 
 // 3. The Grid
 // -----------

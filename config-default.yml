@@ -25,7 +25,7 @@ PATHS:
   entries:
     scss: 
       - "src/assets/scss/app.scss"
-      - "src/assets/scss/gutenberg/columns.scss"
+      - "src/assets/scss/gutenberg/editor/columns.scss"
     js: 
       - "src/assets/js/app.js"
     gutenberg:

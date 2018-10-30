@@ -11,8 +11,8 @@ const ALLOWED_BLOCKS = [ 'vibrant-life/column' ];
  *
  * @return {Object[]} Columns layout configuration.
  */
-const getColumnsTemplate = memoize( ( columns, attributes ) => {
-	return times( columns, () => [ 'vibrant-life/column', attributes ] );
+const getColumnsTemplate = memoize( ( columns ) => {
+	return times( columns, () => [ 'vibrant-life/column' ] );
 } );
 
 ( function( blocks, editor, i18n, element, components, compose, _ ) {
@@ -21,6 +21,7 @@ const getColumnsTemplate = memoize( ( columns, attributes ) => {
 		unregisterBlockType = blocks.unregisterBlockType,
 		PanelBody = components.PanelBody,
 		SelectControl = components.SelectControl,
+		RangeControl = components.RangeControl,
 		G = components.G,
 		SVG = components.SVG,
 		Path = components.Path,
@@ -39,19 +40,19 @@ const getColumnsTemplate = memoize( ( columns, attributes ) => {
 		attributes: {
 			smallColumns: {
 				type: 'number',
-				default: 1,
+				default: '1',
 			},
 			mediumColumns: {
 				type: 'number',
-				default: 2,
+				default: '1',
 			},
 			largeColumns: {
 				type: 'number',
-				default: 2,
+				default: '1',
 			},
 			xlargeColumns: {
 				type: 'number',
-				default: 2,
+				default: '1',
 			},
 		},
 		
@@ -66,7 +67,7 @@ const getColumnsTemplate = memoize( ( columns, attributes ) => {
 		edit: function( { attributes, setAttributes, className } ) {
 			
 			const { smallColumns, mediumColumns, largeColumns, xlargeColumns } = attributes;
-			const classes = classnames( className, 'row' );
+			const classes = classnames( className, `row small-up-${ smallColumns} medium-up-${ mediumColumns } large-up-${ largeColumns } xlarge-up-${ xlargeColumns }` );
 			const columns = Math.max( smallColumns, mediumColumns, largeColumns, xlargeColumns );
 			
 			return (
@@ -77,71 +78,57 @@ const getColumnsTemplate = memoize( ( columns, attributes ) => {
 								label={ 'Small Screen Columns' }
 								value={ smallColumns }
 								options={ [
-									{ label: '1 Column', value: 1 },
-									{ label: '2 Columns', value: 2 },
-									{ label: '3 Columns', value: 3 },
-									{ label: '4 Columns', value: 4 },
-									{ label: '6 Columns', value: 6 },
+									{ label: '1 Column', value: '1' },
+									{ label: '2 Columns', value: '2' },
+									{ label: '3 Columns', value: '3' },
+									{ label: '4 Columns', value: '4' },
+									{ label: '6 Columns', value: '6' },
 								] }
-								onChange={ ( nextColumns ) => { 
-									setAttributes( { 
-										smallColumns: nextColumns,
-									} ) 
+								onChange={ function( nextColumns ) {
+									setAttributes( { smallColumns: nextColumns } );
 								} }
 							/>
 							<SelectControl
 								label={ 'Medium Screen Columns' }
 								value={ mediumColumns }
 								options={ [
-									{ label: '1 Column', value: 1 },
-									{ label: '2 Columns', value: 2 },
-									{ label: '3 Columns', value: 3 },
-									{ label: '4 Columns', value: 4 },
-									{ label: '6 Columns', value: 6 },
+									{ label: '1 Column', value: '1' },
+									{ label: '2 Columns', value: '2' },
+									{ label: '3 Columns', value: '3' },
+									{ label: '4 Columns', value: '4' },
+									{ label: '6 Columns', value: '6' },
 								] }
-								onChange={ ( nextColumns ) => { 
-									setAttributes( { 
-										mediumColumns: nextColumns,
-									} ) 
-								} }
+								onChange={ ( nextColumns ) => setAttributes( { mediumColumns: nextColumns } ) }
 							/>
  							<SelectControl
 								label={ 'Large Screen Columns' }
 								value={ largeColumns }
 								options={ [
-									{ label: '1 Column', value: 1 },
-									{ label: '2 Columns', value: 2 },
-									{ label: '3 Columns', value: 3 },
-									{ label: '4 Columns', value: 4 },
-									{ label: '6 Columns', value: 6 },
+									{ label: '1 Column', value: '1' },
+									{ label: '2 Columns', value: '2' },
+									{ label: '3 Columns', value: '3' },
+									{ label: '4 Columns', value: '4' },
+									{ label: '6 Columns', value: '6' },
 								] }
-								onChange={ ( nextColumns ) => { 
-									setAttributes( { 
-										largeColumns: nextColumns,
-									} ) 
-								} }
+								onChange={ ( nextColumns ) => setAttributes( { largeColumns: nextColumns } ) }
 							/>
 							<SelectControl
 								label={ 'Extra Large Screen Columns' }
 								value={ xlargeColumns }
 								options={ [
-									{ label: '1 Column', value: 1 },
-									{ label: '2 Columns', value: 2 },
-									{ label: '3 Columns', value: 3 },
-									{ label: '4 Columns', value: 4 },
-									{ label: '6 Columns', value: 6 },
+									{ label: '1 Column', value: '1' },
+									{ label: '2 Columns', value: '2' },
+									{ label: '3 Columns', value: '3' },
+									{ label: '4 Columns', value: '4' },
+									{ label: '6 Columns', value: '6' },
 								] }
-								onChange={ ( nextColumns ) => { 
-									setAttributes( { 
-										xlargeColumns: nextColumns,
-									} ) 
-								} }
+								onChange={ ( nextColumns ) => setAttributes( { xlargeColumns: nextColumns } ) }
 							/>
 						</PanelBody>
 					</InspectorControls>
-					<div className={ classes }>
+					<div className={ `row small-up-${ smallColumns} medium-up-${ mediumColumns } large-up-${ largeColumns } xlarge-up-${ xlargeColumns }` }>
 						<InnerBlocks
-							template={ getColumnsTemplate( columns, attributes ) }
+							template={ getColumnsTemplate( columns ) }
 							templateLock="all"
 							allowedBlocks={ ALLOWED_BLOCKS } />
 					</div>
@@ -156,7 +143,7 @@ const getColumnsTemplate = memoize( ( columns, attributes ) => {
 			const { smallColumns, mediumColumns, largeColumns, xlargeColumns } = attributes;
 
 			return (
-				<div className={'row'}>
+				<div className={ `row small-up-${ smallColumns} medium-up-${ mediumColumns } large-up-${ largeColumns } xlarge-up-${ xlargeColumns }` }>
 					<InnerBlocks.Content />
 				</div>
 			);

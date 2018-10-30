@@ -28,7 +28,7 @@ function vibrant_life_register_block() {
 	);
 	wp_register_style(
 		'vibrant-life-columns',
-		THEME_URL . '/dist/assets/css/gutenberg/columns.css',
+		THEME_URL . '/dist/assets/css/gutenberg/editor/columns.css',
 		array( ),
 		defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER
 	);
@@ -43,14 +43,7 @@ function vibrant_life_register_block() {
 		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'underscore' ),
 		defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER
 	);
-	wp_register_style(
-		'vibrant-life-columns',
-		THEME_URL . '/dist/assets/css/gutenberg/column.css',
-		array( ),
-		defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER
-	);
 	register_block_type( 'vibrant-life/column', array(
-		'style' => 'vibrant-life-column',
 		'script' => 'vibrant-life-column',
 	) );
 	

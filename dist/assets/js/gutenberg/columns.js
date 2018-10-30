@@ -95,9 +95,9 @@ var ALLOWED_BLOCKS = ['vibrant-life/column'];
  *
  * @return {Object[]} Columns layout configuration.
  */
-var getColumnsTemplate = (0, _memize2.default)(function (columns, attributes) {
+var getColumnsTemplate = (0, _memize2.default)(function (columns) {
 	return (0, _lodash.times)(columns, function () {
-		return ['vibrant-life/column', attributes];
+		return ['vibrant-life/column'];
 	});
 });
 
@@ -107,6 +107,7 @@ var getColumnsTemplate = (0, _memize2.default)(function (columns, attributes) {
 	    unregisterBlockType = blocks.unregisterBlockType,
 	    PanelBody = components.PanelBody,
 	    SelectControl = components.SelectControl,
+	    RangeControl = components.RangeControl,
 	    G = components.G,
 	    SVG = components.SVG,
 	    Path = components.Path,
@@ -134,19 +135,19 @@ var getColumnsTemplate = (0, _memize2.default)(function (columns, attributes) {
 		attributes: {
 			smallColumns: {
 				type: 'number',
-				default: 1
+				default: '1'
 			},
 			mediumColumns: {
 				type: 'number',
-				default: 2
+				default: '1'
 			},
 			largeColumns: {
 				type: 'number',
-				default: 2
+				default: '1'
 			},
 			xlargeColumns: {
 				type: 'number',
-				default: 2
+				default: '1'
 			}
 		},
 
@@ -166,7 +167,7 @@ var getColumnsTemplate = (0, _memize2.default)(function (columns, attributes) {
 			    largeColumns = attributes.largeColumns,
 			    xlargeColumns = attributes.xlargeColumns;
 
-			var classes = (0, _classnames2.default)(className, 'row');
+			var classes = (0, _classnames2.default)(className, 'row small-up-' + smallColumns + ' medium-up-' + mediumColumns + ' large-up-' + largeColumns + ' xlarge-up-' + xlargeColumns);
 			var columns = Math.max(smallColumns, mediumColumns, largeColumns, xlargeColumns);
 
 			return wp.element.createElement(
@@ -181,50 +182,42 @@ var getColumnsTemplate = (0, _memize2.default)(function (columns, attributes) {
 						wp.element.createElement(SelectControl, {
 							label: 'Small Screen Columns',
 							value: smallColumns,
-							options: [{ label: '1 Column', value: 1 }, { label: '2 Columns', value: 2 }, { label: '3 Columns', value: 3 }, { label: '4 Columns', value: 4 }, { label: '6 Columns', value: 6 }],
+							options: [{ label: '1 Column', value: '1' }, { label: '2 Columns', value: '2' }, { label: '3 Columns', value: '3' }, { label: '4 Columns', value: '4' }, { label: '6 Columns', value: '6' }],
 							onChange: function onChange(nextColumns) {
-								setAttributes({
-									smallColumns: nextColumns
-								});
+								setAttributes({ smallColumns: nextColumns });
 							}
 						}),
 						wp.element.createElement(SelectControl, {
 							label: 'Medium Screen Columns',
 							value: mediumColumns,
-							options: [{ label: '1 Column', value: 1 }, { label: '2 Columns', value: 2 }, { label: '3 Columns', value: 3 }, { label: '4 Columns', value: 4 }, { label: '6 Columns', value: 6 }],
+							options: [{ label: '1 Column', value: '1' }, { label: '2 Columns', value: '2' }, { label: '3 Columns', value: '3' }, { label: '4 Columns', value: '4' }, { label: '6 Columns', value: '6' }],
 							onChange: function onChange(nextColumns) {
-								setAttributes({
-									mediumColumns: nextColumns
-								});
+								return setAttributes({ mediumColumns: nextColumns });
 							}
 						}),
 						wp.element.createElement(SelectControl, {
 							label: 'Large Screen Columns',
 							value: largeColumns,
-							options: [{ label: '1 Column', value: 1 }, { label: '2 Columns', value: 2 }, { label: '3 Columns', value: 3 }, { label: '4 Columns', value: 4 }, { label: '6 Columns', value: 6 }],
+							options: [{ label: '1 Column', value: '1' }, { label: '2 Columns', value: '2' }, { label: '3 Columns', value: '3' }, { label: '4 Columns', value: '4' }, { label: '6 Columns', value: '6' }],
 							onChange: function onChange(nextColumns) {
-								setAttributes({
-									largeColumns: nextColumns
-								});
+								return setAttributes({ largeColumns: nextColumns });
 							}
 						}),
 						wp.element.createElement(SelectControl, {
 							label: 'Extra Large Screen Columns',
 							value: xlargeColumns,
-							options: [{ label: '1 Column', value: 1 }, { label: '2 Columns', value: 2 }, { label: '3 Columns', value: 3 }, { label: '4 Columns', value: 4 }, { label: '6 Columns', value: 6 }],
+							options: [{ label: '1 Column', value: '1' }, { label: '2 Columns', value: '2' }, { label: '3 Columns', value: '3' }, { label: '4 Columns', value: '4' }, { label: '6 Columns', value: '6' }],
 							onChange: function onChange(nextColumns) {
-								setAttributes({
-									xlargeColumns: nextColumns
-								});
+								return setAttributes({ xlargeColumns: nextColumns });
 							}
 						})
 					)
 				),
 				wp.element.createElement(
 					'div',
-					{ className: classes },
+					{ className: 'row small-up-' + smallColumns + ' medium-up-' + mediumColumns + ' large-up-' + largeColumns + ' xlarge-up-' + xlargeColumns },
 					wp.element.createElement(InnerBlocks, {
-						template: getColumnsTemplate(columns, attributes),
+						template: getColumnsTemplate(columns),
 						templateLock: 'all',
 						allowedBlocks: ALLOWED_BLOCKS })
 				)
@@ -242,7 +235,7 @@ var getColumnsTemplate = (0, _memize2.default)(function (columns, attributes) {
 
 			return wp.element.createElement(
 				'div',
-				{ className: 'row' },
+				{ className: 'row small-up-' + smallColumns + ' medium-up-' + mediumColumns + ' large-up-' + largeColumns + ' xlarge-up-' + xlargeColumns },
 				wp.element.createElement(InnerBlocks.Content, null)
 			);
 		}

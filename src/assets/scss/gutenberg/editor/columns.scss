@@ -6,9 +6,9 @@ $dark-nav-color: #2C3840;
 $light-color: #fff;
 $dark-color: #222;
 
-@import '../settings'; // Copied from FoundationPress. Added !default to any variables we're overriding
+@import '../../settings'; // Copied from FoundationPress. Added !default to any variables we're overriding
 
-@import "../settings-overrides";
+@import "../../settings-overrides";
 
 @include add-foundation-colors();
 
