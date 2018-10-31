@@ -124,8 +124,12 @@
 		line-height: 1;
 
 		&:hover:not(.button), &:focus:not(.button) {
+			
 			background-color: $secondary-color;
+			border-radius: 0.25rem;
+			
 		}
+		
 	}
 
 	.menu .active > a { background-color: #ccc; }

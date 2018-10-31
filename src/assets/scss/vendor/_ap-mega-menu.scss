@@ -33,7 +33,7 @@ height: auto;
 
 				& > a {
 					
-					padding-right: 25px * 1.5 - 5px;
+					padding-right: 2rem;
 					
 					&:after {
 						font-weight: 600;
@@ -44,7 +44,7 @@ height: auto;
 
 			}
 
-			&.current-menu-item, .current-menu-ancestor {
+			&.current-menu-item, &.current-menu-ancestor {
 				
 				background-color: lighten($secondary-color, 5%);
 				
@@ -60,9 +60,43 @@ height: auto;
 				}
 				
 			}
+			
+			&:not(.button) {
 
-			&:hover, &:focus {
-				background-color: $secondary-color;
+				&:hover, &:focus {
+					background-color: $secondary-color;
+				}
+				
+			}
+			
+			// Fix button styling
+			&.button {
+				
+				border-top-width: 0.25em;
+				border-top-style: solid;
+				
+				@each $name, $color in $foundation-palette {
+
+					&.#{$name} {
+						
+					  border-top-color: $color;
+						
+						&.hollow {
+							
+							&:hover, &:focus {
+
+								background-color: $color;
+								border-color: $color;
+								@include light-or-dark-text( $color );
+
+							  }
+							
+						}
+						
+					}
+					
+				}
+				
 			}
 
 			// Remove borders
@@ -76,6 +110,8 @@ height: auto;
 				
 				color: $dark-color;
 				transition: color 0s;
+				
+				padding: 0.3125rem 0.625rem;
 
 				&:hover, &:focus {
 					@include light-or-dark-text( $secondary-color );
@@ -216,6 +252,9 @@ height: auto;
 			}
 
 			& > li {
+				
+				border-radius: 0.25rem;
+				margin-left: 0.5rem;
 
 				&:hover {
 
