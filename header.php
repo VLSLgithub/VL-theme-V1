@@ -130,7 +130,7 @@
 					</div>
 				</div>
 
-				<nav class="site-navigation top-bar" role="navigation">
+				<nav class="site-navigation top-bar hide-for-small-only" role="navigation">
 					
 					<div class="circle-backdrop-clip">
 					

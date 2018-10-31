@@ -1,0 +1,338 @@
+// This is very helpful for debugging. It will force a Menu Item open
+/*
+#wpmega-menu-primary {
+
+& > li:nth-of-type( 0n + 1 ) {
+
+& > div, ul {
+
+opacity: 1;
+visibility: visible;
+z-index: 1;
+height: auto;
+
+}
+
+}
+
+}
+*/
+
+#wpmm-wrap-primary {
+
+	background: transparent;
+	box-shadow: none;
+
+	#wpmega-menu-primary {
+
+		& > li {
+
+			background: transparent;
+
+			&.menu-item-has-children {
+
+				& > a {
+					
+					padding-right: 25px * 1.5 - 5px;
+					
+					&:after {
+						font-weight: 600;
+					}
+					
+					
+				}
+
+			}
+
+			&.current-menu-item, .current-menu-ancestor {
+				
+				background-color: lighten($secondary-color, 5%);
+				
+				& > a {
+
+					@include light-or-dark-text( lighten($secondary-color, 5%) );
+					transition: color 0s;
+
+					&:hover, &:focus {
+						@include light-or-dark-text( $secondary-color );
+					}
+					
+				}
+				
+			}
+
+			&:hover, &:focus {
+				background-color: $secondary-color;
+			}
+
+			// Remove borders
+			& > a {
+
+				&:before {
+					content: none;
+				}
+
+				font-family: $header-font-family;
+				
+				color: $dark-color;
+				transition: color 0s;
+
+				&:hover, &:focus {
+					@include light-or-dark-text( $secondary-color );
+				}
+
+			}
+
+			// Mega menu
+			&.wpmega-menu-megamenu > div {
+
+				background: lighten($light-color, 15%);
+
+				// Make Mega Menus without Headers look normal
+				ul.wp-mega-sub-menu {
+
+					& > li:not(.menu-item-has-children) {
+
+						a {
+
+							&:before {
+								content: none;
+							}
+
+							margin-bottom: 0;
+
+							span {
+								font-weight: normal;
+								text-transform: none;
+								margin-bottom: 0;
+								font-family: $body-font-family;
+							}
+
+						}
+
+					}
+
+				}
+
+				li.wp-mega-menu-header {
+
+					& > a span, .wpmm-mega-block-title {
+						font-family: $header-font-family;
+					}
+
+					&.no-link > a:hover {
+						cursor: default;
+					}
+
+				}
+
+				// Do not apply to Headers in Mega Menus or to Widgets
+				li:not(.no-link):not(.menu-item-type-widget) {
+
+					a {
+						padding: 5px 10px;
+						display: block;
+					}
+
+					&:hover, &:focus {
+						background-color: rgba(204,204,204,0.4);
+					}
+
+				}
+
+				a {
+					color: $dark-color;
+				}
+
+				padding: 0;
+
+				& > .wpmm-sub-menu-wrapper {
+					padding: 15px 8px 5px;
+				}
+
+			}
+
+			// Non-mega menus
+			&.wpmega-menu-flyout {
+
+				& > .wpmm-sub-menu-wrapper {
+
+					display: none;
+
+				}
+
+
+				ul {
+
+					background: lighten($light-color, 15%);
+					box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+
+					a {
+						color: $dark-color;
+						font-family: $body-font-family;
+					}
+
+				}
+
+			}
+			
+			&.wpmega-menu-megamenu > div, &.wpmega-menu-flyout {
+				
+				z-index: 42;
+				
+			}
+
+		}
+
+	}
+
+}
+
+@include breakpoint(medium) {
+
+	#wpmm-wrap-primary {
+		
+		display: inline-block;
+
+		#wpmega-menu-primary {
+
+			display: inline-block !important;
+
+			@for $column from 1 through 12 {
+
+				li.inner-columns-#{$column} {
+
+					ul.wp-mega-sub-menu {
+
+						& > li {
+							width: ( $column / 12 ) * 100%;
+							float: left;
+						}
+
+					}
+
+				}
+
+			}
+
+			& > li {
+
+				&:hover {
+
+					// Non-mega menus
+					&.wpmega-menu-flyout {
+
+						& > .wpmm-sub-menu-wrapper {
+
+							display: inline-block;
+
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+		
+	}
+
+}
+
+@include breakpoint(small only) {
+
+	#wpmm-wrap-primary {
+
+		.wp-mega-toggle-block {
+			display: none;
+		}
+
+		#wpmega-menu-primary {
+
+			display: block;
+
+			li.menu-widget-class-widget_wpmegamenu_pro_linkimage {
+				display: none;
+			}
+
+			& > li {
+
+				// Mega menus and Non-mega menus
+				&.wpmega-menu-megamenu > div {
+
+					//background: $secondary-color;
+					background: $light-color;
+
+					a {
+						//color: $light-color;
+						color: $dark-color;
+					}
+
+					li.wp-mega-menu-header {
+
+						& > a:before {
+							//background: $light-color;
+							background: $dark-color;
+						}
+
+					}
+
+				}
+
+				// Non-mega menus
+				&.wpmega-menu-flyout {
+
+					&:not(.active-show) > .wpmm-sub-menu-wrapper {
+
+						display: none;
+
+					}
+
+					&.active-show > .wpmm-sub-menu-wrapper {
+						display: inline-block;
+					}
+
+					ul {
+
+						background: $light-color;
+
+						a {
+							color: $dark-color;
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+.sticky-top-bar.is-stuck {
+	
+	#wpmm-wrap-primary {
+
+		#wpmega-menu-primary {
+
+			& > li {
+
+				&:not(.current-menu-item), &:not(.current-menu-ancestor) {
+					
+					& > a {
+						@include light-or-dark-text( $primary-color );
+					}
+					
+				}
+
+			}
+
+		}
+		
+	}
+	
+}
