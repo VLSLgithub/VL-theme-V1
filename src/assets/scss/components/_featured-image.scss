@@ -1,14 +1,22 @@
 .featured-hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: rem-calc(100);
 
-  @include breakpoint(medium) {
-    height: rem-calc(200);
-  }
+	height: 20rem;
+	position: relative;
 
-  @include breakpoint(xlarge) {
-    height: rem-calc(400);
-  }
+	@include breakpoint(medium) {
+		height: rem-calc(600%);
+	}
+
+	.image {
+		position: absolute;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+
+	}
+
 }

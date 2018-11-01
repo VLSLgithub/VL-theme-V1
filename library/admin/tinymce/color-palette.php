@@ -44,15 +44,12 @@ function vibrant_life_tinymce_color_palette( $options ) {
 function _vibrant_life_get_custom_tinymce_colors( $context = 'default' ) {
 	
 	$custom_colors = array(
-		"02abd7", __( 'Bright Blue', 'vibrant-life-theme' ),
-		"c3d500", __( 'Bright Green', 'vibrant-life-theme' ),
+		"0085cf", __( 'Vibrant Life Blue', 'vibrant-life-theme' ),
+		"dc4a00", __( 'Vibrant Life Orange', 'vibrant-life-theme' ),
+		"fcd400", __( 'Vibrant Life Yellow', 'vibrant-life-theme' ),
+		"F5A623", __( 'Goldenrod', 'vibrant-life-theme' ),
+		"222222", __( 'Body Copy Text Color', 'vibrant-life-theme' ),
 		"ffffff", __( 'White', 'vibrant-life-theme' ),
-		"8a8a8d", __( 'Gray', 'vibrant-life-theme' ),
-		"000000", __( 'Black', 'vibrant-life-theme' ),
-		"385888", __( 'Habitat Blue', 'vibrant-life-theme' ),
-		"3eae2a", __( 'Habitat Green', 'vibrant-life-theme' ),
-		"ff7d3f", __( 'Orange', 'vibrant-life-theme' ),
-		"a83338", __( 'Brick', 'vibrant-life-theme' ),
 	);
 	
 	return apply_filters( 'vibrant_life_get_custom_tinymce_colors', $custom_colors, $context );

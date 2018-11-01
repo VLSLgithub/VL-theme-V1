@@ -60,8 +60,9 @@ function vibrant_life_button_tinymce_l10n( $l10n ) {
             'default' => 'secondary',
             'choices' => array(
                 'primary' => _x( 'Blue', 'Primary Theme Color', 'vibrant-life-theme' ),
-                'secondary' => _x( 'Green', 'Secondary Theme Color', 'vibrant-life-theme' ),
-            ),
+                'secondary' => _x( 'Orange', 'Secondary Theme Color', 'vibrant-life-theme' ),
+                'tertiary' => _x( 'Yellow', 'Secondary Theme Color', 'vibrant-life-theme' ),
+			),
         ),
         'size' => array(
             'label' => _x( 'Size', 'Button Size Selection Lable', 'vibrant-life-theme' ),

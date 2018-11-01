@@ -98,6 +98,8 @@ function vibrant_life_home_hero_metabox_content( $post_id ) {
 		'wysiwyg' => true,
 		'group' => 'home_hero',
 		'wysiwyg_options' => vibrant_life_get_wysiwyg_options(),
+		'default' => '<h1><span style="color: #ffffff;">Senior Assisted Living &amp;  Memory Care in Michigan</span></h1>
+<h2 class="p1"><span style="color: #F5A623;">people helping people thrive!</span></h2>',
 	) );
 	
 	vibrant_life_init_field_group( 'home_hero' );
