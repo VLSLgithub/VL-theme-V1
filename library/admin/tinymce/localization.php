@@ -50,3 +50,53 @@ function vibrant_life_localize_tinymce() {
     endif;
 
 }
+
+/**
+ * Shorthand for grabbing our WYSIWYG Options
+ * 
+ * @param		string $context Context in which we are grabbing our options. Only important if you're filtering the value
+ *                                                                                                              
+ * @since		1.0.0
+ * @return		array  WYSIWYG Options
+ */
+function vibrant_life_get_wysiwyg_options( $context = 'default' ) {
+	
+	return apply_filters( 'vibrant_life_get_wysiwyg_options', array(
+		'mediaButtons' => true,
+		'tinymce' => array(
+			'content_css' => THEME_URL . '/dist/assets/css/app.css',
+			'toolbar1' => 'formatselect,bold,italic,bullist,numlist,blockquote,alignleft,aligncenter,alignright,link,wp_more,wp_adv' . _vibrant_life_get_wysiwyg_shortcode_buttons( $context ),
+			'toolbar2' => 'strikethrough,hr,forecolor,pastetext,removeformat,charmap,outdent,indent,undo,redo,wp_help',
+			'textcolor_map' => _vibrant_life_get_custom_tinymce_colors( $context ),
+			'external_plugins' => array(
+				'vibrant_life_button_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-button.js',
+			),
+		),
+	), $context );
+	
+}
+
+/**
+ * Grab all custom TinyMCE Shortcode Buttons we should be adding to the WYSIWYG
+ * 
+ * @param		string $context Context in which we are grabbing our options. Only important if you're filtering the value
+ *                                                                                                              
+ * @access		private
+ * @since		1.0.0
+ * @return		string Comma Separated Shortcode Buttons, prefixed with a comma
+ */
+function _vibrant_life_get_wysiwyg_shortcode_buttons( $context = 'default' ) {
+	
+	$shortcode_buttons = apply_filters( 'vibrant_life_get_wysiwyg_shortcode_buttons', array(
+		'vibrant_life_button_shortcode',
+	), $context );
+	
+	if ( ! empty( $shortcode_buttons ) ) {
+		
+		return ',' . implode( ',', $shortcode_buttons );
+		
+	}
+	
+	return '';
+	
+}

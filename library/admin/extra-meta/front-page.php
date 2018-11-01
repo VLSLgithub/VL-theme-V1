@@ -44,7 +44,7 @@ function vibrant_life_remove_home_supports() {
     
     if ( vibrant_life_is_editing_home() ) {
 
-        //remove_post_type_support( 'page', 'thumbnail' );
+        //remove_post_type_support( 'page', 'editor' );
         
     }
     
@@ -76,7 +76,30 @@ function vibrant_life_remove_home_metaboxes() {
 function vibrant_life_add_home_metaboxes() {
     
     if ( vibrant_life_is_editing_home() ) {
+		
+		add_meta_box(
+			'vibrant_life-hero',
+			__( 'Hero', 'vibrant-life-theme' ),
+			'vibrant_life_home_hero_metabox_content',
+			'page',
+			'normal',
+			'low'
+		);
         
     }
     
+}
+
+function vibrant_life_home_hero_metabox_content( $post_id ) {
+	
+	vibrant_life_do_field_textarea( array(
+		'label' => __( 'Tagline', 'vibrant-life-theme' ),
+		'name' => 'hero_tagline',
+		'wysiwyg' => true,
+		'group' => 'home_hero',
+		'wysiwyg_options' => vibrant_life_get_wysiwyg_options(),
+	) );
+	
+	vibrant_life_init_field_group( 'home_hero' );
+	
 }
