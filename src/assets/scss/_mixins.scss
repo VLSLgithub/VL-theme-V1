@@ -86,3 +86,66 @@
   // text-shadow is supported by IE 11, but doesn't work the best with this typeface
 
 }
+
+@mixin circle-button( $background-color, $size, $opacity: 1 ) {
+	
+	$background: rgba( $background-color, $opacity );
+	
+	.circle-button {
+	
+		width: $size;
+		height: $size;
+		padding: $size / 20;
+		border-radius: 50%;
+		background: $background;
+		border: #{$size / 40} solid $background;
+		background-clip: content-box;
+		margin: 0 auto;
+		text-transform: uppercase;
+		font-weight: 700;
+		
+		@include light-or-dark-text( $background-color );
+
+		@each $size, $sizes in $header-styles {
+
+			@include breakpoint( $size ) {
+
+				font-size: rem-calc( map-get-deep( $sizes, 'h3', 'font-size' ) );
+
+			}
+
+		}
+		
+		position: relative;
+
+		.circle-button-text {
+			margin: 0 auto;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+		
+	}
+	
+	& > a {
+		
+		&:hover, &:focus {
+		
+			.circle-button {
+				
+				$background-color: scale-color( $background-color, $lightness: -14% );
+				$background: rgba( $background-color, $opacity );
+				
+				@include light-or-dark-text( $background-color );
+				
+				background-color: $background;
+				border-color: $background;
+				
+			}
+			
+		}
+		
+	}
+	
+}

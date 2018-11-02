@@ -1,0 +1,23 @@
+.circle-mask {
+	
+	clip-path: circle(50% at 50% 50%);
+	
+}
+
+.half-circle-left {
+	
+	clip-path: url(#half-circle-left);
+	
+}
+
+.half-circle-right {
+	
+	clip-path: url(#half-circle-right);
+	
+}
+
+.circle-button-container {
+	
+	@include circle-button( $quaternary-color, 16rem, 0.6 );
+	
+}

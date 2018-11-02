@@ -164,6 +164,12 @@ function vibrant_life_home_hero_metabox_content( $post_id ) {
 
 function vibrant_life_home_interstitial_metabox_content( $post_id ) {
 	
+	vibrant_life_do_field_media( array(
+		'label' => '<strong>' . __( 'Main Image', 'vibrant-life-theme' ) . '</strong>',
+		'name' => 'interstitial_image',
+		'group' => 'home_interstitial',
+	) );
+	
 	vibrant_life_do_field_textarea( array(
 		'label' => '<strong>' . __( 'Main Content', 'vibrant-life-theme' ) . '</strong>',
 		'name' => 'interstitial_content',

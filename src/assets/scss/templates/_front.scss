@@ -75,5 +75,90 @@
 		}
 
 	}
+	
+	#interstitial {
+		
+		position: relative; // Ensures we overlay on top of the Hero
+		
+		background: $quaternary-color;
+		border-left: $tertiary-color solid 1rem;
+		
+		padding: rem-calc(30);
+		
+		margin-top: -3rem;
+		
+		// Sets a baseline color for elements which can be overridden with inline styles
+		*:not(.button) {
+			@include light-or-dark-text( $quaternary-color );
+		}
+		
+		.image-on-right {
+
+			img {
+
+				@extend .half-circle-left;
+
+			}
+
+		}
+
+		.image-on-left {
+
+			img {
+
+				@extend .half-circle-right;
+
+			}
+
+		}
+		
+		@include breakpoint( small only ) {
+			
+			.image-on-right, .image-on-left {
+				
+				img {
+					clip-path: none;
+				}
+				
+			}
+			
+		}
+		
+		.image-on-left, .image-on-right {
+			position: relative;
+		}
+		
+		.circle-button-container {
+			
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			
+		}
+		
+		.image-on-left {
+			
+			.circle-button-container {
+				
+				left: 40%;
+				transform: translate(-40%,-50%);
+				
+			}
+			
+		}
+		
+		.image-on-right {
+			
+			.circle-button-container {
+				
+				//left: 60%;
+				//transform: translate(-60%,-50%);
+				
+			}
+			
+		}
+		
+	}
 
 }

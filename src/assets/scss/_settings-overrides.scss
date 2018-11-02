@@ -11,6 +11,7 @@ throughout this theme's SASS files.
 $primary-color: #0085cf;
 $secondary-color: #dc4a00;
 $tertiary-color: #fcd400;
+$quaternary-color: #05679D;
 $alert-color: #f04124;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
@@ -20,6 +21,7 @@ $foundation-palette: (
     primary: $primary-color,
     secondary: $secondary-color,
 	tertiary: $tertiary-color,
+	quaternary: $quaternary-color,
     info: $info-color,
     success: $success-color,
     warning: $warning-color,
