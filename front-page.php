@@ -114,7 +114,7 @@ while ( have_posts() ) : the_post(); ?>
 
 	</section>
 
-	<section id="call-to-action" class="row">
+	<section id="call-to-action" class="row expanded">
 		
 		<div class="small-12 medium-6 columns image-container" style="background-image: url('<?php echo wp_get_attachment_image_src( vibrant_life_get_field( 'call_to_action_image' ), 'full', false )[0]; ?>');">
 		</div>
@@ -124,6 +124,30 @@ while ( have_posts() ) : the_post(); ?>
 		</div>
 		
 	</section>
+
+	<section id="video" class="row expanded">
+		
+		<div class="video-popover-container small-12 columns half-circle-top-and-bottom">
+                
+			<?php echo wp_oembed_get( vibrant_life_get_field( 'video_url' ) ); ?>
+
+		</div>
+
+	</section>
+
+	<div class="reveal large video-popover" data-reveal data-reset-on-close="true">
+    
+		<div class="row">
+			<div class="small-12 columns video-container">
+				<?php echo wp_oembed_get( vibrant_life_get_field( 'video_url' ) ); ?>
+			</div>
+		</div>
+
+		<button class="close-button" data-close aria-label="<?php _e( 'Close modal', 'vibrant-life-theme' ); ?>" type="button">
+			<span aria-hidden="true">&times;</span>
+		</button>
+
+	</div>
 
 <?php endwhile;
 

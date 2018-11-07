@@ -11,3 +11,5 @@ import Foundation from 'foundation-sites';
 $(document).foundation();
 
 import './lib/foundation-off-canvas';
+import './lib/video-popover';
+import './lib/iframe-resize';

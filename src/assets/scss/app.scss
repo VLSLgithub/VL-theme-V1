@@ -35,6 +35,7 @@ $dark-color: #222;
 @include foundation-dropdown;
 @include foundation-dropdown-menu;
 @include foundation-sticky;
+@include foundation-reveal;
 
 @import "functions";
 @import "mixins";
@@ -62,6 +63,7 @@ $dark-color: #222;
 @import "components/grid";
 @import "components/accordion";
 @import "components/masks";
+@import "components/video-popover";
 
 @import "templates/front";
 @import "templates/page";

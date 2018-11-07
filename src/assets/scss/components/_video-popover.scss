@@ -1,0 +1,14 @@
+.video-popover-container {
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	& > * {
+
+		pointer-events: none;
+		width: 100%;
+
+	}
+
+}

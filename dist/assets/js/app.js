@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 39);
+/******/ 	return __webpack_require__(__webpack_require__.s = 41);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4614,7 +4614,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _whatInput = __webpack_require__(38);
+var _whatInput = __webpack_require__(40);
 
 var _whatInput2 = _interopRequireDefault(_whatInput);
 
@@ -4623,6 +4623,10 @@ var _foundationSites = __webpack_require__(20);
 var _foundationSites2 = _interopRequireDefault(_foundationSites);
 
 __webpack_require__(37);
+
+__webpack_require__(39);
+
+__webpack_require__(38);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12011,6 +12015,86 @@ exports.Tooltip = Tooltip;
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+/**
+ * Resizes an iFrame to fit the width of its Parent and adjusts the height to match the original Aspect Ratio
+ * 
+ * @param		{object} iFrame DOM Object of the iFrame
+ * @since		2.1.0
+ * @return		void
+ */
+function resizeIframe(iFrame) {
+
+	var $el = $(iFrame),
+	    newWidth = $el.parent().width();
+
+	if (!$el.data('aspectRatio')) {
+
+		$el.data('aspectRatio', iFrame.height / iFrame.width)
+
+		// and remove the hard coded width/height
+		.removeAttr('height').removeAttr('width');
+	}
+
+	$el.width(newWidth).height(newWidth * $el.data('aspectRatio'));
+}
+
+(function ($) {
+
+	function resizeAll() {
+
+		// Find all YouTube videos
+		var $allVideos = $('iframe:not(.ignore-responsive)');
+
+		// Resize all videos according to their own aspect ratio
+		$allVideos.each(function () {
+
+			resizeIframe(this);
+		});
+	}
+
+	$(document).ready(function () {
+
+		// When the window is resized
+		// (You'll probably want to debounce this)
+		$(window).resize(function () {
+
+			resizeAll();
+
+			// Kick off one resize to fix all videos on page load
+		}).resize();
+
+		$(document).on('open.zf.reveal', function () {
+
+			resizeAll();
+		});
+	});
+})(jQuery);
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+(function ($) {
+
+    if ($('.video-popover-container').length > 0 && $('.video-popover').length > 0) {
+
+        $('.video-popover-container').on('click', function () {
+
+            $('.video-popover').foundation('open');
+        });
+    }
+})(jQuery);
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /**
  * what-input - A global utility for tracking the current input method (mouse, keyboard or touch).
  * @version v4.3.1
@@ -12393,7 +12477,7 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(19);
