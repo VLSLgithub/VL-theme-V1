@@ -1,0 +1,7 @@
+<svg width="0" height="0" viewBox="0 0 375 674">
+    <defs>
+		<clipPath id="hero-clip-mobile" clipPathUnits="objectBoundingBox" transform="scale(0.002666666666667 0.001483679525223)">
+			<path d="M0,0 L375,0 L375,674 C291.666667,655.707186 229.166667,646.560779 187.5,646.560779 C145.833333,646.560779 83.3333333,655.707186 0,674 L0,0 Z" />
+		</clipPath>
+	</defs>
+</svg>

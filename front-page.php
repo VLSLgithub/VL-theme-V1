@@ -19,7 +19,6 @@ while ( have_posts() ) : the_post(); ?>
 			<div class="marketing">
 
 				<div class="small-12 columns image" data-interchange="[<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false )[0]; ?>, small], [<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false )[0]; ?>, medium], [<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false )[0]; ?>, large], [<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false )[0]; ?>, xlarge]">
-					<?php include_once THEME_DIR . '/dist/assets/images/hero-mask.svg'; ?>
 					<div class="color-overlay"></div>
 				</div>
 
@@ -114,12 +113,14 @@ while ( have_posts() ) : the_post(); ?>
 
 	</section>
 
-	<section id="call-to-action" class="row expanded">
+	<section id="call-to-action" class="row expanded" data-equalizer data-equalize-on="medium">
 		
-		<div class="small-12 medium-6 columns image-container" style="background-image: url('<?php echo wp_get_attachment_image_src( vibrant_life_get_field( 'call_to_action_image' ), 'full', false )[0]; ?>');">
+		<div class="small-12 medium-6 columns image-container" data-equalizer-watch>
+			<div class="image" style="background-image: url('<?php echo wp_get_attachment_image_src( vibrant_life_get_field( 'call_to_action_image' ), 'full', false )[0]; ?>');">
+			</div>
 		</div>
 		
-		<div class="small-12 medium-6 columns text-container">
+		<div class="small-12 medium-6 columns text-container" data-equalizer-watch>
 			<?php echo apply_filters( 'the_content', vibrant_life_get_field( 'call_to_action_content' ) ); ?>
 		</div>
 		

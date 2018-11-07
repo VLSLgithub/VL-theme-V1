@@ -161,7 +161,3 @@
 	</header>
 
 	<div class="container">
-		
-		<?php include_once THEME_DIR . '/dist/assets/images/half-circle-left.svg'; ?>
-		<?php include_once THEME_DIR . '/dist/assets/images/half-circle-right.svg'; ?>
-		<?php include_once THEME_DIR . '/dist/assets/images/half-circle-top-and-bottom.svg'; ?>

@@ -7,11 +7,14 @@
 		
 		@include breakpoint( small only ) {
 			height: 25rem;
+			z-index: 2;
 		}
 		
 		@include breakpoint( medium ) {
 			height: 48rem;
 		}
+		
+		width: auto;
 
 		.marketing {
 
@@ -48,7 +51,14 @@
 
 		.image {
 			position: absolute;
-			clip-path: url(#hero-clip);
+			
+			@include breakpoint( small only ) {
+				clip-path: url(#hero-clip-mobile);
+			}
+
+			@include breakpoint( medium ) {
+				clip-path: url(#hero-clip);
+			}
 
 			.color-overlay {
 				position: absolute;
@@ -60,7 +70,7 @@
 				//@include create-gradient( 'vertical', $primary-color, transparent );
 			}
 			
-			background-position: 50% 80%;
+			//background-position: 50% 80%;
 			background-repeat: no-repeat;
 			position: absolute;
 			top: 0;
@@ -69,7 +79,7 @@
 			bottom: 0;
 
 			@include breakpoint(medium) {
-				background-position: 50% 0%;
+				//background-position: 50% 0%;
 			}
 
 		}
@@ -93,6 +103,10 @@
 		
 		margin-top: -3rem;
 		
+		@include breakpoint( small only ) {
+			padding-top: rem-calc(30) + 3rem;
+		}
+		
 		// Sets a baseline color for elements which can be overridden with inline styles
 		*:not(.button) {
 			@include light-or-dark-text( $quaternary-color );
@@ -104,6 +118,18 @@
 			
 			&:last-of-type {
 				margin-bottom: 0;
+			}
+			
+			@include breakpoint( small only ) {
+			
+				.columns {
+
+					&:first-of-type {
+						margin-bottom: 2rem;
+					}
+
+				}
+				
 			}
 			
 		}
@@ -147,23 +173,34 @@
 	
 	#call-to-action {
 		
-		position: relative;
-		
 		.image-container {
 			
-			@extend .half-circle-right;
+			position: relative;
+			min-height: 25rem;
 			
-			background-position: 0% 80%;
-			background-repeat: no-repeat;
-			background-size: cover;
-			position: absolute;
-			top: 0;
-			right: 0;
-			left: 0;
-			bottom: 0;
+			.image {
+			
+				@extend .half-circle-right;
 
-			@include breakpoint(medium) {
-				background-position: 0% 0%;
+				background-position: 0% 80%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				bottom: 0;
+
+				@include breakpoint(medium) {
+					background-position: 0% 0%;
+				}
+				
+			}
+			
+			@include breakpoint( small only ) {
+			
+				margin-bottom: 2rem;
+				
 			}
 			
 		}
@@ -192,6 +229,18 @@
 			
 			&:last-of-type {
 				margin-bottom: 0;
+			}
+			
+			@include breakpoint( small only ) {
+			
+				.columns {
+
+					&:first-of-type {
+						margin-bottom: 2rem;
+					}
+
+				}
+				
 			}
 			
 		}

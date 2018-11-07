@@ -62,6 +62,12 @@
 			<a href="//realbigmarketing.com/" title="<?php _e( 'Site by Real Big Marketing', 'vibrant-life-theme' ); ?>" target="_blank">
 				<?php _e( 'Site by Real Big Marketing', 'vibrant-life-theme' ); ?>
 			</a>
+			<?php include_once THEME_DIR . '/dist/assets/images/hero-mask.svg'; ?>
+			<?php include_once THEME_DIR . '/dist/assets/images/hero-mask-mobile.svg'; ?>
+			<?php include_once THEME_DIR . '/dist/assets/images/half-circle-left.svg'; ?>
+			<?php include_once THEME_DIR . '/dist/assets/images/half-circle-right.svg'; ?>
+			<?php include_once THEME_DIR . '/dist/assets/images/half-circle-top-and-bottom.svg'; ?>
+			<?php include_once THEME_DIR . '/dist/assets/images/half-circle-bottom.svg'; ?>
 		</div>
 	
 	</div>

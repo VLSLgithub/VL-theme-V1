@@ -1,1 +1,7 @@
-<svg viewBox="0 0 1440 775" width="0" height="0"><defs><clipPath id="hero-clip" clipPathUnits="objectBoundingBox" transform="scale(0.000694444444444 0.001324503311258)"><path d="M0 0L1440 0 1440 765C1120 744.2 880 733.9 720 733.9 560 733.9 320 744.2 0 765L0 0Z" /></clipPath></defs></svg>
+<svg width="0" height="0" viewBox="0 0 338.82352 180">
+  <defs>
+	  <clipPath id="hero-clip" clipPathUnits="objectBoundingBox" transform="scale(0.002951388970872 0.005555555555556)">
+		  <path d="m 0,0 338.82352,0 0,180 C 263.52941,175.11468 207.05882,172.67202 169.41176,172.67202 131.7647,172.67202 75.29411,175.11468 0,180 L 0,0 Z"/>
+	  </clipPath>
+	</defs>
+</svg>

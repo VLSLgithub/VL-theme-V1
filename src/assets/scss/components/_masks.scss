@@ -37,15 +37,17 @@
 }
 
 @include breakpoint( small only ) {
-
-	.image-on-right, .image-on-left {
-
-		img {
-			clip-path: none;
-		}
-
+	
+	.half-circle-right, .half-circle-left {
+		clip-path: url(#half-circle-bottom);
 	}
 
+}
+
+.half-circle-bottom {
+	
+	clip-path: url(#half-circle-bottom);
+	
 }
 
 .half-circle-top-and-bottom {
