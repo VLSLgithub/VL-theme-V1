@@ -125,7 +125,7 @@ while ( have_posts() ) : the_post(); ?>
 		
 	</section>
 
-	<section id="video" class="row expanded">
+	<section id="video" class="row expanded small-collapse">
 		
 		<div class="small-12 columns text-center">
 			<h2><?php echo vibrant_life_get_field( 'video_header_text' ); ?></h2>
