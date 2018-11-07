@@ -297,6 +297,7 @@ function vibrant_life_home_news_metabox_content( $post_id ) {
 		'description' => '<p class="description">' . __( 'Set to -1 to show all Blog Posts.', 'vibrant-life-theme' ) . '</p>',
 		'description_tip' => false,
 		'description_placement' => 'after_label',
+		'default' => 2,
 	) );
 	
 	vibrant_life_init_field_group( 'home_news' );

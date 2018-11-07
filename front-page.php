@@ -139,6 +139,96 @@ while ( have_posts() ) : the_post(); ?>
 
 	</section>
 
+	<section id="locations" class="row expanded">
+		
+		<div class="small-12 columns text-center">
+			<h2><?php echo vibrant_life_get_field( 'locations_header_text' ); ?></h2>
+		</div>
+		
+		<?php // add locations after making CPT ?>
+		
+	</section>
+
+	<?php 
+
+		global $post;
+		
+		$posts_query = new WP_Query( array(
+			'post_type' => 'post',
+			'posts_per_page' => vibrant_life_get_field( 'news_count', get_the_ID(), 2 ),
+		) );
+		
+		$index = 0;
+
+		if ( $posts_query->have_posts() ) : ?>
+
+			<section id="news" class="row">
+
+				<div class="small-12 columns text-center">
+					<h2><?php echo vibrant_life_get_field( 'news_header_text' ); ?></h2>
+				</div>
+
+				<?php while ( $posts_query->have_posts() ) : $posts_query->the_post(); ?>
+
+					<article <?php post_class( array( 'small-12', 'columns' ) ); ?> aria-labelledby="post-<?php the_ID(); ?>">
+
+						<div class="row">
+
+							<?php 
+
+								$left_class_name = 'small-12 medium-6 columns image-on-left';
+								$right_class_name = 'small-12 medium-6 columns';
+
+								// Even
+								if ( $index % 2 !== 0 ) : 
+
+									$left_class_name = 'small-12 medium-6 medium-push-6 columns image-on-right';
+									$right_class_name = 'small-12 medium-6 medium-pull-6 columns';
+
+								endif;
+
+							?>
+
+							<div class="<?php echo $left_class_name; ?>">
+
+								<?php echo wp_get_attachment_image( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>
+
+							</div>
+
+							<div class="<?php echo $right_class_name; ?>">
+
+								<a href="<?php the_permalink(); ?>">
+									<h3 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h3>
+								</a>
+
+								<?php the_excerpt(); ?>
+
+								<a class="button primary medium" href="<?php the_permalink(); ?>" aria-labelledby="post-<?php the_ID(); ?>">
+									<?php _e( 'Read More', 'vibrant-life-theme' ); ?>
+								</a>
+
+							</div>
+
+						</div>
+
+					</article>
+
+				<?php 
+
+					$index++;
+
+				endwhile; ?>
+
+			</section>
+
+		<?php 
+
+			wp_reset_postdata();
+
+		endif; 
+
+	?>
+
 	<div class="reveal large video-popover" data-reveal data-reset-on-close="true">
     
 		<div class="row">

@@ -16,6 +16,38 @@
 	
 }
 
+.image-on-right {
+
+	img {
+
+		@extend .half-circle-left;
+
+	}
+
+}
+
+.image-on-left {
+
+	img {
+
+		@extend .half-circle-right;
+
+	}
+
+}
+
+@include breakpoint( small only ) {
+
+	.image-on-right, .image-on-left {
+
+		img {
+			clip-path: none;
+		}
+
+	}
+
+}
+
 .half-circle-top-and-bottom {
 	
 	clip-path: url(#half-circle-top-and-bottom);
