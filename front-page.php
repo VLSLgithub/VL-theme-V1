@@ -140,15 +140,52 @@ while ( have_posts() ) : the_post(); ?>
 
 	</section>
 
-	<section id="locations" class="row expanded">
+	<?php 
+
+		global $post;
+
+		$locations_query = new WP_Query( array(
+			'post_type' => 'facility',
+			'posts_per_page' => -1,
+		) );
+
+		if ( $locations_query->have_posts() ) : ?>
+
+			<section id="locations" class="row expanded">
 		
-		<div class="small-12 columns text-center">
-			<h2><?php echo vibrant_life_get_field( 'locations_header_text' ); ?></h2>
-		</div>
-		
-		<?php // add locations after making CPT ?>
-		
-	</section>
+				<div class="small-12 columns text-center">
+					<h2><?php echo vibrant_life_get_field( 'locations_header_text' ); ?></h2>
+				</div>
+				
+				<div class="small-12 columns row expanded locations-container">
+				
+					<?php while( $locations_query->have_posts() ) : $locations_query->the_post(); ?>
+
+						<article <?php post_class( array( 'small-12', 'medium-6', 'columns' ) ); ?> aria-labelledby="post-<?php the_ID(); ?>" style="background-image: url('<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false )[0]; ?>');">
+							
+							<a href="<?php the_permalink(); ?>">
+								
+								<div class="color-overlay"></div>
+							
+								<h2 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h2>
+								
+							</a>
+							
+						</article>
+
+					<?php endwhile; ?>
+					
+				</div>
+
+			</section>
+
+		<?php 
+
+			wp_reset_postdata();
+
+		endif; 
+
+	?>
 
 	<?php 
 

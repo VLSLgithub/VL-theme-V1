@@ -217,7 +217,62 @@
 	
 	#locations {
 		
-		
+		.facility {
+			
+			position: relative;
+			min-height: 19rem;
+			
+			@include breakpoint( medium ) {
+				min-height: 31rem;
+			}
+			
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			
+			a {
+				
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				
+				color: #fff;
+				
+				.color-overlay {
+					position: absolute;
+					top: 0;
+					right: 0;
+					left: 0;
+					bottom: 0;
+					@include background-opacity( #000, 0.3 );
+				}
+				
+				&:hover {
+					
+					//color: scale-color(#fff, $lightness: -15%);
+					
+					.color-overlay{
+						@include background-opacity( #000, 0.5 );
+					}
+					
+				}
+				
+				h2 {
+					
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					
+					width: 100%;
+					text-align: center;
+					
+				}
+				
+			}
+			
+		}
 		
 	}
 	
