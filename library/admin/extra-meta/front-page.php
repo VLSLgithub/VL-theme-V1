@@ -248,6 +248,13 @@ function vibrant_life_home_call_to_action_metabox_content( $post_id ) {
 function vibrant_life_home_video_metabox_content( $post_id ) {
 	
 	vibrant_life_do_field_text( array(
+		'label' => '<strong>' . __( 'Video Section Header', 'vibrant-life-theme' ),
+		'name' => 'video_header_text',
+		'group' => 'home_video',
+		'default' => 'What People Say About Vibrant Life',
+	) );
+	
+	vibrant_life_do_field_text( array(
 		'label' => '<strong>' . __( 'Video URL', 'vibrant-life-theme' ) . '</strong>',
 		'name' => 'video_url',
 		'group' => 'home_video',
@@ -264,8 +271,9 @@ function vibrant_life_home_locations_metabox_content( $post_id ) {
 	
 	vibrant_life_do_field_text( array(
 		'label' => '<strong>' . __( 'Locations Section Title', 'vibrant-life-theme' ) . '</strong>',
-		'name' => 'locations_title',
+		'name' => 'locations_header_text',
 		'group' => 'home_locations',
+		'default' => 'Which Vibrant Life Community is right for you?',
 	) );
 	
 	vibrant_life_init_field_group( 'home_locations' );
@@ -276,8 +284,9 @@ function vibrant_life_home_news_metabox_content( $post_id ) {
 	
 	vibrant_life_do_field_text( array(
 		'label' => '<strong>' . __( 'News Section Title', 'vibrant-life-theme' ) . '</strong>',
-		'name' => 'news_title',
+		'name' => 'news_header_text',
 		'group' => 'home_news',
+		'default' => 'News',
 	) );
 	
 	vibrant_life_do_field_number( array(
