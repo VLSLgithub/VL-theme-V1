@@ -76,6 +76,12 @@
 
 	}
 	
+	section {
+		
+		margin-bottom: 3rem;
+		
+	}
+	
 	#interstitial {
 		
 		position: relative; // Ensures we overlay on top of the Hero
@@ -90,6 +96,16 @@
 		// Sets a baseline color for elements which can be overridden with inline styles
 		*:not(.button) {
 			@include light-or-dark-text( $quaternary-color );
+		}
+		
+		.row {
+			
+			margin-bottom: 2rem;
+			
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+			
 		}
 		
 		.image-on-right {
@@ -155,6 +171,39 @@
 				//left: 60%;
 				//transform: translate(-60%,-50%);
 				
+			}
+			
+		}
+		
+	}
+	
+	#call-to-action {
+		
+		position: relative;
+		
+		.image-container {
+			
+			@extend .half-circle-right;
+			
+			background-position: 0% 80%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+
+			@include breakpoint(medium) {
+				background-position: 0% 0%;
+			}
+			
+		}
+		
+		.text-container {
+			
+			@include breakpoint(medium) {
+				padding: rem-calc(60) rem-calc(30);
 			}
 			
 		}

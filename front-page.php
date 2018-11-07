@@ -114,6 +114,17 @@ while ( have_posts() ) : the_post(); ?>
 
 	</section>
 
+	<section id="call-to-action" class="row">
+		
+		<div class="small-12 medium-6 columns image-container" style="background-image: url('<?php echo wp_get_attachment_image_src( vibrant_life_get_field( 'call_to_action_image' ), 'full', false )[0]; ?>');">
+		</div>
+		
+		<div class="small-12 medium-6 columns text-container">
+			<?php echo apply_filters( 'the_content', vibrant_life_get_field( 'call_to_action_content' ) ); ?>
+		</div>
+		
+	</section>
+
 <?php endwhile;
 
 get_footer();
