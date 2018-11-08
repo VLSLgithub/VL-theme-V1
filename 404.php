@@ -42,7 +42,6 @@ get_header(); ?>
 					'items_wrap'     => '<ul id="%1$s" class="%2$s 404-menu">%3$s</ul>',
 					'theme_location' => 'four-oh-four',
 					'depth'          => 1,
-					'fallback_cb'    => 'test',
 					'walker'         => new Foundationpress_Top_Bar_Walker(),
 				) ); ?>
 			
@@ -52,8 +51,3 @@ get_header(); ?>
 		
 	</article>
 </main>
-
-<?php get_footer();
-function test() {
-	echo'fuck';
-}
