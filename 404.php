@@ -8,34 +8,52 @@
 
 get_header(); ?>
 
- <div class="main-wrap">
-	<main class="main-content">
-		<article>
-			<header>
-				<h1 class="entry-title"><?php _e( 'File Not Found', 'vibrant-life-theme' ); ?></h1>
-			</header>
-			<div class="entry-content">
-				<div class="error">
-					<p class="bottom"><?php _e( 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.', 'vibrant-life-theme' ); ?></p>
-				</div>
-				<p><?php _e( 'Please try the following:', 'vibrant-life-theme' ); ?></p>
-				<ul>
-					<li><?php _e( 'Check your spelling', 'vibrant-life-theme' ); ?></li>
-					<li>
-						<?php
-							/* translators: %s: home page url */
-							printf( __(
-								'Return to the <a href="%s">home page</a>', 'vibrant-life-theme' ),
-								home_url()
-							);
-						?>
-					</li>
-					<li><?php _e( 'Click the <a href="javascript:history.back()">Back</a> button', 'vibrant-life-theme' ); ?></li>
-				</ul>
+<main class="main-content row">
+	<article class="small-12 columns">
+		
+		<section class="entry-content interstitial row">
+			
+			<div class="page-title small-12 columns">
+				<h1 class="entry-title"><?php _e( '404. Oh my, where did we put that?', 'vibrant-life-theme' ); ?></h1>
 			</div>
-		</article>
-	</main>
- <?php get_sidebar(); ?>
-</div>
+			
+			<div class="small-12 medium-6 columns">
+				
+				<blockquote>
+					<p>
+						<?php _e( 'First you forget names, then you forget faces… next you forget to pull your zipper up and finally, you forget to pull it down.', 'vibrant-life-theme' ); ?>
+					</p>
+					<footer>
+						<?php _e( '~ George Burns', 'vibrant-life-theme' ); ?>
+					</footer>
+				</blockquote>
+				
+			</div>
+			
+			<div class="small-12 medium-6 columns">
+				
+				<p>
+					<?php _e( 'Let’s get you back on track. Pick a link or search for your file here:', 'vibrant-life-theme' ); ?>
+				</p>
+				
+				<?php wp_nav_menu( array(
+					'container'      => false,
+					'menu_class'     => 'menu',
+					'items_wrap'     => '<ul id="%1$s" class="%2$s 404-menu">%3$s</ul>',
+					'theme_location' => 'four-oh-four',
+					'depth'          => 1,
+					'fallback_cb'    => 'test',
+					'walker'         => new Foundationpress_Top_Bar_Walker(),
+				) ); ?>
+			
+			</div>
+			
+		</div>
+		
+	</article>
+</main>
 
 <?php get_footer();
+function test() {
+	echo'fuck';
+}

@@ -1,21 +1,37 @@
 .featured-hero {
 
-	height: 20rem;
 	position: relative;
+	margin-bottom: 0;
 
-	@include breakpoint(medium) {
-		height: rem-calc(600%);
+	@include breakpoint( small only ) {
+		height: 12rem;
+		z-index: 2;
 	}
 
+	@include breakpoint( medium ) {
+		height: 35rem;
+	}
+
+	width: auto;
+
 	.image {
+		
 		position: absolute;
 		background-size: cover;
-		background-position: center;
+		background-position: 50% 0%;
 		background-repeat: no-repeat;
 		top: 0;
 		right: 0;
 		left: 0;
 		bottom: 0;
+		
+		@include breakpoint( small only ) {
+			clip-path: url(#hero-clip-mobile);
+		}
+
+		@include breakpoint( medium ) {
+			clip-path: url(#hero-clip);
+		}
 
 	}
 

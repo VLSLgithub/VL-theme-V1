@@ -94,8 +94,8 @@
 				
 				<div>
 
-					<button data-open-search>
-						<span class="fas fa-fw fa-search"></span>
+					<button class="header-button open-search" data-open-search aria-label="<?php _e( 'Expand search', 'vibrant-life-theme' ); ?>" aria-controls="site-search">
+						<span class="fas fa-fw fa-search" aria-hidden="true"></span>
 					</button>
 					
 				</div>
@@ -161,3 +161,7 @@
 	</header>
 
 	<div class="container">
+		
+		<?php if ( ! is_front_page() ) : 
+			include_once THEME_DIR . '/template-parts/featured-image.php';
+		endif;

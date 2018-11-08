@@ -1,0 +1,21 @@
+.interstitial {
+	
+	position: relative; // Ensures we overlay on top of the Hero
+		
+	background: $quaternary-color;
+	border-left: $tertiary-color solid 1rem;
+
+	padding: rem-calc(30);
+
+	margin-top: -3rem;
+
+	@include breakpoint( small only ) {
+		padding-top: rem-calc(30) + 3rem;
+	}
+
+	// Sets a baseline color for elements which can be overridden with inline styles
+	*:not(.button) {
+		@include light-or-dark-text( $quaternary-color );
+	}
+	
+}

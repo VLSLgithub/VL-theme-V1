@@ -36,7 +36,7 @@ while ( have_posts() ) : the_post(); ?>
 
 	</header>
 
-	<section id="interstitial" class="row">
+	<section id="interstitial" class="row interstitial">
 		
 		<div class="small-12 columns">
 			

@@ -9,6 +9,7 @@
 
 register_nav_menus( array(
 	'primary'  => esc_html__( 'Primary', 'vibrant-life-theme' ),
+	'four-oh-four' => esc_html__( '404 Page', 'vibrant-life-theme' ),
 ));
 
 
@@ -64,4 +65,25 @@ if ( ! function_exists( 'foundationpress_add_menuclass' ) ) {
 		return preg_replace( $find, $replace, $ulclass, 1 );
 	}
 	add_filter( 'wp_nav_menu','foundationpress_add_menuclass' );
+}
+
+/**
+ * Add the Search Button to the 404 Menu
+ * 
+ * @param       string $items The HTML list content for the menu items
+ * @param       object $args  An object containing wp_nav_menu() arguments
+ *                                                               
+ * @since       1.0.0
+ * @return      string The HTML list content for the menu items
+ */
+add_filter( 'wp_nav_menu_items', 'vibrant_life_add_menu_items', 10, 2 );
+function vibrant_life_add_menu_items( $items, $args ) {
+    
+    if ( $args->theme_location == 'four-oh-four' ) {
+		
+        $items .= '<li class="search-toggle menu-item"><button class="header-button open-search" data-open-search aria-label="' . __( 'Expand search', 'vibrant-life-theme' ) . '" aria-controls="site-search"><span class="fas fa-fw fa-search" aria-hidden="true"></span></button></li>';
+    }
+    
+    return $items;
+    
 }

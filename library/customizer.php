@@ -16,6 +16,18 @@ add_action( 'customize_register', function( $wp_customize ) {
         ) 
     );
 	
+	$wp_customize->add_setting( 'vibrant_life_404_hero', array(
+            'default'     => 1,
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'vibrant_life_404_hero', array(
+        'label'      => __( '404 Hero Image', 'vibrant-life-theme' ),
+        'section'    => 'vibrant_life_customizer_section',
+        'settings'   => 'vibrant_life_404_hero',
+        'mime_type'  => 'image',
+    ) ) );
+	
 	$wp_customize->add_setting( 'vibrant_life_facebook', array(
             'default'     => '//www.facebook.com/Vibrant-Life-Senior-Living-1387090288246432/',
             'transport'   => 'refresh',
@@ -23,7 +35,7 @@ add_action( 'customize_register', function( $wp_customize ) {
     );
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vibrant_life_facebook', array(
         'type' => 'url',
-        'label'        => __( 'Facebook URL', 'vibrant-life-theme' ),
+        'label'      => __( 'Facebook URL', 'vibrant-life-theme' ),
         'section'    => 'vibrant_life_customizer_section',
         'settings'   => 'vibrant_life_facebook',
     ) ) );

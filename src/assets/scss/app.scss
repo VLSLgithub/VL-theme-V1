@@ -49,6 +49,7 @@ $dark-color: #222;
 @import "global/colors";
 @import "global/wp-admin";
 @import "global/wp-overrides";
+@import "global/base";
 
 // Modules
 @import "modules/navigation";
@@ -69,8 +70,10 @@ $dark-color: #222;
 @import "components/masks";
 @import "components/video-popover";
 @import "components/search-overlay";
+@import "components/interstitial";
 
 @import "templates/front";
 @import "templates/page";
+@import "templates/404";
 
 @import "vendor/ap-mega-menu";

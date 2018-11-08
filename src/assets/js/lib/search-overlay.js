@@ -2,7 +2,7 @@
 
     $( document ).ready( function() {
 
-        var $menu            = $( '.site-header .top-bar-right.search' );
+        var $menu            = $( '.site-header .top-bar-right.search, .menu' );
         var $searchOverlay   = $('#site-search');
         var $searchField     = $searchOverlay.find('input[name="s"]');
         var searchOpen       = false;

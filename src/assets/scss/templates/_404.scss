@@ -1,0 +1,19 @@
+.error404 {
+
+	.search-toggle.menu-item {
+
+		line-height: 2.5;
+
+	}
+	
+	button {
+		
+		padding: $menu-items-padding;
+		
+		&:hover {
+			cursor: pointer;
+		}
+		
+	}
+	
+}
