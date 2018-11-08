@@ -7,11 +7,15 @@
  */
  ?>
 
-<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-	<div class="input-group">
-		<input type="text" class="input-group-field" value="" name="s" id="s" placeholder="<?php esc_attr_e( 'Search', 'vibrant-life-theme' ); ?>">
-		<div class="input-group-button">
-			<input type="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'vibrant-life-theme' ); ?>" class="button">
-		</div>
-	</div>
+<form role="search" method="get" class="search-form" action="<?php bloginfo( 'url' ); ?>">
+    <label class="search-field-label" for="site-search-field">
+        <?php _e( 'Type and press "Enter" to search:', 'vibrant-life-theme' ); ?>
+    </label>
+
+    <div class="search-submitting" style="display: none;">
+        <?php _e( 'Searching...', 'vibrant-life-theme' ); ?> <span class="fas fa-spin fa-circle-notch" aria-hidden="true"></span>
+    </div>
+
+    <input type="search" class="search-field" value="<?php the_search_query(); ?>" name="s" id="site-search-field"
+           title="<?php _e( 'Search for:', 'vibrant-life-theme' ); ?>">
 </form>

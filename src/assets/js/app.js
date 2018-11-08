@@ -14,3 +14,4 @@ import './lib/foundation-off-canvas';
 import './lib/video-popover';
 import './lib/iframe-resize';
 import './lib/animations';
+import './lib/search-overlay';

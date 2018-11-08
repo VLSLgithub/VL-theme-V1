@@ -76,6 +76,13 @@
 
 </div><!-- Close off-canvas content -->
 
+<div id="site-search" tabindex="-1">
+    <?php get_search_form(); ?>
+	<button class="close-button" aria-label="<?php _e( 'Close', 'vibrant-life-theme' ); ?>" type="button">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+
 <?php wp_footer(); ?>
 </body>
 </html>

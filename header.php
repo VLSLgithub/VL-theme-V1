@@ -94,7 +94,7 @@
 				
 				<div>
 
-					<button>
+					<button data-open-search>
 						<span class="fas fa-fw fa-search"></span>
 					</button>
 					
