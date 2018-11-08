@@ -29,6 +29,7 @@ function add_vibrant_life_button_shortcode( $atts, $content = '' ) {
             'hollow' => 'false',
             'expand' => 'false',
             'new_tab' => 'false',
+			'class' => '',
         ),
         $atts,
         'vibrant_life_button'
@@ -44,7 +45,7 @@ function add_vibrant_life_button_shortcode( $atts, $content = '' ) {
     endif;
     ?>
 
-    <a href="<?php echo $atts['url']; ?>" class="<?php echo $atts['color'] . ' ' . $atts['size'] . ' button' . ( strtolower( $atts['hollow'] == 'true' ) ? ' hollow' : '' ) . ( strtolower( $atts['expand'] == 'true' ) ? ' expanded' : '' ); ?>" target="<?php echo ( strtolower( $atts['new_tab'] ) == 'true' ? '_blank' : '_self' ); ?>"><?php echo $content; ?></a>
+    <a href="<?php echo $atts['url']; ?>" class="<?php echo $atts['color'] . ' ' . $atts['size'] . ' button' . ( strtolower( $atts['hollow'] == 'true' ) ? ' hollow' : '' ) . ( strtolower( $atts['expand'] == 'true' ) ? ' expanded' : '' ) . ( ! empty( $atts['class'] ) ? ' ' . $atts['class'] : '' ); ?>" target="<?php echo ( strtolower( $atts['new_tab'] ) == 'true' ? '_blank' : '_self' ); ?>"><?php echo $content; ?></a>
 
     <?php
     

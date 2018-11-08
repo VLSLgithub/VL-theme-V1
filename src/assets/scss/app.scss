@@ -13,6 +13,7 @@ $dark-color: #222;
 @include add-foundation-colors();
 
 @import 'foundation';
+@import 'motion-ui';
 
 // Foundation
 // Here we control all of the various foundation components to use
@@ -36,6 +37,9 @@ $dark-color: #222;
 @include foundation-dropdown-menu;
 @include foundation-sticky;
 @include foundation-reveal;
+
+@include motion-ui-transitions;
+@include motion-ui-animations;
 
 @import "functions";
 @import "mixins";

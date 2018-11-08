@@ -85,6 +85,9 @@ function vibrant_life_button_tinymce_l10n( $l10n ) {
         'new_tab' => array(
             'label' => __( 'Open Link in a New Tab?', 'vibrant-life-theme' ),
         ),
+		'class' => array(
+			'label' => __( 'Extra CSS Classes', 'vibrant-life-theme' ),
+		),
     );
     
     return $l10n;

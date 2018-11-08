@@ -73,6 +73,11 @@
                                 name: 'newTab',
                                 label: vibrant_life_tinymce_l10n.vibrant_life_button_shortcode.new_tab.label,
                             },
+							{
+								type: 'textbox',
+								name: 'class',
+								label: vibrant_life_tinymce_l10n.vibrant_life_button_shortcode.class.label,
+							},
                         ],
                         onsubmit: function( e ) {
                             editor.insertContent( '[vibrant_life_button' + 
@@ -82,6 +87,7 @@
                                                      ( e.data.hollow !== undefined && e.data.hollow !== false ? ' hollow="' + e.data.hollow + '"' : '' ) + 
                                                      ( e.data.expand !== undefined && e.data.expand !== false ? ' expand="' + e.data.expand + '"' : '' ) + 
                                                      ( e.data.newTab !== undefined && e.data.newTab !== false ? ' new_tab="' + e.data.newTab + '"' : '' ) + 
+												 	 ( e.data.class !== undefined && e.data.class !== '' ? ' class="' + e.data.class + '"' : '' ) + 
                                                  ']' + 
                                                      ( e.data.text !== undefined ? e.data.text : '' ) + 
                                                  '[/vibrant_life_button]' );

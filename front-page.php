@@ -82,7 +82,7 @@ while ( have_posts() ) : the_post(); ?>
 						<div class="show-for-medium">
 							<div class="circle-button-container">
 								<a href="<?php echo $row['circle_button_url']; ?>" title="<?php echo $row['circle_button_text']; ?>">
-									<div class="circle-button">
+									<div class="circle-button animate-on-scroll scale-in-up">
 										<span class="circle-button-text">
 											<?php echo $row['circle_button_text']; ?>
 										</span>
@@ -157,11 +157,11 @@ while ( have_posts() ) : the_post(); ?>
 					<h2><?php echo vibrant_life_get_field( 'locations_header_text' ); ?></h2>
 				</div>
 				
-				<div class="small-12 columns row expanded locations-container">
+				<div class="small-12 columns row expanded locations-container queue-on-scroll fade-in">
 				
 					<?php while( $locations_query->have_posts() ) : $locations_query->the_post(); ?>
 
-						<article <?php post_class( array( 'small-12', 'medium-6', 'columns' ) ); ?> aria-labelledby="post-<?php the_ID(); ?>" style="background-image: url('<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false )[0]; ?>');">
+						<article <?php post_class( array( 'small-12', 'medium-6', 'columns', 'queued-item' ) ); ?> aria-labelledby="post-<?php the_ID(); ?>" style="background-image: url('<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false )[0]; ?>');">
 							
 							<a href="<?php the_permalink(); ?>">
 								
