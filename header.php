@@ -162,6 +162,6 @@
 
 	<div class="container">
 		
-		<?php if ( ! is_front_page() ) : 
+		<?php if ( ! is_front_page() && is_single() ) : 
 			include_once THEME_DIR . '/template-parts/featured-image.php';
 		endif;
