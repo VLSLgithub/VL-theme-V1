@@ -112,6 +112,7 @@ require_once( 'library/customizer.php' );
 
 // Extra Meta
 require_once( 'library/admin/extra-meta/front-page.php' );
+require_once( 'library/admin/extra-meta/about-us.php' );
 require_once( 'library/admin/extra-meta/page.php' );
 
 // Shortcodes

@@ -162,7 +162,7 @@
 
 	<div class="container">
 		
-		<?php if ( ( ! is_front_page() && is_single() ) ||
-				 is_404() ) : 
+		<?php if ( ( ( ! is_front_page() && is_single() ) || is_404() ) && 
+				 ! apply_filters( 'vibrant_life_hide_hero', false ) ) : 
 			include_once THEME_DIR . '/template-parts/featured-image.php';
 		endif;

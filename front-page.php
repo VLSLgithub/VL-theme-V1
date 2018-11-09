@@ -12,7 +12,7 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-	<header class="front-hero" role="banner">
+	<header class="title-hero" role="banner">
 		
 		<div class="row expanded featured-hero front-hero">
 				
