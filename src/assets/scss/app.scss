@@ -58,6 +58,7 @@ $dark-color: #222;
 @import "modules/content";
 @import "modules/footer";
 @import "modules/editor-style";
+@import "modules/comments";
 
 // Components
 @import "components/buttons";
@@ -72,9 +73,10 @@ $dark-color: #222;
 @import "components/search-overlay";
 @import "components/interstitial";
 
-@import "templates/front";
 @import "templates/page";
+@import "templates/single";
 @import "templates/404";
+@import "templates/front";
 @import "templates/about-us";
 
 @import "vendor/ap-mega-menu";

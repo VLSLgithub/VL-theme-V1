@@ -1,0 +1,54 @@
+.comment-list {
+	
+	margin-left: 0;
+
+	&, li {
+		list-style-type: none;
+	}
+	
+	.children {
+		margin-top: 1rem;
+	}
+	
+	.comment-body {
+		
+		.avatar {
+			
+			margin-right: 1rem;
+			
+			@extend .circle-mask;
+			
+		}
+	
+		.avatar, .author-meta {
+			float: left;
+		}
+
+		.comment {
+			
+			clear: both;
+			
+			margin-bottom: 1rem;
+			
+		}
+		
+		.comment, .reply {
+			
+			margin-left: rem-calc( 48 ) + 1; // Width of Avatar as rem + 1rem
+			
+		}
+		
+	}
+	
+	cite {
+		
+		&:before {
+			content: '';
+		}
+		
+		color: initial;
+		font-style: normal;
+		
+	}
+	
+}

@@ -1,0 +1,35 @@
+.single {
+	
+	.interstitial {
+		
+		margin-top: -6rem;
+		
+	}
+	
+	article {
+	
+		.narrow-title, .entry-content.row, footer {
+
+			max-width: $global-width * (2/3);
+
+		}
+		
+	}
+	
+	.navigation-container, #respond, #comments {
+		
+		max-width: $global-width * (2/3);
+
+	}
+	
+	section {
+		
+		&:last-of-type {
+			
+			margin-bottom: 3rem;
+			
+		}
+		
+	}
+	
+}
