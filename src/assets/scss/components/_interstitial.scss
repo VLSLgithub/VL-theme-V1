@@ -1,3 +1,13 @@
+body.has-post-thumbnail {
+	
+	.interstitial {
+		
+		margin-top: -3rem;
+		
+	}
+	
+}
+
 .interstitial {
 	
 	position: relative; // Ensures we overlay on top of the Hero
@@ -6,8 +16,6 @@
 	border-left: $tertiary-color solid 1rem;
 
 	padding: rem-calc(30);
-
-	margin-top: -3rem;
 
 	@include breakpoint( small only ) {
 		padding-top: rem-calc(30) + 3rem;

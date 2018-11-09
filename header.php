@@ -16,9 +16,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class( array(
-		'offcanvas',
-	)); ?>>
+	
+	<?php 
+	
+	$body_class = array( 'offcanvas' );
+	
+	if ( has_post_thumbnail() || 
+		( is_404() && get_theme_mod( 'vibrant_life_404_hero' ) ) ) {
+		$body_class[] = 'has-post-thumbnail';
+	}
+	
+	?>
+	
+	<body <?php body_class( $body_class ); ?>>
 
 	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 		
