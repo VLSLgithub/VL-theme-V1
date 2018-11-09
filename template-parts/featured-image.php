@@ -13,7 +13,7 @@ elseif ( is_404() ) {
 
 if ( $attachment_id ) : ?>
 	<header class="featured-hero" role="banner">
-		<div class="image" data-interchange="[<?php echo wp_get_attachment_image_src( $attachment_id, 'featured-small', false )[0]; ?>, small], [<?php echo wp_get_attachment_image_src( $attachment_id, 'featured-medium', false )[0]; ?>, medium], [<?php echo wp_get_attachment_image_src( $attachment_id, 'featured-large', false )[0]; ?>, large], [<?php echo wp_get_attachment_image_src( $attachment_id, 'featured-xlarge', false )[0]; ?>, xlarge]">
+		<div class="image" data-interchange="[<?php echo wp_get_attachment_image_src( $attachment_id, 'full', false )[0]; ?>, small], [<?php echo wp_get_attachment_image_src( $attachment_id, 'full', false )[0]; ?>, medium], [<?php echo wp_get_attachment_image_src( $attachment_id, 'full', false )[0]; ?>, large], [<?php echo wp_get_attachment_image_src( $attachment_id, 'full', false )[0]; ?>, xlarge]">
 		</div>
 	</header>
 <?php endif;

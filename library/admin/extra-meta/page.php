@@ -27,6 +27,8 @@ function vibrant_life_add_page_metaboxes() {
 	// Each page except the Home Page
 	if ( vibrant_life_is_editing_home() ) return;
 	
+	/*
+	
 	add_meta_box(
 		'vibrant_life-extra-meta',
 		__( 'Extra Section', 'vibrant-life-theme' ),
@@ -35,6 +37,8 @@ function vibrant_life_add_page_metaboxes() {
 		'normal',
 		'low'
 	);
+	
+	*/
     
 }/**
  * Adds Become a Volunteer Metabox

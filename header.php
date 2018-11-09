@@ -162,7 +162,19 @@
 
 	<div class="container">
 		
-		<?php if ( ( ( ! is_front_page() && is_single() ) || is_404() ) && 
-				 ! apply_filters( 'vibrant_life_hide_hero', false ) ) : 
-			include_once THEME_DIR . '/template-parts/featured-image.php';
-		endif;
+		<?php if ( ( is_single() || is_404() || is_page() ) && 
+				 ! apply_filters( 'vibrant_life_hide_hero', false ) ) {
+		
+			if ( ! is_404() && 
+				vibrant_life_get_field( 'hero_tagline' ) ) {
+		
+				include_once THEME_DIR . '/template-parts/featured-image-tagline.php';
+				
+			}
+			else {
+		
+				include_once THEME_DIR . '/template-parts/featured-image.php';
+		
+			}
+		
+		}
