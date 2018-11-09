@@ -3,7 +3,7 @@
  * Frontpage Template
  * @since {{VERSION}}
  *
- * @package RBMTheme
+ * @package VibrantLifeTheme2018
  */
 
 global $post;

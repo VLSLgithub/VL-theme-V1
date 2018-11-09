@@ -1,0 +1,86 @@
+.single-facility {
+	
+	#interstitial {
+		
+		@include breakpoint( medium ) {
+			margin-bottom: 0;
+		}
+		
+	}
+	
+	#after-interstitial {
+		
+		max-width: $global-width * ( 5/6 );
+		
+		.columns {
+			position: relative;
+		}
+		
+		.circle-button-container {
+			
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			
+		}
+		
+		@include breakpoint( small only ) {
+			
+			.columns {
+				margin-bottom: 1rem;
+			}
+			
+			img {
+				clip-path: url('#half-circle-bottom');
+			}
+			
+		}
+		
+	}
+	
+	#call-to-action {
+		
+		.image-container {
+			
+			position: relative;
+			min-height: 25rem;
+			
+			.image {
+			
+				@extend .half-circle-right;
+
+				background-position: 0% 80%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				bottom: 0;
+
+				@include breakpoint(medium) {
+					background-position: 0% 0%;
+				}
+				
+			}
+			
+			@include breakpoint( small only ) {
+			
+				margin-bottom: 2rem;
+				
+			}
+			
+		}
+		
+		.text-container {
+			
+			@include breakpoint(medium) {
+				padding: rem-calc(60) rem-calc(30);
+			}
+			
+		}
+		
+	}
+
+}
