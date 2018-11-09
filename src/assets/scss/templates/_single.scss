@@ -4,7 +4,9 @@
 	
 		.interstitial {
 
-			margin-top: -6rem;
+			@include breakpoint( medium ) {
+				margin-top: -6rem;
+			}
 
 		}
 		
