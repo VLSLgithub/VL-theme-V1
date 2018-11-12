@@ -1,0 +1,23 @@
+html {
+	
+	#map {
+	
+		#asl-storelocator {
+
+			margin: 0 !important;
+			width: auto !important;
+			max-width: inherit !important;
+
+			.Num_of_store, .asl-store-search > span {
+				background-color: $primary-color !important;
+			}
+
+			.search_filter > p:first-child, .addr-sec .p-title {
+				color: $primary-color !important;
+			}
+
+		}
+		
+	}
+	
+}

@@ -74,12 +74,10 @@ while ( have_posts() ) : the_post(); ?>
 
 	<section id="map" class="row">
 		
-		<div class="small-12 medium-6 columns">
-			<?php echo apply_filters( 'the_content', vibrant_life_get_field( 'map_text' ) ); ?>
-		</div>
+		<div class="small-12 columns">
 		
-		<div class="small-12 medium-6 columns">
-			Maps go here
+			<?php echo do_shortcode( '[ASL_STORELOCATOR]' ); ?>
+			
 		</div>
 		
 	</section>
