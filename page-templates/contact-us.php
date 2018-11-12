@@ -23,7 +23,7 @@ while ( have_posts() ) : the_post(); ?>
 		
 		<div class="small-12 medium-6 columns">
 		
-			form goes here
+			<?php echo do_shortcode( '[gravityform id="' . vibrant_life_get_field( 'interstitial_form' ) .'" title="false" description="false" ajax="true"]' ); ?>
 			
 		</div>
 			

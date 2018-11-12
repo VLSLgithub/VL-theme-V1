@@ -91,15 +91,6 @@ function vibrant_life_add_contact_metaboxes() {
 			'normal',
 			'low'
 		);
-		
-		add_meta_box(
-			'vibrant-life-map',
-			__( 'Map', 'vibrant-life-theme' ),
-			'vibrant_life_contact_map_metabox_content',
-			'page',
-			'normal',
-			'low'
-		);
         
     }
     
@@ -129,22 +120,15 @@ function vibrant_life_contact_interstitial_metabox_content( $post_id ) {
 		'wysiwyg_options' => vibrant_life_get_wysiwyg_options(),
 	) );
 	
-	// Add Form dropdown
+	$forms = wp_list_pluck( RGFormsModel::get_forms( null, 'title' ), 'title', 'id' );
+	
+	vibrant_life_do_field_select( array(
+		'label' => '<strong>' . __( 'Form to Display', 'vibrant-life-theme' ) . '</strong>',
+		'name' => 'interstitial_form',
+		'options' => $forms,
+		'group' => 'contact_interstitial',
+	) );
 	
 	vibrant_life_init_field_group( 'contact_interstitial' );
 	
-}
-
-function vibrant_life_contact_map_metabox_content( $post_id ) {
-	
-	vibrant_life_do_field_textarea( array(
-		'label' => '<strong>' . __( 'Content', 'vibrant-life-theme' ) . '</strong>',
-		'name' => 'map_text',
-		'group' => 'contact_map',
-		'wysiwyg' => true,
-		'wysiwyg_options' => vibrant_life_get_wysiwyg_options(),
-	) );
-	
-	vibrant_life_init_field_group( 'contact_map' );
-		
 }

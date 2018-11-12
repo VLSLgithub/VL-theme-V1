@@ -26,4 +26,25 @@ body.has-post-thumbnail {
 		@include light-or-dark-text( $quaternary-color );
 	}
 	
+	.gform_wrapper {
+		
+		.gfield_required {
+			color: $tertiary-color;
+		}
+		
+		[type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'], textarea {
+			
+			background: lighten(desaturate(#0085cf, 57.53), 30.78);
+			@include light-or-dark-text( lighten(desaturate(#0085cf, 57.53), 30.78) );
+			
+		}
+		
+	}
+	
+	.give-btn, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt, input[type="submit"], #site-content .tribe-events-button, #site-content #tribe-events .tribe-events-button, .tribe_community_edit #site-content .tribe-button, .tribe_community_list #site-content .tribe-button {
+
+	  @extend .white.button;
+
+	}
+	
 }

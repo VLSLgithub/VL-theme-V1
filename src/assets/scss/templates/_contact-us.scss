@@ -1,0 +1,13 @@
+.page-template-contact-us { 
+	
+	.gform_wrapper {
+		
+		input[type=submit] {
+			
+			@extend .alignright;
+			
+		}
+		
+	}
+	
+}
