@@ -14,10 +14,13 @@
 	<div class="card-content">
 		
 		<h4><?php the_title(); ?></h4>
+		<cite>
+			<?php foundationpress_entry_meta(); ?>
+		</cite>
 
 		<?php the_excerpt(); ?>
 
-		<a href="<?php the_permalink(); ?>" class="secondary button" title="<?php _e( 'Learn More', 'vibrant-life-theme' ); ?>">
+		<a href="<?php the_permalink(); ?>" class="primary button">
 			<?php _e( 'Learn More', 'vibrant-life-theme' ); ?>
 		</a>
 		

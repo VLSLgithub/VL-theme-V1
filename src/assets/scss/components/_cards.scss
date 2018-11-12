@@ -22,25 +22,35 @@
 
 .card {
 	
-	background-color: $primary-color;
+	//background-color: $primary-color;
 	
 	img {
 		width: 100%;
 		height: auto;
+		margin-bottom: 2rem;
+		@extend .half-circle-bottom;
 	}
 	
 	&, h1, h2, h3, h4, h5, h6 {
 		
-		@include light-or-dark-text( $primary-color );
+		//@include light-or-dark-text( $primary-color );
+		
+	}
+	
+	cite {
+		
+		&:before {
+			content: '';
+		}
 		
 	}
 	
 	.card-content {
 		
-		padding: 2rem;
+		//padding: 2rem;
 		
 		.button {
-			margin-bottom: 0;
+			//margin-bottom: 0;
 		}
 		
 	}

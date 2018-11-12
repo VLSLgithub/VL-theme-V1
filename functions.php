@@ -123,3 +123,22 @@ require_once( 'library/shortcodes/vibrant-life-button.php' );
 require_once( 'library/admin/tinymce/localization.php' );
 require_once( 'library/admin/tinymce/color-palette.php' );
 require_once( 'library/admin/tinymce/vibrant-life-button.php' );
+
+add_filter( 'template_include', 'vibrant_life_blog_template' );
+function vibrant_life_blog_template( $template ) {
+	
+	global $wp_query;
+	
+	if ( isset( $wp_query ) && 
+		(bool) $wp_query->is_posts_page ) {
+		
+		$new_template = locate_template( array( 'blog.php' ) );
+		if ( ! empty( $new_template ) ) {
+			return $new_template;
+		}
+		
+	}
+	
+	return $template;
+	
+}

@@ -172,7 +172,11 @@
 
 	<div class="container">
 		
-		<?php if ( ( is_single() || is_404() || is_page() ) && 
+		<?php 
+		
+		global $wp_query;
+		
+		if ( ( is_single() || is_404() || is_page() || (bool) $wp_query->is_posts_page ) && 
 				 ! apply_filters( 'vibrant_life_hide_hero', false ) ) {
 		
 			if ( ! is_404() && 
