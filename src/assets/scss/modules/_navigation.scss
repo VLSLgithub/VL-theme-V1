@@ -52,8 +52,8 @@
 	.current-menu-item, .current-menu-ancestor {
 		& > a {
 			box-shadow: 4px 4px 4px rgba(#000, 0.5);
-			background-color: lighten($secondary-color, 5%);
-			@include light-or-dark-text( lighten($secondary-color, 5%) );
+			background-color: lighten($quaternary-color, 5%);
+			@include light-or-dark-text( lighten($quaternary-color, 5%) );
 		}
 	}
 }
@@ -115,7 +115,7 @@
 		color: $dark-color;
 
 		&:hover, &:focus {
-			@include light-or-dark-text( $secondary-color );
+			@include light-or-dark-text( $quaternary-color );
 		}
 
 		padding-top: 0;
@@ -127,7 +127,7 @@
 		&:hover:not(.button), &:focus:not(.button) {
 			
 			box-shadow: 4px 4px 4px rgba(#000, 0.5);
-			background-color: $secondary-color;
+			background-color: $quaternary-color;
 			
 		}
 		

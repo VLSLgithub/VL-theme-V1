@@ -50,7 +50,7 @@ height: auto;
 
 			&.current-menu-item, &.current-menu-ancestor {
 				
-				background-color: lighten($secondary-color, 5%);
+				background-color: lighten($quaternary-color, 5%);
 				
 				&:not(.button) {
 					
@@ -71,11 +71,11 @@ height: auto;
 				
 				& > a {
 
-					@include light-or-dark-text( lighten($secondary-color, 5%) );
+					@include light-or-dark-text( lighten($quaternary-color, 5%) );
 					transition: color 0s;
 
 					&:hover, &:focus {
-						@include light-or-dark-text( $secondary-color );
+						@include light-or-dark-text( $quaternary-color );
 					}
 					
 				}
@@ -85,7 +85,13 @@ height: auto;
 			&:not(.button) {
 
 				&:hover, &:focus {
-					background-color: $secondary-color;
+					
+					background-color: $quaternary-color;
+					
+					& > a {
+						@include light-or-dark-text( $quaternary-color );
+					}
+					
 				}
 				
 			}
@@ -143,7 +149,7 @@ height: auto;
 				padding: 0.1875rem 0.625rem;
 
 				&:hover, &:focus {
-					@include light-or-dark-text( $secondary-color );
+					@include light-or-dark-text( $quaternary-color );
 				}
 
 			}
@@ -329,7 +335,7 @@ height: auto;
 				// Mega menus and Non-mega menus
 				&.wpmega-menu-megamenu > div {
 
-					//background: $secondary-color;
+					//background: $quaternary-color;
 					background: $light-color;
 
 					a {
