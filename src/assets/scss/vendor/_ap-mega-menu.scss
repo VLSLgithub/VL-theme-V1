@@ -87,6 +87,7 @@ height: auto;
 				&:hover, &:focus {
 					
 					background-color: $quaternary-color;
+					box-shadow: 4px 4px 4px rgba(#000, 0.5);
 					
 					& > a {
 						@include light-or-dark-text( $quaternary-color );
