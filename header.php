@@ -37,7 +37,8 @@
 		<div class="top-bar extra show-for-medium">
 
 			<div class="top-bar-left">
-				<?php if ( is_single() && get_post_type() == 'facility' ) : ?>
+				<?php if ( is_single() && 
+						  get_post_type() == 'facility' ) : ?>
 					<?php printf( __( 'Welcome to Vibrant Life - %s', 'vibrant-life-theme' ), preg_replace( '/Vibrant\sLife\s+/i', '', get_the_title() ) ); ?>
 				<?php else : ?>
 					<?php _e( 'Welcome to Vibrant Life', 'vibrant-life-theme' ); ?>
@@ -97,8 +98,19 @@
 			<div class="top-bar-right phone">
 				
 				<div>
+					
+					<?php if ( function_exists( 'rbm_cpts_get_field' ) && 
+							  is_single() && 
+							  get_post_type() == 'facility' &&
+							  $phone_number = rbm_cpts_get_field( 'phone_number' ) ) : ?>
+					
+						<?php echo vibrant_life_get_phone_number_link( $phone_number ); ?>
+					
+					<?php else : ?>
 
-					<a href="tel:17349130000">(734) 913-0000</a>
+						<?php echo vibrant_life_get_phone_number_link( get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ) ); ?>
+					
+					<?php endif; ?>
 					
 				</div>
 

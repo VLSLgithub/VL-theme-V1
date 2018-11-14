@@ -28,6 +28,18 @@ add_action( 'customize_register', function( $wp_customize ) {
         'mime_type'  => 'image',
     ) ) );
 	
+	$wp_customize->add_setting( 'vibrant_life_phone_number', array(
+            'default'     => '(734) 913-0000',
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vibrant_life_phone_number', array(
+        'type' => 'url',
+        'label'      => __( 'Phone Number', 'vibrant-life-theme' ),
+        'section'    => 'vibrant_life_customizer_section',
+        'settings'   => 'vibrant_life_phone_number',
+    ) ) );
+	
 	$wp_customize->add_setting( 'vibrant_life_facebook', array(
             'default'     => '//www.facebook.com/Vibrant-Life-Senior-Living-1387090288246432/',
             'transport'   => 'refresh',
