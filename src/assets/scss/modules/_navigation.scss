@@ -51,6 +51,7 @@
 
 	.current-menu-item, .current-menu-ancestor {
 		& > a {
+			box-shadow: 4px 4px 4px rgba(#000, 0.5);
 			background-color: lighten($secondary-color, 5%);
 			@include light-or-dark-text( lighten($secondary-color, 5%) );
 		}
@@ -121,17 +122,16 @@
 		padding-bottom: 0;
 		font-weight: bold;
 		line-height: 1;
+		border-radius: 0.25rem;
 
 		&:hover:not(.button), &:focus:not(.button) {
 			
+			box-shadow: 4px 4px 4px rgba(#000, 0.5);
 			background-color: $secondary-color;
-			border-radius: 0.25rem;
 			
 		}
 		
 	}
-
-	.menu .active > a { background-color: #ccc; }
 
 	.menu>li:not(.menu-text)>a { padding: 1rem; }
 
