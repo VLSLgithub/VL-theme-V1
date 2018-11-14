@@ -37,7 +37,11 @@
 		<div class="top-bar extra show-for-medium">
 
 			<div class="top-bar-left">
-				<?php _e( 'Welcome to Vibrant Life', 'vibrant-life-theme' ); ?>
+				<?php if ( is_single() && get_post_type() == 'facility' ) : ?>
+					<?php printf( __( 'Welcome to Vibrant Life - %s', 'vibrant-life-theme' ), preg_replace( '/Vibrant\sLife\s+/i', '', get_the_title() ) ); ?>
+				<?php else : ?>
+					<?php _e( 'Welcome to Vibrant Life', 'vibrant-life-theme' ); ?>
+				<?php endif; ?>
 			</div>
 
 			<div class="top-bar-right social">
