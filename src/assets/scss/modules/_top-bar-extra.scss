@@ -21,10 +21,10 @@
 
 	a, button {
 
-		color: $primary-color;
+		color: scale-color( $primary-color, $lightness: -10% );
 
 		&:hover, &:focus {
-			color: scale-color( $primary-color, $lightness: -10% );
+			color: $primary-color;
 		}
 
 	}
