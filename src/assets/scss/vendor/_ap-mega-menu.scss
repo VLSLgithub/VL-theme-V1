@@ -57,7 +57,7 @@ height: auto;
 					position: relative;
 
 					&:before {
-						box-shadow: 4px 4px 4px rgba(#000, 0.5);
+						box-shadow: rem-calc(4) rem-calc(4) rem-calc(4) rgba(#000, 0.5);
 						content: '';
 						position: absolute;
 						top: 0;
@@ -87,7 +87,7 @@ height: auto;
 				&:hover, &:focus {
 					
 					background-color: $quaternary-color;
-					box-shadow: 4px 4px 4px rgba(#000, 0.5);
+					box-shadow: rem-calc(4) rem-calc(4) rem-calc(4) rgba(#000, 0.5);
 					
 					& > a {
 						@include light-or-dark-text( $quaternary-color );
@@ -103,7 +103,7 @@ height: auto;
 				border-top-width: 0.25em;
 				border-top-style: solid;
 				margin-top: -0.375rem;
-				box-shadow: 4px 4px 4px rgba(#000, 0.5);
+				box-shadow: rem-calc(4) rem-calc(4) rem-calc(4) rgba(#000, 0.5);
 				
 				a {
 					padding-top: 0;
@@ -237,7 +237,7 @@ height: auto;
 				ul {
 
 					background: lighten($light-color, 15%);
-					box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+					box-shadow: rem-calc(0) rem-calc(3) rem-calc(3) rgba(#000, 0.2);
 
 					a {
 						color: $dark-color;
