@@ -203,11 +203,14 @@
 		}
 		
 		.svg-container {
+			
+			width: 80%;
+			height: auto;
 
 			svg {
 				width: 50%;
 				height: auto;
-				margin-top: 1rem;
+				margin-top: 0.5rem;
 				margin-left: 0.5rem;
 			}
 			
@@ -222,19 +225,19 @@
 				right: auto;
 				bottom: auto;
 				left: -0.9rem;
-				height: 2.75rem;
-				width: 2.75rem;
+				height: rem-calc( 35 );
+				width: rem-calc( 35 );
 				border-radius: 50%;
 				background: $primary-color;
 			}
 			
 			&:after {
-				top: -0.4rem;
-				left: -.1rem;
+				top: -0.6rem;
+				left: -0.4rem;
 			}
 			
-			margin-top: 2.25rem;
-			margin-right: 1.5rem;
+			margin-top: 1.8rem;
+			margin-right: 0.5rem;
 			
 		}
 
@@ -244,16 +247,6 @@
 
 		.title-bar-title {
 			//margin-top: 2.25rem;
-		}
-
-		.menu-icon {
-			
-			margin-top: 2.35rem;
-			
-			&:after {
-				top: -0.3rem;
-			}
-			
 		}
 
 		.svg-container {
