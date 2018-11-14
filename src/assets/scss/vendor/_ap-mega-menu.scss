@@ -330,6 +330,28 @@ height: auto;
 			li.menu-widget-class-widget_wpmegamenu_pro_linkimage {
 				display: none;
 			}
+			
+			li {
+				
+				font-size: rem-calc( 45 );
+				border-bottom-color: #fff;
+				
+				&, a {
+					font-weight: 800;
+					@include light-or-dark-text( $quaternary-color );
+				}
+				
+				&.button {
+					border-width: 0.25rem;
+					border-color: #fff;
+					border-top-color: #fff;
+				}
+				
+				a, &.button a {
+					padding: 0.407rem 0.625rem;
+				}
+				
+			}
 
 			& > li {
 
