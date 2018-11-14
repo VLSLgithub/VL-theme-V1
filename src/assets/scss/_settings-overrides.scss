@@ -38,14 +38,14 @@ $button-background-hover: scale-color($button-background, $lightness: -15%);
 
  // We use these to define default font stacks
 //$font-family-sans-serif: "Helvetica", sans-serif;
-$font-family-sans-serif: "Myriad Pro", "Trebuchet MS", sans-serif;
+$font-family-sans-serif: "Nunito", "Trebuchet MS", sans-serif;
 $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
 $header-color: $primary-color;
 $body-font-color: #222;
 
-$body-font-family: $font-family-sans-serif;
+$body-font-family: $font-family-serif;
 
 // Forms
 $input-border-width: 0;
