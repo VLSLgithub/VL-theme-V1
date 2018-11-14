@@ -9,7 +9,9 @@
 
 <div class="card">
 	
-	<?php the_post_thumbnail( 'medium' ); ?>
+	<div class="image with-image-tag">
+		<?php the_post_thumbnail( 'medium' ); ?>
+	</div>
 	
 	<div class="card-content">
 		

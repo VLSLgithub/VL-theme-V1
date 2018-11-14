@@ -16,6 +16,8 @@ body.has-post-thumbnail {
 	border-left: $tertiary-color solid 1rem;
 
 	padding: rem-calc(30);
+	
+	@include image-box-shadow();
 
 	@include breakpoint( small only ) {
 		padding-top: rem-calc(30) + 3rem;

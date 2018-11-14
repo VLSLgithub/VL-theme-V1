@@ -20,7 +20,9 @@ while ( have_posts() ) : the_post(); ?>
 				
 				<div class="small-12 medium-3 columns">
 					
-					<?php echo wp_get_attachment_image( vibrant_life_get_field( 'interstitial_image' ), 'full', false, array( 'class' => 'attachment-full size-full circle-mask' ) ); ?>
+					<div class="image with-image-tag circle-mask">
+						<?php echo wp_get_attachment_image( vibrant_life_get_field( 'interstitial_image' ) ); ?>
+					</div>
 					
 				</div>
 				
@@ -53,7 +55,9 @@ while ( have_posts() ) : the_post(); ?>
 					
 					<div class="<?php echo $left_class_name; ?>">
 						
-						<?php echo wp_get_attachment_image( $row['image'], 'full' ); ?>
+						<div class="image with-image-tag">
+							<?php echo wp_get_attachment_image( $row['image'], 'full' ); ?>
+						</div>
 						
 						<div class="show-for-medium">
 							<div class="circle-button-container">
@@ -205,7 +209,9 @@ while ( have_posts() ) : the_post(); ?>
 
 							<div class="<?php echo $left_class_name; ?>">
 
-								<?php echo wp_get_attachment_image( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>
+								<div class="image with-image-tag">
+									<?php echo wp_get_attachment_image( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>
+								</div>
 
 							</div>
 

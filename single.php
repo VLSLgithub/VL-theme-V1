@@ -70,7 +70,9 @@ get_header(); ?>
 							  
 							  <a rel="external" href="<?php the_permalink()?>" class="text-center">
 								
-								  <?php echo wp_get_attachment_image( get_post_thumbnail_id( get_the_ID() ), 'medium', false, array( 'class' => 'attachment-medium size-medium half-circle-bottom' ) ); ?>
+								  <div class="image with-image-tag">
+								  	<?php echo wp_get_attachment_image( get_post_thumbnail_id( get_the_ID() ), 'medium', false, array( 'class' => 'attachment-medium size-medium half-circle-bottom' ) ); ?>
+								  </div>
 								
 								  <h2 id="post-title-<?php the_ID(); ?>"><?php the_title(); ?></h2>
 									

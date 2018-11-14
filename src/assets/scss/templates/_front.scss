@@ -184,6 +184,8 @@
 			position: relative;
 			min-height: 19rem;
 			
+			@include image-box-shadow();
+			
 			@include breakpoint( medium ) {
 				min-height: 31rem;
 			}

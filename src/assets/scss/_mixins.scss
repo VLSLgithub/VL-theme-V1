@@ -149,3 +149,9 @@
 	}
 	
 }
+
+@mixin image-box-shadow() {
+	
+	box-shadow: inset 0px 1px 140px rgba(#000, 0.5);
+	
+}

@@ -24,11 +24,17 @@
 	
 	//background-color: $primary-color;
 	
-	img {
-		width: 100%;
-		height: auto;
-		margin-bottom: 2rem;
+	.image {
+		
 		@extend .half-circle-bottom;
+	
+		img {
+			width: 100%;
+			height: auto;
+		}
+		
+		margin-bottom: 2rem;
+		
 	}
 	
 	&, h1, h2, h3, h4, h5, h6 {

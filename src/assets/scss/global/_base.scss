@@ -7,3 +7,30 @@ section {
 	}
 
 }
+
+div.image {
+	@include image-box-shadow();
+}
+
+// https://bavotasan.com/2011/adding-inset-shadow-to-image-css3/
+div.image.with-image-tag {
+	
+	box-shadow: none;
+	position: relative;
+	
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		@include image-box-shadow();
+	}
+	
+	img {
+		width: 100%;
+		height: auto;
+	}
+	
+}

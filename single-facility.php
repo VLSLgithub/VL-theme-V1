@@ -16,7 +16,9 @@ while ( have_posts() ) : the_post(); ?>
 				
 			<div class="small-12 medium-3 columns">
 
-				<?php echo wp_get_attachment_image( rbm_cpts_get_field( 'interstitial_image' ), 'full', false, array( 'class' => 'attachment-full size-full circle-mask' ) ); ?>
+				<div class="image with-image-tag">
+					<?php echo wp_get_attachment_image( rbm_cpts_get_field( 'interstitial_image' ), 'full', false, array( 'class' => 'attachment-full size-full circle-mask' ) ); ?>
+				</div>
 
 			</div>
 
@@ -34,7 +36,9 @@ while ( have_posts() ) : the_post(); ?>
 
 			<div class="small-12 medium-6 columns text-center">
 
-				<?php echo wp_get_attachment_image( $row['image'], 'full' ); ?>
+				<div class="image with-image-tag">
+					<?php echo wp_get_attachment_image( $row['image'], 'full' ); ?>
+				</div>
 
 				<div class="show-for-medium">
 					<div class="circle-button-container">
