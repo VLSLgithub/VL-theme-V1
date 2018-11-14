@@ -52,8 +52,8 @@
 	.current-menu-item, .current-menu-ancestor {
 		& > a {
 			box-shadow: 4px 4px 4px rgba(#000, 0.5);
-			background-color: lighten($quaternary-color, 5%);
-			@include light-or-dark-text( lighten($quaternary-color, 5%) );
+			background-color: lighten($quinary-color, 5%);
+			@include light-or-dark-text( lighten($quinary-color, 5%) );
 		}
 	}
 }
