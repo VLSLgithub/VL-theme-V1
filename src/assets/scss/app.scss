@@ -6,6 +6,8 @@ $dark-nav-color: #2C3840;
 $light-color: #fff;
 $dark-color: #222;
 
+@import url('//fonts.googleapis.com/css?family=Nunito:400,800');
+
 @import 'settings'; // Copied from FoundationPress. Added !default to any variables we're overriding
 
 @import "settings-overrides";

@@ -85,15 +85,6 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 			'5.0.3',
 			false
 		);
-		
-		// Nunito font from Google CDN
-		wp_enqueue_script(
-			'nunito',
-			'//fonts.googleapis.com/css?family=Nunito',
-			array(),
-			THEME_VER,
-			false
-		);
 
 		// Add the comment-reply library on pages where it is necessary
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
