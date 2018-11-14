@@ -63,6 +63,7 @@ function vibrant_life_button_tinymce_l10n( $l10n ) {
                 'secondary' => _x( 'Orange', 'Secondary Theme Color', 'vibrant-life-theme' ),
                 'tertiary' => _x( 'Yellow', 'Tertiary Theme Color', 'vibrant-life-theme' ),
 				'quaternary' => _x( 'Dark Blue', 'Quaternary Theme Color', 'vibrant-life-theme' ),
+				'quinary' => _x( 'Goldenrod', 'Quinary Theme Color', 'vibrant-life-theme' ),
 			),
         ),
         'size' => array(
