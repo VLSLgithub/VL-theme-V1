@@ -334,7 +334,14 @@ height: auto;
 			li {
 				
 				font-size: rem-calc( 45 );
-				border-bottom-color: #fff;
+				
+				&:before {
+					display: none;
+				}
+				
+				&:not( .button ) {
+					border-bottom: none;
+				}
 				
 				&, a {
 					font-weight: 800;
@@ -342,9 +349,26 @@ height: auto;
 				}
 				
 				&.button {
+					
 					border-width: 0.25rem;
 					border-color: #fff;
-					border-top-color: #fff;
+					border-top-color: #fff !important;
+					box-shadow: none;
+					
+					@each $name, $color in $foundation-palette {
+
+						&.#{$name} {
+							
+							&:hover, &:focus {
+
+						  		border-top-color: $color !important;
+								
+							}
+
+						}
+
+					}
+					
 				}
 				
 				a, &.button a {
