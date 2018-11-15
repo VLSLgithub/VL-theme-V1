@@ -12269,8 +12269,6 @@ function resizeIframe(iFrame) {
 
 		$(document).on('click touch', '.mobile-off-canvas-menu li.menu-item > a, .site-navigation li.menu-item > a', function (event) {
 
-			event.preventDefault();
-
 			$('.mobile-off-canvas-menu li.menu-item, .site-navigation li.menu-item').removeClass('clicked'); // Remove class from all others if they click multiple at once
 
 			$(this).closest('li.menu-item').addClass('clicked');
