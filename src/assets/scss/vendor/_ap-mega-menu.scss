@@ -167,6 +167,7 @@ height: auto;
 				}
 
 				font-family: $header-font-family;
+				font-weight: 800;
 				
 				color: $dark-color;
 				transition: color 0s;
@@ -202,7 +203,8 @@ height: auto;
 								font-weight: normal;
 								text-transform: none;
 								margin-bottom: 0;
-								font-family: $body-font-family;
+								font-family: $header-font-family;
+								font-weight: 800;
 							}
 
 						}
@@ -229,6 +231,12 @@ height: auto;
 					a {
 						padding: 5px 10px;
 						display: block;
+						
+						&, span {
+							font-family: $header-font-family;
+							font-weight: 800;
+						}
+						
 					}
 					
 					&:not(.clicked) {

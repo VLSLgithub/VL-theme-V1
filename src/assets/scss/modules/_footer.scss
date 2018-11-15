@@ -8,6 +8,8 @@
 	position: relative;
 	overflow: hidden;
 	
+	font-family: $header-font-family;
+	
 	@include image-box-shadow();
 
 	section {
@@ -133,15 +135,12 @@
 	a {
 
 		color: $white;
+		font-weight: 800;
 
 		&:hover {
 			color: scale-color( $secondary-color, $lightness: 15% );
 		}
 
-	}
-
-	&, a {
-		font-weight: bold;
 	}
 
 	.footer-menu {
@@ -175,6 +174,7 @@
 	
 	background: #fff;
 	padding: rem-calc(15) 0;
+	font-family: $header-font-family;
 	
 	.copyright {
 

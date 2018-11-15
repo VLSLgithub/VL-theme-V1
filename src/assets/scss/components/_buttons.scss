@@ -1,4 +1,7 @@
 .button {
+	
+	font-family: $header-font-family;
+	font-weight: 800;
 
   @each $name, $color in $foundation-palette {
 
@@ -24,7 +27,6 @@
 
       color: $color;
       border-width: 0.25em;
-      font-weight: 600;
 
       &:hover, &:focus {
 
