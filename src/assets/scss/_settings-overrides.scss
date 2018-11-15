@@ -55,20 +55,20 @@ $input-border-width: 0;
 // Converted to Foundation 6 format
 $header-styles: (
   small: (
-    'h1': ('font-size': 30),
-    'h2': ('font-size': 19),
-    'h3': ('font-size': 19),
-    'h4': ('font-size': 16),
-    'h5': ('font-size': 16),
-    'h6': ('font-size': 16),
+    'h1': ('font-size': 30, 'font-weight': 800),
+    'h2': ('font-size': 19, 'font-weight': 800),
+    'h3': ('font-size': 19, 'font-weight': 800),
+    'h4': ('font-size': 16, 'font-weight': 800),
+    'h5': ('font-size': 16, 'font-weight': 800),
+    'h6': ('font-size': 16, 'font-weight': 800),
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 36),
-    'h3': ('font-size': 24),
-    'h4': ('font-size': 18),
-    'h5': ('font-size': 16),
-    'h6': ('font-size': 16),
+    'h1': ('font-size': 48, 'font-weight': 800),
+    'h2': ('font-size': 36, 'font-weight': 800),
+    'h3': ('font-size': 24, 'font-weight': 800),
+    'h4': ('font-size': 18, 'font-weight': 800),
+    'h5': ('font-size': 16, 'font-weight': 800),
+    'h6': ('font-size': 16, 'font-weight': 800),
   ),
 );
 
