@@ -28,6 +28,31 @@ height: auto;
 	box-shadow: none;
 
 	#wpmega-menu-primary {
+		
+		li {
+			
+			&.clicked {
+				
+				background-color: $quinary-color !important;
+				
+				& > a {
+
+					@if lightness( $quinary-color ) < 65% {
+
+						color: $light-color !important;
+
+					}
+					@else {
+
+						color: $dark-color !important;
+
+					}
+					
+				}
+				
+			}
+			
+		}
 
 		& > li {
 
@@ -205,9 +230,13 @@ height: auto;
 						padding: 5px 10px;
 						display: block;
 					}
+					
+					&:not(.clicked) {
 
-					&:hover, &:focus {
-						background-color: rgba(204,204,204,0.4);
+						&:hover, &:focus {
+							background-color: rgba(204,204,204,0.4);
+						}
+						
 					}
 
 				}
@@ -332,6 +361,10 @@ height: auto;
 			}
 			
 			li {
+				
+				&, a {
+					box-shadow: none;
+				}
 				
 				span.wpmm-mega-menu-href-title {
 					font-size: 1rem;
