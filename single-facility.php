@@ -12,70 +12,74 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-	<section id="interstitial" class="row interstitial">
-				
-			<div class="small-12 medium-3 columns">
+	<div class="swirl-border">
 
-				<div class="image with-image-tag circle-mask">
-					<?php echo wp_get_attachment_image( rbm_cpts_get_field( 'interstitial_image' ), 'full' ); ?>
+		<section id="interstitial" class="row interstitial">
+
+				<div class="small-12 medium-3 columns">
+
+					<div class="image with-image-tag circle-mask">
+						<?php echo wp_get_attachment_image( rbm_cpts_get_field( 'interstitial_image' ), 'full' ); ?>
+					</div>
+
 				</div>
 
-			</div>
+				<div class="small-12 medium-9 columns">
 
-			<div class="small-12 medium-9 columns">
+					<?php echo apply_filters( 'the_content', rbm_cpts_get_field( 'interstitial_content' ) ); ?>
 
-				<?php echo apply_filters( 'the_content', rbm_cpts_get_field( 'interstitial_content' ) ); ?>
-
-			</div>
-		
-	</section>
-
-	<section id="after-interstitial" class="row">
-				
-		<?php foreach ( $content_blocks = rbm_cpts_get_field( 'interstitial_repeater' ) as $index => $row ) : ?>
-
-			<div class="small-12 medium-6 columns text-center">
-
-				<div class="image with-image-tag">
-					<?php echo wp_get_attachment_image( $row['image'], 'full' ); ?>
 				</div>
 
-				<div class="show-for-medium">
-					<div class="circle-button-container">
-						<a href="<?php echo $row['circle_button_url']; ?>" title="<?php echo $row['circle_button_text']; ?>">
-							<div class="circle-button animate-on-scroll scale-in-up">
-								<span class="circle-button-text">
-									<?php echo $row['circle_button_text']; ?>
-								</span>
-							</div>
+		</section>
+
+		<section id="after-interstitial" class="row">
+
+			<?php foreach ( $content_blocks = rbm_cpts_get_field( 'interstitial_repeater' ) as $index => $row ) : ?>
+
+				<div class="small-12 medium-6 columns text-center">
+
+					<div class="image with-image-tag">
+						<?php echo wp_get_attachment_image( $row['image'], 'full' ); ?>
+					</div>
+
+					<div class="show-for-medium">
+						<div class="circle-button-container">
+							<a href="<?php echo $row['circle_button_url']; ?>" title="<?php echo $row['circle_button_text']; ?>">
+								<div class="circle-button animate-on-scroll scale-in-up">
+									<span class="circle-button-text">
+										<?php echo $row['circle_button_text']; ?>
+									</span>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="show-for-small-only text-center">
+						<a class="button tertiary hollow" href="<?php echo $row['circle_button_url']; ?>" title="<?php echo $row['circle_button_text']; ?>">
+							<?php echo $row['circle_button_text']; ?>
 						</a>
 					</div>
+
 				</div>
 
-				<div class="show-for-small-only text-center">
-					<a class="button tertiary hollow" href="<?php echo $row['circle_button_url']; ?>" title="<?php echo $row['circle_button_text']; ?>">
-						<?php echo $row['circle_button_text']; ?>
-					</a>
+			<?php endforeach; ?>
+
+		</section>
+
+		<section id="call-to-action" class="row expanded" data-equalizer data-equalize-on="medium">
+
+			<div class="small-12 medium-6 columns image-container" data-equalizer-watch>
+				<div class="image" style="background-image: url('<?php echo wp_get_attachment_image_src( rbm_cpts_get_field( 'call_to_action_image' ), 'full', false )[0]; ?>');">
 				</div>
-
 			</div>
 
-		<?php endforeach; ?>
-
-	</section>
-
-	<section id="call-to-action" class="row expanded" data-equalizer data-equalize-on="medium">
-		
-		<div class="small-12 medium-6 columns image-container" data-equalizer-watch>
-			<div class="image" style="background-image: url('<?php echo wp_get_attachment_image_src( rbm_cpts_get_field( 'call_to_action_image' ), 'full', false )[0]; ?>');">
+			<div class="small-12 medium-6 columns text-container" data-equalizer-watch>
+				<?php echo apply_filters( 'the_content', rbm_cpts_get_field( 'call_to_action_content' ) ); ?>
 			</div>
-		</div>
+
+		</section>
 		
-		<div class="small-12 medium-6 columns text-container" data-equalizer-watch>
-			<?php echo apply_filters( 'the_content', rbm_cpts_get_field( 'call_to_action_content' ) ); ?>
-		</div>
-		
-	</section>
+	</div>
 
 	<section id="video" class="row expanded small-collapse">
 		

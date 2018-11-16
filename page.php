@@ -14,7 +14,7 @@ get_header();
 
 do_action( 'foundationpress_before_content' ); ?>
 
-<div class="main-wrap">
+<div class="main-wrap swirl-border">
 	 <?php while ( have_posts() ) : the_post(); ?>
 
 		<div <?php post_class( array( 'expanded', 'row' ) ) ?> id="post-<?php the_ID(); ?>" data-equalizer data-equalize-on="small" data-equalize-on-stack="true">

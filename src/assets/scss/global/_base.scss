@@ -68,3 +68,12 @@ body {
 	}
 	
 }
+
+.swirl-border {
+	
+	background-image: url( '../images/swirl.png' );
+	background-repeat: repeat;
+	
+	@include image-box-shadow();
+	
+}

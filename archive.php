@@ -17,7 +17,7 @@
 
 get_header(); ?>
 
-<div class="main-wrap">
+<div class="main-wrap swirl-border">
 	<main class="main-content">
 	<?php if ( have_posts() ) : ?>
 

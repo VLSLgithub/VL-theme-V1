@@ -10,7 +10,7 @@
 
 get_header(); ?>
 
-<div class="main-wrap">
+<div class="main-wrap swirl-border">
 	<main class="main-content">
 		<?php woocommerce_content(); ?>
 	</main>

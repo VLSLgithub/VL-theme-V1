@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<main class="main-content row">
+<main class="main-content row swirl-border">
 	<article class="small-12 columns">
 		
 		<section class="entry-content interstitial row">

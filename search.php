@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<div class="main-wrap">
+<div class="main-wrap swirl-border">
 	<main id="search-results" class="main-content">
 
 	<header>
