@@ -1,12 +1,12 @@
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {
-	@include hide-for(medium);
+	@include hide-for(large);
 }
 
 .desktop-menu,
 .site-navigation .top-bar-left {
-	@include show-for(medium);
+	@include show-for(large);
 }
 
 // Site title
@@ -142,7 +142,7 @@
 }
 
 .site-navigation {
-	@include breakpoint(small only) {
+	@media only screen and (max-width: #{( map-get( $breakpoints, 'large' ) - 1 )}) {
 		padding: 0; // prevents container visibility on small screens
 	}
 }
@@ -175,7 +175,7 @@
 	
 	.circle-backdrop-clip, .top-bar-right {
 
-		@include breakpoint( medium ) {
+		@include breakpoint( large ) {
 
 			padding: 0 0.5625rem;
 
@@ -192,7 +192,7 @@
 
 }
 
-@include breakpoint(small only) {
+@media only screen and (max-width: #{( map-get( $breakpoints, 'large' ) - 1 )}) {
 
 	.title-bar {
 
@@ -263,7 +263,7 @@
 
 }
 
-@include breakpoint(medium) {
+@include breakpoint(large) {
 
 	.sticky-top-bar {
 

@@ -297,7 +297,7 @@ height: auto;
 
 }
 
-@include breakpoint(medium) {
+@include breakpoint(large) {
 
 	#wpmm-wrap-primary {
 		
@@ -352,7 +352,7 @@ height: auto;
 
 }
 
-@include breakpoint(small only) {
+@media only screen and (max-width: #{( map-get( $breakpoints, 'large' ) - 1 )}) {
 
 	#wpmm-wrap-primary {
 

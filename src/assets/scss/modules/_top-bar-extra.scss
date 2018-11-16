@@ -1,22 +1,19 @@
 .top-bar.extra {
 
 	background: #fff;
+	
 	border-bottom: rem-calc(1) solid $dark-color;
+	
 	font-family: $header-font-family;
 	
 	// Hides forceful border heights
 	overflow: hidden;
 	
-	@include breakpoint( medium ) {
+	padding: 0 0.5rem;
+	
+	@include breakpoint( large ) {
 
 		padding: 0 0.5625rem;
-
-	}
-
-	// Phablet Landscape and Portrait iPad Fix
-	@media #{$phablet-landscape}, #{$ipad-portrait} {
-
-		padding: 0 $topbar-padding / 4;
 
 	}
 
@@ -37,16 +34,20 @@
 		
 		div {
 			
-			&:before {
-				content: '';
-				position: absolute;
-				top: -50%;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				width: 1px;
-				height: 500%;
-				background: $dark-color;
+			@include breakpoint( medium ) {
+			
+				&:before {
+					content: '';
+					position: absolute;
+					top: -50%;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					width: 1px;
+					height: 500%;
+					background: $dark-color;
+				}
+				
 			}
 			
 			display: inline-block;
@@ -67,7 +68,7 @@
 
 	.logo {
 
-		@include breakpoint( small only ) {
+		@media only screen and (max-width: #{( map-get( $breakpoints, 'large' ) - 1 )}) {
 			width: 100%;
 			text-align: center;
 		}
@@ -96,10 +97,29 @@
 
 	.phone {
 
-		@include breakpoint( small only ) {
+		@media only screen and (max-width: #{( map-get( $breakpoints, 'large' ) - 1 )}) {
 			float: left;
 		}
 
+	}
+	
+	@include breakpoint( small only ) {
+		
+		.top-bar-left {
+			text-align: center;
+		}
+		
+		.social, .phone, .search {
+			
+			flex: none;
+			text-align: center;
+			
+			a, button {
+				padding: 0;
+			}
+			
+		}
+		
 	}
 
 }

@@ -34,7 +34,7 @@
 		
 	<header class="site-header" role="banner">
 		
-		<div class="top-bar extra show-for-medium">
+		<div class="top-bar extra">
 
 			<div class="top-bar-left">
 				<?php if ( is_single() && 
@@ -140,7 +140,7 @@
 
 				<div class="site-title-bar title-bar">
 					<div class="title-bar-left">
-						<span class="site-mobile-title title-bar-title show-for-small-only">
+						<span class="site-mobile-title title-bar-title hide-for-large">
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 
 								<div class="circle-backdrop"></div>
@@ -156,11 +156,11 @@
 					</div>
 				</div>
 
-				<nav class="site-navigation top-bar hide-for-small-only" role="navigation">
+				<nav class="site-navigation top-bar show-for-large" role="navigation">
 					
 					<div class="circle-backdrop-clip">
 					
-						<div class="site-desktop-title top-bar-title hide-for-small-only">
+						<div class="site-desktop-title top-bar-title show-for-large">
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 
 								<div class="circle-backdrop"></div>
