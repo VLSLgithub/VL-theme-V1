@@ -10,5 +10,14 @@
 		width: 100%;
 
 	}
+	
+	@include breakpoint( small only ) {
+		
+		iframe {
+			height: 30rem !important;
+			width: 100% !important;
+		}
+		
+	}
 
 }
