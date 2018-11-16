@@ -26,3 +26,20 @@ body.admin-bar {
   }
   
 }
+
+#wpadminbar {
+	
+	@include breakpoint( small only ) {
+		
+		.ab-icon, .ab-item {
+			
+			&, &:before {
+				font-size: 24px;
+				width: 30px;
+			}
+			
+		}
+		
+	}
+	
+}
