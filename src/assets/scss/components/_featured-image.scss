@@ -27,7 +27,7 @@
 		padding: 0;
 		
 		@include breakpoint( small only ) {
-			clip-path: url(#hero-clip-mobile);
+			clip-path: url(#half-circle-bottom);
 		}
 
 		@include breakpoint( medium ) {
