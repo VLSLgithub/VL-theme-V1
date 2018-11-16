@@ -4,8 +4,7 @@
 	margin-bottom: 0;
 
 	@include breakpoint( small only ) {
-		height: 12rem;
-		z-index: 2;
+		height: 75vh;
 	}
 
 	@include breakpoint( medium ) {
