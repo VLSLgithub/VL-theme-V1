@@ -58,7 +58,13 @@
 
 .half-circle-top-and-bottom {
 	
-	clip-path: url(#half-circle-top-and-bottom);
+	clip-path: url(#half-circle-top-and-bottom-mobile);
+	
+	@include breakpoint( medium ) {
+	
+		clip-path: url(#half-circle-top-and-bottom);
+		
+	}
 	
 }
 

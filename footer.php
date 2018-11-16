@@ -67,6 +67,7 @@
 			<?php include_once THEME_DIR . '/dist/assets/images/half-circle-left.svg'; ?>
 			<?php include_once THEME_DIR . '/dist/assets/images/half-circle-right.svg'; ?>
 			<?php include_once THEME_DIR . '/dist/assets/images/half-circle-top-and-bottom.svg'; ?>
+			<?php include_once THEME_DIR . '/dist/assets/images/half-circle-top-and-bottom-mobile.svg'; ?>
 			<?php include_once THEME_DIR . '/dist/assets/images/half-circle-top.svg'; ?>
 			<?php include_once THEME_DIR . '/dist/assets/images/half-circle-bottom.svg'; ?>
 		</div>
