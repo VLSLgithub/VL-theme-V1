@@ -145,7 +145,7 @@ while ( have_posts() ) : the_post(); ?>
 				
 					<?php while( $locations_query->have_posts() ) : $locations_query->the_post(); ?>
 
-						<article <?php post_class( array( 'small-12', 'medium-6', 'columns', 'queued-item' ) ); ?> aria-labelledby="post-<?php the_ID(); ?>" style="background-image: url('<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false )[0]; ?>');">
+						<article <?php post_class( array( 'small-6', 'columns', 'queued-item' ) ); ?> aria-labelledby="post-<?php the_ID(); ?>" style="background-image: url('<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false )[0]; ?>');">
 							
 							<a href="<?php the_permalink(); ?>">
 								
