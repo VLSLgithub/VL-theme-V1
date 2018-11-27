@@ -115,6 +115,7 @@ require_once( 'library/admin/extra-meta/front-page.php' );
 require_once( 'library/admin/extra-meta/about-us.php' );
 require_once( 'library/admin/extra-meta/contact-us.php' );
 require_once( 'library/admin/extra-meta/page.php' );
+require_once( 'library/admin/extra-meta/template-full-width-interstitial.php' );
 
 // Shortcodes
 require_once( 'library/shortcodes/vibrant-life-button.php' );

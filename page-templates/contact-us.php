@@ -9,6 +9,8 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
+<div class="swirl-border">
+
 	<section id="interstitial" class="row interstitial">
 		
 		<div class="small-12 columns">
@@ -38,6 +40,8 @@ while ( have_posts() ) : the_post(); ?>
 		</div>
 		
 	</section>
+	
+</div>
 
 <?php endwhile;
 

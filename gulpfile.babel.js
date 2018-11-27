@@ -220,9 +220,9 @@ function reload(done) {
 function watch() {
   gulp.watch(PATHS.assets, copy);
   gulp.watch('src/assets/scss/**/*.scss').on('all', sass);
-  gulp.watch('**/*.php').on('all', browser.reload);
-  gulp.watch('src/assets/js/**/*.js').on('all', gulp.series('webpack:build', tinymce, browser.reload));
-  gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
+  //gulp.watch('**/*.php').on('all', browser.reload);
+  gulp.watch('src/assets/js/**/*.js').on('all', gulp.series('webpack:build', tinymce));
+  gulp.watch('src/assets/img/**/*').on('all', gulp.series(images));
 }
 
 // Build the "dist" folder by running all of the below tasks
@@ -231,4 +231,4 @@ gulp.task('build',
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
-  gulp.series('build', server, watch));
+  gulp.series('build', watch));

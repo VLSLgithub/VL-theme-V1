@@ -2,10 +2,48 @@ body.has-post-thumbnail {
 	
 	.interstitial {
 		
-		margin-top: -3rem;
+		margin-top: -4rem;
+		
+		@include breakpoint( medium ) {
+		
+			margin-top: -3rem;
+			
+		}
 		
 	}
 	
+}
+
+.main-wrap .main-content {
+	.interstitial {
+		@include breakpoint( small only ) {
+			
+			$gutter-type: 'margin';
+			$gutters: $grid-margin-gutters;
+			$gutter-position: right left;
+			$operator: '';
+			
+			// Output our margin gutters.
+			  @if (type-of($gutters) == 'map') {
+				  
+				  $gutter: rem-calc( map-get( $gutters, 'small' ) ) / 2;
+
+				  // Loop through each gutter position
+				  @each $value in $gutter-position {
+					  #{$gutter-type}-#{$value}: #{ 1rem - $gutter };
+				  }
+			  }
+			  @elseif (type-of($gutters) == 'number') {
+				$gutter: rem-calc($gutters) / 2;
+
+				// Loop through each gutter position
+				@each $value in $gutter-position {
+					#{$gutter-type}-#{$value}: #{ 1rem - $gutter };
+				}
+			  }
+			
+		}
+	}
 }
 
 .interstitial {

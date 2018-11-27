@@ -2,14 +2,49 @@
   background-color: $white;
 }
 
+body:not(.has-post-thumbnail) {
+	
+	.main-wrap {
+
+	  padding-top: 1rem;
+
+	  @include breakpoint(medium) {
+		padding-top: 3rem;
+	  }
+		
+	}
+	
+}
+
+body.has-post-thumbnail {
+	
+	.main-wrap:not(.has-interstitial) {
+
+	  padding-top: 6rem;
+
+	  @include breakpoint(medium) {
+		padding-top: 3rem;
+	  }
+		
+	  margin-top: -5rem;
+
+	  @include breakpoint(medium) {
+		margin-top: -1.5rem;
+	  }
+		
+	}
+	
+	.main-wrap.has-interstitial {
+		
+		margin-top: -1rem;
+		
+	}
+	
+}
+
 .main-wrap {
   @include xy-grid-container;
   @include xy-grid();
-  margin-top: 1rem;
-
-  @include breakpoint(medium) {
-    margin-top: 3rem;
-  }
 
   &.sidebar-left {
 
