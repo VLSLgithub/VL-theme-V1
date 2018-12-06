@@ -96,14 +96,22 @@
 		display: none;
 		transition: unset;
 		position: absolute;
-		top: -7px;
-		left: -240px;
+		top: rem-calc( -7 );
+		left: rem-calc( -240 );
 		right: auto;
 		bottom: 0;
 		background: #fff;
-		width: 300px;
-		height: 75px;
+		width: rem-calc( 300 );
+		height: rem-calc( 75 );
 		border-radius: 300px / 250px;
+		
+		@include breakpoint( fourk ) {
+			
+			top: rem-calc( -14.4 );
+			left: rem-calc( -256 );
+			
+		}
+		
 	}
 
 	.svg-container {

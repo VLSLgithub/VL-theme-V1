@@ -31,6 +31,16 @@ div.image.with-image-tag {
 	
 }
 
+html {
+	
+	@include breakpoint( fourk ) {
+		
+		font-size: $global-font-size * 1.6;
+		
+	}
+	
+}
+
 body {
 	
 	@include breakpoint( small only ) {

@@ -7,7 +7,7 @@
 body.admin-bar {
   // Offset sticky top bar
   .sticky.is-stuck {
-      margin-top: rem-calc(32) !important;
+      margin-top: 32px !important;
   }
   // Offset mobile off-canvas menu
   &.offcanvas {
@@ -34,8 +34,8 @@ body.admin-bar {
 		.ab-icon, .ab-item {
 			
 			&, &:before {
-				font-size: 24px;
-				width: 30px;
+				font-size: rem-calc( 24px );
+				width: rem-calc( 30px );
 			}
 			
 		}
