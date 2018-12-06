@@ -1,5 +1,13 @@
 .page-template-contact-us { 
 	
+	section {
+		
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		
+	}
+	
 	.gform_wrapper {
 		
 		input[type=submit] {
