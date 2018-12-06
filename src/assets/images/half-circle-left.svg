@@ -1,7 +1,7 @@
 <svg width="0" height="0" viewBox="0 0 468 307">
 	<defs>
 		<clipPath id="half-circle-left" clipPathUnits="objectBoundingBox" transform="scale(0.002136752136752 0.003257328990228)">
-			<path d="M0 0C0 0 29 60.7 29.7 153.5 29.7 247.1 0.8 307 0.8 307l460 0 0-307z"/></svg>	
+			<path d="M0 0C0 0 29.7 58.8 29.7 153.5 29.7 247.1 0.8 307 0.8 307l456 0c0 0 2.3-0.3 3-1 0.7-0.7 1-3 1-3l0-299c0 0-0.3-2.3-1-3-0.7-0.7-3-1-3-1C304.5 0 152.3 0 0 0Z"/>	
 		</clipPath>
     </defs>
 </svg>
