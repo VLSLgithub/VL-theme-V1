@@ -10,6 +10,12 @@ body.has-post-thumbnail {
 			
 		}
 		
+		@include breakpoint( fourk ) {
+			
+			margin-top: -10vh;
+			
+		}
+		
 	}
 	
 }
