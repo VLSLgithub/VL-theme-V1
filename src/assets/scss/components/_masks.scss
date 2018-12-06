@@ -68,6 +68,22 @@
 	
 }
 
+.half-circle-top-and-bottom-container {
+	
+	& > * {
+	
+		clip-path: url(#half-circle-top-and-bottom-mobile);
+
+		@include breakpoint( medium ) {
+
+			clip-path: url(#half-circle-top-and-bottom);
+
+		}
+		
+	}
+	
+}
+
 .circle-button-container {
 	
 	@include circle-button( $quaternary-color, 16rem, 0.6 );

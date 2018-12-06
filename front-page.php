@@ -116,7 +116,7 @@ while ( have_posts() ) : the_post(); ?>
 			<h2><?php echo vibrant_life_get_field( 'video_header_text' ); ?></h2>
 		</div>
 		
-		<div class="video-popover-container small-12 columns half-circle-top-and-bottom">
+		<div class="video-popover-container small-12 columns half-circle-top-and-bottom-container">
                 
 			<?php echo wp_oembed_get( vibrant_life_get_field( 'video_url' ) ); ?>
 
