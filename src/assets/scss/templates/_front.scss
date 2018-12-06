@@ -1,18 +1,8 @@
 .home {
 	
-	.front-hero {
+	.featured-hero {
 
 		.marketing {
-
-			height: 100%;
-
-			@include breakpoint(medium) {
-				//margin-top: rem-calc(-300%);
-			}
-
-			& > * {
-				position: relative;
-			}
 
 			.tagline {
 
@@ -20,7 +10,15 @@
 				transform: translateY(-10%);
 				
 				* {
+					
 					text-shadow: 4px 4px 6px rgba(0,0,0,0.50);
+					
+					@include breakpoint( small only ) {
+						
+						font-size: 16px !important;
+						
+					}
+					
 				}
 
 			}
@@ -28,46 +26,30 @@
 			@include breakpoint(small only) {
 
 				.tagline {
-					margin-top: 2rem;
+					margin-top: -1rem;
 				}
 
 			}
+			
+			// This targets mainly small, older phones like the iPhone 5 in Landscape
+			@media only screen and #{breakpoint( small only )} and #{breakpoint( landscape )} {
+				
+				.tagline {
+					margin-top: -0.5rem;
+				}
+				
+			}
 
 		}
-
+		
 		.image {
-			position: absolute;
 			
-			@include breakpoint( small only ) {
-				clip-path: url(#hero-clip-mobile);
-			}
-
-			@include breakpoint( medium ) {
-				clip-path: url(#hero-clip);
-			}
-
-			.color-overlay {
-				position: absolute;
-				top: 0;
-				right: 0;
-				left: 0;
-				bottom: 0;
-				//background-color: rgba( 240, 240, 240, 0.86 );
-				//@include create-gradient( 'vertical', $primary-color, transparent );
+			@media only screen and #{breakpoint( small only )} and #{breakpoint( landscape )} {
+			
+				background-position: 50% 50%;
+				
 			}
 			
-			//background-position: 50% 80%;
-			background-repeat: no-repeat;
-			position: absolute;
-			top: 0;
-			right: 0;
-			left: 0;
-			bottom: 0;
-
-			@include breakpoint(medium) {
-				//background-position: 50% 0%;
-			}
-
 		}
 
 	}
@@ -147,6 +129,10 @@
 			.image {
 			
 				@extend .half-circle-right;
+				
+				@include breakpoint( medium only ) {
+					clip-path: url(#half-circle-bottom); // in this case, we want this on Medium too
+				}
 
 				background-position: 0% 80%;
 				background-repeat: no-repeat;
@@ -177,6 +163,14 @@
 				padding: rem-calc(60) rem-calc(30);
 			}
 			
+		}
+		
+	}
+	
+	#video {
+		
+		h2 {
+			margin-bottom: 3rem;
 		}
 		
 	}

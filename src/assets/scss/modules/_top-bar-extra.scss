@@ -19,10 +19,10 @@
 
 	a, button {
 
-		color: scale-color( $primary-color, $lightness: -10% );
+		color: scale-color( $quaternary-color, $lightness: -10% );
 
 		&:hover, &:focus {
-			color: $primary-color;
+			color: $quaternary-color;
 		}
 
 	}
@@ -68,6 +68,7 @@
 
 	.logo {
 
+		// Up-to Large
 		@media only screen and (max-width: #{( map-get( $breakpoints, 'large' ) - 1 )}) {
 			width: 100%;
 			text-align: center;

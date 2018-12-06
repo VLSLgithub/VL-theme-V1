@@ -18,6 +18,19 @@
 			margin-bottom: 0;
 		}
 		
+		// This targets mainly small, older phones like the iPhone 5 in Landscape
+		@media only screen and #{breakpoint( small only )} and #{breakpoint( landscape )} {
+
+			.medium-3 {
+				width: ( ( 3/12 ) * 100 ) + 0%;
+			}
+
+			.medium-9 {
+				width: ( ( 9/12 ) * 100 ) + 0%;
+			}
+
+		}
+		
 	}
 	
 	#after-interstitial {
@@ -91,6 +104,14 @@
 				padding: rem-calc(60) rem-calc(30);
 			}
 			
+		}
+		
+	}
+	
+	#video {
+		
+		h2 {
+			margin-bottom: 3rem;
 		}
 		
 	}

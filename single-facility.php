@@ -66,14 +66,14 @@ while ( have_posts() ) : the_post(); ?>
 
 		</section>
 
-		<section id="call-to-action" class="row expanded" data-equalizer data-equalize-on="medium">
+		<section id="call-to-action" class="row expanded" data-equalizer data-equalize-on="large">
 
-			<div class="small-12 medium-6 columns image-container" data-equalizer-watch>
+			<div class="small-12 medium-12 large-6 columns image-container" data-equalizer-watch>
 				<div class="image" style="background-image: url('<?php echo wp_get_attachment_image_src( rbm_cpts_get_field( 'call_to_action_image' ), 'full', false )[0]; ?>');">
 				</div>
 			</div>
 
-			<div class="small-12 medium-6 columns text-container" data-equalizer-watch>
+			<div class="small-12 medium-12 large-6 columns text-container" data-equalizer-watch>
 				<?php echo apply_filters( 'the_content', rbm_cpts_get_field( 'call_to_action_content' ) ); ?>
 			</div>
 
@@ -81,7 +81,7 @@ while ( have_posts() ) : the_post(); ?>
 		
 	</div>
 
-	<section id="video" class="row expanded small-collapse">
+	<section id="video" class="row small-collapse">
 		
 		<div class="small-12 columns text-center">
 			<h2><?php echo rbm_cpts_get_field( 'video_header_text' ); ?></h2>

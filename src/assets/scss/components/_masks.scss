@@ -102,6 +102,12 @@
 
 .circle-button-container {
 	
-	@include circle-button( $quaternary-color, 16rem, 0.6 );
+	@include circle-button( $quaternary-color, 8rem, 0.6 );
+	
+	@include breakpoint( large ) {
+	
+		@include circle-button( $quaternary-color, 16rem, 0.6 );
+		
+	}
 	
 }
