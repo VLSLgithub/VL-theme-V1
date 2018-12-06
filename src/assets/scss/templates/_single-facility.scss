@@ -1,5 +1,13 @@
 .single-facility {
 	
+	section {
+		
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		
+	}
+	
 	.swirl-border {
 		margin-bottom: 3rem;
 	}

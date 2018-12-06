@@ -48,11 +48,19 @@
 	
 	clip-path: url(#half-circle-top);
 	
+	iframe {
+		display: block;
+	}
+	
 }
 
 .half-circle-bottom {
 	
 	clip-path: url(#half-circle-bottom);
+	
+	iframe {
+		display: block;
+	}
 	
 }
 
@@ -64,6 +72,10 @@
 	
 		clip-path: url(#half-circle-top-and-bottom);
 		
+	}
+	
+	iframe {
+		display: block;
 	}
 	
 }
@@ -80,6 +92,10 @@
 
 		}
 		
+	}
+	
+	iframe {
+		display: block;
 	}
 	
 }
