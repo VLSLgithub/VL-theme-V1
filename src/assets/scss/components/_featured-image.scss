@@ -8,7 +8,11 @@
 	}
 
 	@include breakpoint( medium ) {
-		height: 35rem;
+		height: 80vh;
+	}
+	
+	@include breakpoint( fourk ) {
+		height: 90vh;
 	}
 
 	width: auto;
