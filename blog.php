@@ -3,12 +3,6 @@
  * Custom Template File for the Blog Page
  */
 
-global $wp_query;
-global $post;
-
-// Use what we want for $post for building out our page
-$post = get_post( $wp_query->queried_object->ID );
-
 get_header(); ?>
 
 <div class="swirl-border">

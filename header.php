@@ -194,6 +194,14 @@
 		
 		if ( ( is_single() || is_404() || is_page() || (bool) $wp_query->is_posts_page ) && 
 				 ! apply_filters( 'vibrant_life_hide_hero', false ) ) {
+			
+			if ( (bool) $wp_query->is_posts_page ) {
+				
+				global $post;
+				
+				$post = get_post( $wp_query->queried_object->ID );
+				
+			}
 		
 			if ( ! is_404() && 
 				vibrant_life_get_field( 'hero_tagline' ) ) {
