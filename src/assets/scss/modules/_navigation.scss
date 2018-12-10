@@ -97,7 +97,7 @@
 		transition: unset;
 		position: absolute;
 		top: rem-calc( -7 );
-		left: rem-calc( -240 );
+		left: rem-calc( -128 );
 		right: auto;
 		bottom: 0;
 		background: #fff;
@@ -108,7 +108,7 @@
 		@include breakpoint( fourk ) {
 			
 			top: rem-calc( -14.4 );
-			left: rem-calc( -256 );
+			left: rem-calc( -192 );
 			
 		}
 		
