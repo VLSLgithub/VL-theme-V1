@@ -150,8 +150,10 @@ while ( have_posts() ) : the_post(); ?>
 							<a href="<?php the_permalink(); ?>">
 								
 								<div class="color-overlay"></div>
+								
+								<?php $title = rbm_cpts_get_field( 'short_name' ); ?>
 							
-								<h2 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h2>
+								<h2 id="post-<?php the_ID(); ?>"><?php echo ( $title ? $title : get_the_title() ); ?></h2>
 								
 							</a>
 							
