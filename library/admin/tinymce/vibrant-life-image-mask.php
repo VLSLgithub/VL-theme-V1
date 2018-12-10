@@ -63,7 +63,7 @@ function vibrant_life_image_mask_tinymce_l10n( $l10n ) {
             'label' => __( 'Image Mask', 'vibrant-life-theme' ),
             'default' => 'aligncenter',
             'choices' => array(
-				'aligncenter' => __( 'Align Center/Full Width', 'vibrant-life-theme' ),
+				'aligncenter' => __( 'Align Center/Full Width (Do not select this if placed within a Column)', 'vibrant-life-theme' ),
 				'alignleft' => __( 'Align Left', 'vibrant-life-theme' ),
                 'alignright' => __( 'Align Right', 'vibrant-life-theme' ),
 			),
