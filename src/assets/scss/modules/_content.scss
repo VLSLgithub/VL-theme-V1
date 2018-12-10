@@ -20,13 +20,14 @@ body.has-post-thumbnail {
 	
 	.main-wrap:not(.has-interstitial) {
 
-	  padding-top: 6rem;
+	  padding-top: 4rem;
 
 	  @include breakpoint(medium) {
+		padding-top: 6rem;
 		padding-top: 3rem;
 	  }
 		
-	  margin-top: -5rem;
+	  margin-top: -1rem;
 
 	  @include breakpoint(medium) {
 		margin-top: -1.5rem;

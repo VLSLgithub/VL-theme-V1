@@ -92,6 +92,12 @@ body {
 	
 	@include image-box-shadow();
 	
+	@include breakpoint( small only ) {
+		
+		margin-top: -5rem;
+		
+	}
+	
 	@include breakpoint( teneightyp ) {
 		
 		margin-top: -3rem;
