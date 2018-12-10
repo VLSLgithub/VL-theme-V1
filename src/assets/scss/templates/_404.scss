@@ -20,15 +20,26 @@
 		
 		background: #fff;
 		border-radius:  0.25rem;
+		padding: 1rem;
 		
 		a {
 			
-			color: $anchor-color;
-			
+			color: $dark-color;
+			font-family: $header-font-family;
+
 			&:hover, &:focus {
-				
-				color: $anchor-color-hover;
-				
+				@include light-or-dark-text( $quaternary-color );
+			}
+
+			font-weight: bold;
+			line-height: 1;
+			border-radius: 0.25rem;
+
+			&:hover:not(.button), &:focus:not(.button) {
+
+				box-shadow: rem-calc(4) rem-calc(4) rem-calc(4) rgba(#000, 0.5);
+				background-color: $quaternary-color;
+
 			}
 			
 		}
@@ -37,7 +48,7 @@
 			
 			svg path {
 				
-				fill: $anchor-color;
+				fill: $dark-color;
 				
 			}
 			
@@ -45,7 +56,7 @@
 				
 				svg path {
 				
-					fill: $anchor-color-hover;align-content: center
+					fill: $anchor-color-hover;
 						
 				}
 				
