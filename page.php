@@ -15,7 +15,7 @@ get_header();
 do_action( 'foundationpress_before_content' ); ?>
 
 <div class="swirl-border">
-	<div class="main-wrap full-width">	
+	<div class="main-wrap full-width has-interstitial">	
 		<main class="main-content">
 			 <?php while ( have_posts() ) : the_post(); ?>
 			
