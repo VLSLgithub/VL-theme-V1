@@ -226,6 +226,8 @@ while ( have_posts() ) : the_post(); ?>
 								<a href="<?php the_permalink(); ?>">
 									<h3 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h3>
 								</a>
+								
+								<?php foundationpress_entry_meta(); ?>
 
 								<?php the_excerpt(); ?>
 
