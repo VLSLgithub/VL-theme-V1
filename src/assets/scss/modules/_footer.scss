@@ -6,7 +6,10 @@
 .footer-top {
 	
 	position: relative;
-	overflow: hidden;
+	
+	@include breakpoint( medium ) {
+		overflow: hidden;
+	}
 	
 	font-family: $header-font-family;
 	
@@ -20,6 +23,15 @@
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
+	}
+	
+	@include breakpoint( small only ) {
+		
+		.flourishes {
+			position: absolute;
+			bottom: 0;
+		}
+		
 	}
 	
 	.flourish {
@@ -69,7 +81,9 @@
 	
 	& > .content {
 		
-		position: absolute;
+		@include breakpoint( medium ) {
+			position: absolute;
+		}
 		
 		top: 0;
 		right: 0;
