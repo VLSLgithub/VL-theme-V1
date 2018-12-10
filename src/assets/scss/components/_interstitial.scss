@@ -10,9 +10,15 @@ body.has-post-thumbnail {
 			
 		}
 		
+		@include breakpoint( teneightyp ) {
+			
+			margin-top: -4vh;
+			
+		}
+		
 		@include breakpoint( fourk ) {
 			
-			margin-top: -10vh;
+			margin-top: -6vh;
 			
 		}
 		

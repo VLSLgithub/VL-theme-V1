@@ -92,4 +92,16 @@ body {
 	
 	@include image-box-shadow();
 	
+	@include breakpoint( teneightyp ) {
+		
+		margin-top: -3rem;
+		
+	}
+	
+	@include breakpoint( fourk ) {
+		
+		margin-top: -4rem;
+		
+	}
+	
 }
