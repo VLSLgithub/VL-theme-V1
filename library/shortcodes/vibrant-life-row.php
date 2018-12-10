@@ -1,6 +1,6 @@
 <?php
 /**
- * Adds the [vibrant_life_image_mask] shortcode
+ * Adds the [vibrant_life_row] shortcode
  *
  * @since   {{VERSION}}
  * @package VibrantLifeTheme2018
@@ -18,24 +18,22 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since       {{VERSION}}
  * @return      HTML
  */
-add_shortcode( 'vibrant_life_image_mask', 'add_vibrant_life_image_mask_shortcode' );
-function add_vibrant_life_image_mask_shortcode( $atts, $content = '' ) {
+add_shortcode( 'vibrant_life_row', 'add_vibrant_life_row_shortcode' );
+function add_vibrant_life_row_shortcode( $atts, $content = '' ) {
     
     $atts = shortcode_atts(
         array( // a few default values
-            'mask' => 'half-circle-right',
-			'align' => 'aligncenter',
         ),
         $atts,
-        'vibrant_life_image_mask'
+        'vibrant_life_row'
     );
     
     ob_start();
 	
 	?>
     
-    <div class="vibrant-life-image-mask-shortcode image with-image-tag <?php echo $atts['mask']; ?> <?php echo $atts['align']; ?>">
-		<?php echo $content; ?>
+    <div class="row expanded vibrant-life-row-shortcode">
+		<?php echo do_shortcode( $content ); ?>
 	</div>
 
     <?php

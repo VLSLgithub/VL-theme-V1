@@ -120,12 +120,16 @@ require_once( 'library/admin/extra-meta/template-full-width-interstitial.php' );
 // Shortcodes
 require_once( 'library/shortcodes/vibrant-life-button.php' );
 require_once( 'library/shortcodes/vibrant-life-image-mask.php' );
+require_once( 'library/shortcodes/vibrant-life-row.php' );
+require_once( 'library/shortcodes/vibrant-life-column.php' );
 
 // TinyMCE functionality
 require_once( 'library/admin/tinymce/localization.php' );
 require_once( 'library/admin/tinymce/color-palette.php' );
 require_once( 'library/admin/tinymce/vibrant-life-button.php' );
 require_once( 'library/admin/tinymce/vibrant-life-image-mask.php' );
+require_once( 'library/admin/tinymce/vibrant-life-row.php' );
+require_once( 'library/admin/tinymce/vibrant-life-column.php' );
 
 add_filter( 'template_include', 'vibrant_life_blog_template' );
 function vibrant_life_blog_template( $template ) {

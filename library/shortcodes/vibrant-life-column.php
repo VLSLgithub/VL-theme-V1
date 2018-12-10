@@ -1,6 +1,6 @@
 <?php
 /**
- * Adds the [vibrant_life_image_mask] shortcode
+ * Adds the [vibrant_life_column] shortcode
  *
  * @since   {{VERSION}}
  * @package VibrantLifeTheme2018
@@ -18,24 +18,25 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since       {{VERSION}}
  * @return      HTML
  */
-add_shortcode( 'vibrant_life_image_mask', 'add_vibrant_life_image_mask_shortcode' );
-function add_vibrant_life_image_mask_shortcode( $atts, $content = '' ) {
+add_shortcode( 'vibrant_life_column', 'add_vibrant_life_column_shortcode' );
+function add_vibrant_life_column_shortcode( $atts, $content = '' ) {
     
     $atts = shortcode_atts(
         array( // a few default values
-            'mask' => 'half-circle-right',
-			'align' => 'aligncenter',
+			'small' => 'small-12',
+			'medium' => 'medium-12',
+			'large' => 'large-12',
         ),
         $atts,
-        'vibrant_life_image_mask'
+        'vibrant_life_column'
     );
     
     ob_start();
 	
 	?>
     
-    <div class="vibrant-life-image-mask-shortcode image with-image-tag <?php echo $atts['mask']; ?> <?php echo $atts['align']; ?>">
-		<?php echo $content; ?>
+    <div class="<?php echo $atts['small']; ?> <?php echo $atts['medium']; ?> <?php echo $atts['large']; ?> columns vibrant-life-column-shortcode">
+		<?php echo do_shortcode( $content ); ?>
 	</div>
 
     <?php

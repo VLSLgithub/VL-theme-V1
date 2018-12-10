@@ -71,6 +71,8 @@ function vibrant_life_get_wysiwyg_options( $context = 'default' ) {
 			'external_plugins' => array(
 				'vibrant_life_button_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-button.js',
 				'vibrant_life_image_mask_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-image-mask.js',
+				'vibrant_life_row_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-row.js',
+				'vibrant_life_column_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-column.js',
 			),
 		),
 	), $context );
