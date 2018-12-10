@@ -55,4 +55,19 @@
 		
 	}
 	
+	.interstitial {
+		
+		// This targets mainly small, older phones like the iPhone 5 in Landscape
+		@media only screen and #{breakpoint( small only )} and #{breakpoint( landscape )} {
+
+			.medium-6 {
+
+				width: ( ( 6/12 ) * 100 ) + 0%;
+
+			}
+
+		}
+		
+	}
+	
 }
