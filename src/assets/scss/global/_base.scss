@@ -29,6 +29,16 @@ div.image.with-image-tag {
 		height: auto;
 	}
 	
+	padding: 0;
+	
+	p {
+		margin: 0;
+	}
+	
+	br {
+		display: none;
+	}
+	
 }
 
 html {

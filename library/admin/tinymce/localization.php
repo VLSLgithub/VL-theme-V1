@@ -70,6 +70,7 @@ function vibrant_life_get_wysiwyg_options( $context = 'default' ) {
 			'textcolor_map' => _vibrant_life_get_custom_tinymce_colors( $context ),
 			'external_plugins' => array(
 				'vibrant_life_button_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-button.js',
+				'vibrant_life_image_mask_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-image-mask.js',
 			),
 		),
 	), $context );
