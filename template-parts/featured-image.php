@@ -13,8 +13,26 @@ elseif ( is_404() ) {
 
 if ( $attachment_id ) : ?>
 	<header class="featured-hero" role="banner">
+		
 		<div class="image" data-interchange="[<?php echo wp_get_attachment_image_src( $attachment_id, 'full', false )[0]; ?>, small], [<?php echo wp_get_attachment_image_src( $attachment_id, 'full', false )[0]; ?>, medium], [<?php echo wp_get_attachment_image_src( $attachment_id, 'full', false )[0]; ?>, large], [<?php echo wp_get_attachment_image_src( $attachment_id, 'full', false )[0]; ?>, xlarge]">
 			<div class="color-overlay"></div>
 		</div>
+		
+		<div class="expanded row flourishes small-collapse show-for-large">
+
+			<div class="flourish flourish-left small-12 large-6 text-left columns">
+
+				<?php include THEME_DIR . '/dist/assets/images/flourish.svg'; ?>
+
+			</div>
+
+			<div class="flourish flourish-right large-6 columns text-right">
+
+				<?php include THEME_DIR . '/dist/assets/images/flourish.svg'; ?>
+
+			</div>
+
+		</div>
+		
 	</header>
 <?php endif;

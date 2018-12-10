@@ -138,3 +138,64 @@
 	}
 
 }
+
+.featured-hero, .title-hero {
+	
+	.flourishes {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+	}
+	
+	.flourish {
+		
+		position: relative;
+		height: 75%;
+		width: auto;
+		
+		top: 20%;
+		
+		svg {
+			
+			height: 100%;
+			width: auto;
+		
+			position: absolute;
+			bottom: 0;
+			top: 1rem;
+			right: auto;
+			left: auto;
+			
+			path {
+				fill: #D8D8D8;
+				opacity: 0.217466518; // Oddly specific
+			}
+			
+		}
+		
+		&.flourish-left {
+			
+			svg {
+				
+				transform: scaleX( -1 );
+				left: 1rem;
+				
+			}
+			
+		}
+		
+		&.flourish-right {
+			
+			svg {
+				
+				right: 1rem;
+				
+			}
+			
+		}
+		
+	}
+	
+}

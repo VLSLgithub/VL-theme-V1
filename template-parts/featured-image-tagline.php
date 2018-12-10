@@ -8,6 +8,22 @@
 			</div>
 			
 			<div class="color-overlay"></div>
+			
+			<div class="expanded row flourishes small-collapse show-for-large">
+
+				<div class="flourish flourish-left small-12 large-6 text-left columns">
+
+					<?php include THEME_DIR . '/dist/assets/images/flourish.svg'; ?>
+
+				</div>
+
+				<div class="flourish flourish-right large-6 columns text-right">
+
+					<?php include THEME_DIR . '/dist/assets/images/flourish.svg'; ?>
+
+				</div>
+
+			</div>
 
 			<div class="small-12 columns tagline">
 				<div class="row">
