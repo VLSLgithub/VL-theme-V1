@@ -75,15 +75,6 @@ function vibrant_life_add_contact_metaboxes() {
     if ( vibrant_life_is_editing_contact() ) {
 		
 		add_meta_box(
-			'vibrant-life-hero',
-			__( 'Hero', 'vibrant-life-theme' ),
-			'vibrant_life_contact_hero_metabox_content',
-			'page',
-			'normal',
-			'low'
-		);
-		
-		add_meta_box(
 			'vibrant-life-interstitial',
 			__( 'Interstitial', 'vibrant-life-theme' ),
 			'vibrant_life_contact_interstitial_metabox_content',
@@ -94,20 +85,6 @@ function vibrant_life_add_contact_metaboxes() {
         
     }
     
-}
-
-function vibrant_life_contact_hero_metabox_content( $post_id ) {
-	
-	?>
-
-	<p class="description">
-		<?php _e( 'The Hero Image is set using the Featured Image to the right', 'vibrant-life-theme' ); ?>
-	</p>
-
-	<?php 
-	
-	vibrant_life_init_field_group( 'contact_hero' );
-	
 }
 
 function vibrant_life_contact_interstitial_metabox_content( $post_id ) {

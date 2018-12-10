@@ -11,6 +11,9 @@
 			<div class="small-12 columns tagline">
 				<div class="row">
 					<div class="small-12 columns">
+						<?php if ( ! is_front_page() ) : ?>
+							<h1 class="page-title"><?php the_title(); ?></h1>
+						<?php endif; ?>
 						<?php echo apply_filters( 'the_content', vibrant_life_get_field( 'hero_tagline' ) ); ?>
 					</div>
 				</div>

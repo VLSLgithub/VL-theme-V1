@@ -78,15 +78,6 @@ function vibrant_life_add_home_metaboxes() {
     if ( vibrant_life_is_editing_home() ) {
 		
 		add_meta_box(
-			'vibrant-life-hero',
-			__( 'Hero', 'vibrant-life-theme' ),
-			'vibrant_life_home_hero_metabox_content',
-			'page',
-			'normal',
-			'low'
-		);
-		
-		add_meta_box(
 			'vibrant-life-interstitial',
 			__( 'Interstitial', 'vibrant-life-theme' ),
 			'vibrant_life_home_interstitial_metabox_content',
@@ -133,33 +124,6 @@ function vibrant_life_add_home_metaboxes() {
         
     }
     
-}
-
-function vibrant_life_home_hero_metabox_content( $post_id ) {
-	
-	?>
-
-	<p class="description">
-		<?php _e( 'The Hero Image is set using the Featured Image to the right', 'vibrant-life-theme' ); ?>
-	</p>
-
-	<?php 
-	
-	vibrant_life_do_field_textarea( array(
-		'label' => '<strong>' . __( 'Tagline', 'vibrant-life-theme' ) . '</strong>',
-		'name' => 'hero_tagline',
-		'wysiwyg' => true,
-		'group' => 'home_hero',
-		'wysiwyg_options' => vibrant_life_get_wysiwyg_options(),
-		'default' => '<h1><span style="color: #ffffff;">Senior Assisted Living &amp;  Memory Care in Michigan</span></h1>
-<h2 class="p1"><span style="color: #F5A623;">people helping people thrive!</span></h2>',
-		'description' => '<p class="description">' . __( 'For this field, you need to set the Text Color yourself', 'vibrant-life-theme' ) . '</p>',
-		'description_tip' => false,
-		'description_placement' => 'after_label',
-	) );
-	
-	vibrant_life_init_field_group( 'home_hero' );
-	
 }
 
 function vibrant_life_home_interstitial_metabox_content( $post_id ) {
