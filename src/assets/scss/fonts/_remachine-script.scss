@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'remachinescript';
+	src: url('../fonts/RemachineScript.eot');
+	src: url('../fonts/RemachineScript.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/RemachineScript.woff') format('woff'),
+		url('../fonts/RemachineScript.ttf') format('truetype'),
+		url('../fonts/RemachineScript.svg#remachinescript') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.remachinescript {
+	font-family: 'remachinescript';
+	font-size: 140%;
+}

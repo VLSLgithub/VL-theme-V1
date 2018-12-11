@@ -24,9 +24,6 @@ function vibrant_life_add_page_metaboxes() {
 	
 	global $post;
 	
-	// Each page except the Home Page
-	if ( vibrant_life_is_editing_home() ) return;
-	
 	add_meta_box(
 		'vibrant-life-hero',
 		__( 'Hero', 'vibrant-life-theme' ),
@@ -35,6 +32,9 @@ function vibrant_life_add_page_metaboxes() {
 		'normal',
 		'high'
 	);
+	
+	// Each page except the Home Page
+	if ( vibrant_life_is_editing_home() ) return;
     
 }
 
