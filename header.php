@@ -203,8 +203,7 @@
 				
 			}
 		
-			if ( ! is_404() && 
-				vibrant_life_get_field( 'hero_tagline' ) ) {
+			if ( ! is_404() ) {
 		
 				include_once THEME_DIR . '/template-parts/featured-image-tagline.php';
 				
