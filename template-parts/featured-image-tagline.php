@@ -31,7 +31,17 @@
 						<?php if ( ! is_front_page() ) : ?>
 							<h1 class="page-title"><?php the_title(); ?></h1>
 						<?php endif; ?>
-						<?php echo apply_filters( 'the_content', vibrant_life_get_field( 'hero_tagline' ) ); ?>
+						
+						<?php 
+						
+						$tagline = vibrant_life_get_field( 'hero_tagline' );
+						
+						if ( ! $tagline ) {
+							$tagline = rbm_cpts_get_field( 'hero_tagline' );
+						}
+						
+						echo apply_filters( 'the_content', $tagline ); ?>
+						
 					</div>
 				</div>
 			</div>
