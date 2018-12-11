@@ -104,6 +104,7 @@ function vibrant_life_contact_interstitial_metabox_content( $post_id ) {
 		'name' => 'interstitial_form',
 		'options' => $forms,
 		'group' => 'contact_interstitial',
+		'select2_disable' => true,
 	) );
 	
 	vibrant_life_init_field_group( 'contact_interstitial' );
