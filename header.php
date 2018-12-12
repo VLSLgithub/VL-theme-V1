@@ -44,6 +44,15 @@
 					<?php _e( 'Welcome to Vibrant Life', 'vibrant-life-theme' ); ?>
 				<?php endif; ?>
 			</div>
+			
+			<?php wp_nav_menu( array(
+				'container'      => false,
+				'menu_class'     => 'menu',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s top-bar-extra-menu hide-for-small-only">%3$s</ul>',
+				'theme_location' => 'top-bar-extra',
+				'depth'          => 1,
+				'walker'         => new Foundationpress_Top_Bar_Walker(),
+			) ); ?>
 
 			<div class="top-bar-right social">
 

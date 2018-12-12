@@ -9,6 +9,7 @@
 
 register_nav_menus( array(
 	'primary'  => esc_html__( 'Primary', 'vibrant-life-theme' ),
+	'top-bar-extra' => esc_html__( 'Top Bar', 'vibrant-life-theme' ),
 	'four-oh-four' => esc_html__( '404 Page', 'vibrant-life-theme' ),
 ));
 
