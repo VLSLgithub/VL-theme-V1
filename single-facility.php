@@ -83,19 +83,23 @@ while ( have_posts() ) : the_post(); ?>
 		
 	</div>
 
-	<section id="video" class="row small-collapse">
-		
-		<div class="small-12 columns text-center">
-			<h2><?php echo rbm_cpts_get_field( 'video_header_text' ); ?></h2>
-		</div>
-		
-		<div class="video-popover-container small-12 columns half-circle-top">
-                
-			<?php echo wp_oembed_get( rbm_cpts_get_field( 'video_url' ) ); ?>
+	<?php if ( $video_url = rbm_cpts_get_field( 'video_url' ) ) : ?>
 
-		</div>
+		<section id="video" class="row small-collapse">
 
-	</section>
+			<div class="small-12 columns text-center">
+				<h2><?php echo rbm_cpts_get_field( 'video_header_text' ); ?></h2>
+			</div>
+
+			<div class="video-popover-container small-12 columns half-circle-top">
+
+				<?php echo wp_oembed_get( $video_url ); ?>
+
+			</div>
+
+		</section>
+
+	<?php endif; ?>
 
 	<div class="reveal large video-popover" data-reveal data-reset-on-close="true">
     
