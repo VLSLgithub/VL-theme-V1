@@ -118,13 +118,19 @@
 		}
 		
 		position: relative;
+		
+		// Used to calculate height and width for the "writable" area
+		.circle-button-text-container {
+			position: absolute;
+			height: $size - ( $size / 6.5 );
+			width: $size - ( $size / 6.5 );
+		}
 
 		.circle-button-text {
-			margin: 0 auto;
-			position: absolute;
+			position: relative;
 			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
+			transform: translateY(-50%);
+			text-align: center;
 		}
 		
 	}

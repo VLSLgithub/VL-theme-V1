@@ -46,9 +46,11 @@ while ( have_posts() ) : the_post(); ?>
 						<div class="circle-button-container">
 							<a href="<?php echo $row['circle_button_url']; ?>" title="<?php echo $row['circle_button_text']; ?>">
 								<div class="circle-button animate-on-scroll scale-in-up">
-									<span class="circle-button-text">
-										<?php echo $row['circle_button_text']; ?>
-									</span>
+									<div class="circle-button-text-container">
+										<div class="circle-button-text">
+											<?php echo $row['circle_button_text']; ?>
+										</div>
+									</div>
 								</div>
 							</a>
 						</div>
