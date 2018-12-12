@@ -15,6 +15,8 @@
 		<section class="interstitial row">
 			<div class="small-12 columns">
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				<hr />
+				<?php foundationpress_entry_meta(); ?>
 			</div>
 		</section>
 	<?php else : ?>
