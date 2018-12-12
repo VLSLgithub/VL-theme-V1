@@ -194,3 +194,20 @@ function vibrant_life_get_phone_number_link( $phone_number, $extension = false, 
     return "<a href='$tel_link' class='phone-number-link'>$phone_icon$link_text</a>";
     
 }
+
+/**
+ * Forcefully removes all L-SEP characters from the content in Chrome in Windows 10
+ * Yeah... it is that weird
+ * 
+ * @param  string $content The Content
+ *                             
+ * @since {{VERSION}}
+ * @return string The Content
+ */
+add_filter( 'the_content', 'vibrant_life_fix_l_sep' );
+add_filter( 'the_title', 'vibrant_life_fix_l_sep' );
+function vibrant_life_fix_l_sep( $content ) {
+	
+	return str_replace( html_entity_decode( "&#8232;" ), '', $content );
+	
+}
