@@ -117,4 +117,20 @@ body.has-post-thumbnail {
 				
 	}
 	
+	&, *:not(.circle-button-container) {
+	
+		a:not(.button) {
+
+			color: $quinary-color;
+
+			&:hover, &:focus { 
+
+				color: scale-color( $quinary-color, $lightness: -15% );
+
+			}
+
+		}
+		
+	}
+	
 }
