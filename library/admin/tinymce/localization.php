@@ -65,9 +65,10 @@ function vibrant_life_get_wysiwyg_options( $context = 'default' ) {
 		'mediaButtons' => true,
 		'tinymce' => array(
 			'content_css' => THEME_URL . '/dist/assets/css/app.css',
-			'toolbar1' => 'formatselect,bold,italic,bullist,numlist,blockquote,alignleft,aligncenter,alignright,link,wp_more,wp_adv' . _vibrant_life_get_wysiwyg_shortcode_buttons( $context ),
+			'toolbar1' => 'styleselect,bold,italic,bullist,numlist,blockquote,alignleft,aligncenter,alignright,link,wp_more,wp_adv' . _vibrant_life_get_wysiwyg_shortcode_buttons( $context ),
 			'toolbar2' => 'strikethrough,hr,forecolor,pastetext,removeformat,charmap,outdent,indent,undo,redo,wp_help',
 			'textcolor_map' => _vibrant_life_get_custom_tinymce_colors( $context ),
+			'style_formats' => _vibrant_life_get_custom_text_styles( $context ),
 			'external_plugins' => array(
 				'vibrant_life_button_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-button.js',
 				'vibrant_life_image_mask_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-image-mask.js',
@@ -93,6 +94,10 @@ function _vibrant_life_get_wysiwyg_shortcode_buttons( $context = 'default' ) {
 	
 	$shortcode_buttons = apply_filters( 'vibrant_life_get_wysiwyg_shortcode_buttons', array(
 		'vibrant_life_button_shortcode',
+		'vibrant_life_image_mask_shortcode',
+		'vibrant_life_row_shortcode',
+		'vibrant_life_column_shortcode',
+		'vibrant_life_phone_number_shortcode',
 	), $context );
 	
 	if ( ! empty( $shortcode_buttons ) ) {

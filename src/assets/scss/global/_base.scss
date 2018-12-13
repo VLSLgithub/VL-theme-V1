@@ -85,6 +85,28 @@ body {
 	
 }
 
+@each $size, $headers in $subheader-styles  {
+	
+	@include breakpoint( $size ) {
+		
+		@each $header, $styles in $headers {
+			
+			#{$header}.subheader {
+				
+				@each $property, $value in $styles {
+					
+					#{$property}: $value;
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+}
+
 .swirl-border {
 	
 	background-image: url( '../images/swirl.png' );
