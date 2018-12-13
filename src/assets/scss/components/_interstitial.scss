@@ -2,23 +2,23 @@ body.has-post-thumbnail {
 	
 	.interstitial {
 		
-		margin-top: -4rem;
+		margin-top: -24vh;
 		
 		@include breakpoint( medium ) {
 		
-			margin-top: -7vh;
+			margin-top: -24vh;
 			
 		}
 		
 		@include breakpoint( teneighty ) {
 			
-			margin-top: -4vh;
+			margin-top: -24vh;
 			
 		}
 		
 		@include breakpoint( fourk ) {
 			
-			margin-top: -6vh;
+			margin-top: -24vh;
 			
 		}
 		

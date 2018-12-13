@@ -169,6 +169,7 @@
 			a {
 
 				color: $white;
+				white-space: normal;
 
 				&:hover {
 					color: scale-color( $secondary-color, $lightness: 15% );
