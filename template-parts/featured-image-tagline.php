@@ -1,3 +1,12 @@
+<?php 
+
+global $wp_query;
+
+// We fake in-the-loop to ensure we only do THRIVE replacements at the right time
+$wp_query->in_the_loop = true;
+
+?>
+
 <header class="title-hero" role="banner">
 		
 	<div class="row expanded featured-hero title-hero">
@@ -50,3 +59,7 @@
 	</div>
 
 </header>
+
+<?php
+
+$wp_query->in_the_loop = false;

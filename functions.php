@@ -224,6 +224,8 @@ function vibrant_life_fix_l_sep( $content ) {
 add_filter( 'the_title', 'vibrant_life_thrive_font_in_title' );
 function vibrant_life_thrive_font_in_title( $title ) {
 	
+	if ( ! in_the_loop() ) return $title;
+	
 	return str_replace( 'THRIVE', '<span class="remachinescript">THRIVE</span>', $title );
 	
 }
