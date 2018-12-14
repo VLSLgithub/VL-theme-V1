@@ -55,7 +55,9 @@ $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
 $header-color: $primary-color;
-$body-font-color: #222;
+$strong-font-color: #222;
+$body-font-color: lighten( $strong-font-color, 20% );
+$strong-font-color: darken( #222, 20% );
 
 $body-font-family: $font-family-serif;
 

@@ -111,6 +111,13 @@ h1.subheader {
 	color: $quinary-color;
 }
 
+strong, em {
+
+	color: $strong-font-color;
+	font-weight: 400;
+
+}
+
 .swirl-border {
 	
 	background-image: url( '../images/swirl.png' );

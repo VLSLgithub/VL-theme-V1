@@ -79,6 +79,12 @@ body.has-post-thumbnail {
 		@include light-or-dark-text( $quaternary-color );
 	}
 	
+	strong {
+		
+		font-weight: $global-weight-bold;
+		
+	}
+	
 	.gform_wrapper {
 		
 		.gfield_required {
