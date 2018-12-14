@@ -5,7 +5,7 @@ global $wp_query;
 // We fake in-the-loop to ensure we only do THRIVE replacements at the right time
 $wp_query->in_the_loop = true;
 
-?>
+if ( has_post_thumbnail() ) : ?>
 
 <header class="title-hero" role="banner">
 		
@@ -61,5 +61,7 @@ $wp_query->in_the_loop = true;
 </header>
 
 <?php
+
+endif;
 
 $wp_query->in_the_loop = false;

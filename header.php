@@ -213,7 +213,7 @@
 			}
 		
 			if ( ! is_404() ) {
-		
+
 				include_once THEME_DIR . '/template-parts/featured-image-tagline.php';
 				
 			}
