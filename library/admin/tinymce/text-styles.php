@@ -132,6 +132,12 @@ function _vibrant_life_get_custom_text_styles( $context = 'default' ) {
 			'title' => __( 'Preformatted', 'vibrant-life-theme' ),
 			'block' => 'pre',
 		),
+		array(
+			'title' => __( '"Thrive" special font', 'vibrant-life-theme' ),
+			'block' => 'span',
+			'classes' => 'remachinescript',
+			'wrapper' => true,
+		),
 	);
 	
 	return apply_filters( 'vibrant_life_get_custom_text_styles', $text_styles, $context );

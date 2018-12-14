@@ -212,3 +212,18 @@ function vibrant_life_fix_l_sep( $content ) {
 	return str_replace( html_entity_decode( "&#8232;" ), '', $content );
 	
 }
+
+/**
+ * Replace THRIVE in Post Titles with the Remachine Script Font
+ * 
+ * @param		string $title Post Title
+ *                            
+ * @since		{{VERSION}}
+ * @return		string Post Title
+ */
+add_filter( 'the_title', 'vibrant_life_thrive_font_in_title' );
+function vibrant_life_thrive_font_in_title( $title ) {
+	
+	return str_replace( 'THRIVE', '<span class="remachinescript">THRIVE</span>', $title );
+	
+}
