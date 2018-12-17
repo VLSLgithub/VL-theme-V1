@@ -80,8 +80,8 @@ function _vibrant_life_get_custom_text_styles( $context = 'default' ) {
 		),
 		array(
 			'title' => __( 'Subheader 1', 'vibrant-life-theme' ),
-			'block' => 'h1',
-			'classes' => 'subheader',
+			'block' => 'p',
+			'classes' => 'subheader h1',
 		),
 		array(
 			'title' => __( 'Heading 2', 'vibrant-life-theme' ),
@@ -89,8 +89,8 @@ function _vibrant_life_get_custom_text_styles( $context = 'default' ) {
 		),
 		array(
 			'title' => __( 'Subheader 2', 'vibrant-life-theme' ),
-			'block' => 'h2',
-			'classes' => 'subheader',
+			'block' => 'p',
+			'classes' => 'subheader h2',
 		),
 		array(
 			'title' => __( 'Heading 3', 'vibrant-life-theme' ),
@@ -98,8 +98,8 @@ function _vibrant_life_get_custom_text_styles( $context = 'default' ) {
 		),
 		array(
 			'title' => __( 'Subheader 3', 'vibrant-life-theme' ),
-			'block' => 'h3',
-			'classes' => 'subheader',
+			'block' => 'p',
+			'classes' => 'subheader h3',
 		),
 		array(
 			'title' => __( 'Heading 4', 'vibrant-life-theme' ),
@@ -107,8 +107,8 @@ function _vibrant_life_get_custom_text_styles( $context = 'default' ) {
 		),
 		array(
 			'title' => __( 'Subheader 4', 'vibrant-life-theme' ),
-			'block' => 'h4',
-			'classes' => 'subheader',
+			'block' => 'p',
+			'classes' => 'subheader h4',
 		),
 		array(
 			'title' => __( 'Heading 5', 'vibrant-life-theme' ),
@@ -116,8 +116,8 @@ function _vibrant_life_get_custom_text_styles( $context = 'default' ) {
 		),
 		array(
 			'title' => __( 'Subheader 5', 'vibrant-life-theme' ),
-			'block' => 'h5',
-			'classes' => 'subheader',
+			'block' => 'p',
+			'classes' => 'subheader h5',
 		),
 		array(
 			'title' => __( 'Heading 6', 'vibrant-life-theme' ),
@@ -125,8 +125,8 @@ function _vibrant_life_get_custom_text_styles( $context = 'default' ) {
 		),
 		array(
 			'title' => __( 'Subheader 6', 'vibrant-life-theme' ),
-			'block' => 'h6',
-			'classes' => 'subheader',
+			'block' => 'p',
+			'classes' => 'subheader h6',
 		),
 		array(
 			'title' => __( 'Preformatted', 'vibrant-life-theme' ),

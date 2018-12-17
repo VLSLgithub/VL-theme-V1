@@ -91,7 +91,9 @@ body {
 		
 		@each $header, $styles in $headers {
 			
-			#{$header}.subheader {
+			p.subheader.#{$header} {
+				
+				@extend #{$header};
 				
 				@each $property, $value in $styles {
 					
