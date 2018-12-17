@@ -143,6 +143,8 @@ height: auto;
 						
 						&.hollow {
 							
+							background-color: $body-background;
+							
 							&:hover, &:focus {
 
 								background-color: $color;
@@ -383,37 +385,41 @@ height: auto;
 				}
 				
 				&:not( .button ) {
+					
 					border-bottom: none;
-				}
-				
-				&, a {
-					font-weight: 800;
-					@include light-or-dark-text( $quaternary-color );
-				}
-				
-				&.button {
 					
-					border-width: 0.25rem;
-					border-color: #fff;
-					border-top-color: #fff !important;
-					box-shadow: none;
-					
-					@each $name, $color in $foundation-palette {
-
-						&.#{$name} {
-							
-							&:hover, &:focus {
-
-						  		border-top-color: $color !important;
-								
-							}
-
-						}
-
+					&, a {
+						@include light-or-dark-text( $quaternary-color );
 					}
 					
 				}
 				
+				&, a {
+					font-weight: 800;
+				}
+				
+			}
+				
+			li.button {
+					
+				border-width: 0.25rem;
+				box-shadow: none;
+
+				@each $name, $color in $foundation-palette {
+
+					&.#{$name} {
+						
+						border-color: $color;
+						border-bottom: 0.25em solid $color;
+						
+						&:hover, &:focus, &:active {
+							@include light-or-dark-text( $color );
+						}
+
+					}
+
+				}
+
 			}
 
 			& > li {
@@ -503,7 +509,7 @@ height: auto;
 
 			& > li {
 
-				&:not(.current-menu-item), &:not(.current-menu-ancestor) {
+				&:not(.button):not(.current-menu-item):not(.current-menu-ancestor) {
 					
 					& > a {
 						@include light-or-dark-text( $primary-color );
