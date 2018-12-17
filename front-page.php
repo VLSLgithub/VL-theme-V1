@@ -25,7 +25,7 @@ while ( have_posts() ) : the_post(); ?>
 						<div class="small-12 medium-3 columns">
 
 							<div class="image with-image-tag circle-mask">
-								<?php echo wp_get_attachment_image( vibrant_life_get_field( 'interstitial_image' ) ); ?>
+								<?php echo wp_get_attachment_image( vibrant_life_get_field( 'interstitial_image' ), 'full' ); ?>
 							</div>
 
 						</div>
