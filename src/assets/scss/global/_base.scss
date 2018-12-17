@@ -148,27 +148,31 @@ strong, em {
 }
 
 .main-content, .sidebar {
+	
+	*:not(.circle-button-container) > a {
 
-	a:not(.button) {
+		&:not(.button) {
 
-		text-decoration: underline;
-		color: $body-font-color;
-		transition: color 1000ms;
-		
-		&:hover, &:focus { 
-			
-			color: $anchor-color-hover;
-			text-decoration: none;
-		
+			text-decoration: underline;
+			color: $body-font-color;
+			transition: color 1000ms;
+
+			&:hover, &:focus { 
+
+				color: $anchor-color-hover;
+				text-decoration: none;
+
+			}
+
+			&:active, &:visited {
+
+				display: inline-block;
+				padding-top: rem-calc( 2 );
+
+			}
+
 		}
 		
-		&:active, &:visited {
-			
-			display: inline-block;
-			padding-top: rem-calc( 2 );
-			
-		}
-
 	}
 	
 }

@@ -87,9 +87,10 @@
 
 }
 
-@mixin circle-button( $background-color, $size, $opacity: 1 ) {
+@mixin circle-button( $background-color, $border-color-hover, $size, $opacity: 1 ) {
 	
 	$background: rgba( $background-color, $opacity );
+	$border-hover: rgba( $border-color-hover, $opacity );
 	
 	.circle-button {
 	
@@ -104,6 +105,8 @@
 		text-transform: uppercase;
 		font-weight: 800;
 		font-family: $header-font-family;
+		
+		transition: border-color 1000ms;
 		
 		@include light-or-dark-text( $background-color );
 
@@ -137,6 +140,8 @@
 	
 	& > a {
 		
+		display: inline-block;
+		
 		&:hover, &:focus {
 		
 			.circle-button {
@@ -147,9 +152,15 @@
 				@include light-or-dark-text( $background-color );
 				
 				background-color: $background;
-				border-color: $background;
+				border-color: $border-hover;
 				
 			}
+			
+		}
+		
+		&:active {
+			
+			margin-top: rem-calc( 4 );
 			
 		}
 		
