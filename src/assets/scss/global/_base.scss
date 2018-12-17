@@ -146,3 +146,44 @@ strong, em {
 	}
 	
 }
+
+.main-content, .sidebar {
+
+	a:not(.button) {
+
+		position: relative;
+
+		&:after {
+
+			content: '';
+			position: absolute;
+			width: 100%;
+			bottom: rem-calc( -1 );
+			left: 0;
+			border-bottom: rem-calc( 1 ) solid $body-font-color;
+			
+			transition: border-bottom-color 1000ms;
+
+		}
+		
+		&:hover, &:focus { 
+			
+			&:after {
+				
+				border-bottom-color: $anchor-color-hover;
+				
+			}
+		
+		}
+		
+		&:active, &:visited {
+			
+			&:after {
+				bottom: rem-calc( -3 );
+			}
+			
+		}
+
+	}
+	
+}
