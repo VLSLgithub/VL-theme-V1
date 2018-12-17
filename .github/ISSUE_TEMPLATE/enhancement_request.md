@@ -1,5 +1,6 @@
 ---
 name: Feature Request
+labels: enhancement
 about: You want to suggest a change or a new feature. A missing feature is also a feature request.
 
 ---
