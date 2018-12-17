@@ -151,36 +151,21 @@ strong, em {
 
 	a:not(.button) {
 
-		position: relative;
-
-		&:after {
-
-			content: '';
-			position: absolute;
-			width: 100%;
-			bottom: rem-calc( -1 );
-			left: 0;
-			border-bottom: rem-calc( 1 ) solid $body-font-color;
-			
-			transition: border-bottom-color 1000ms;
-
-		}
+		text-decoration: underline;
+		color: $body-font-color;
+		transition: color 1000ms;
 		
 		&:hover, &:focus { 
 			
-			&:after {
-				
-				border-bottom-color: $anchor-color-hover;
-				
-			}
+			color: $anchor-color-hover;
+			text-decoration: none;
 		
 		}
 		
 		&:active, &:visited {
 			
-			&:after {
-				bottom: rem-calc( -3 );
-			}
+			display: inline-block;
+			padding-top: rem-calc( 2 );
 			
 		}
 

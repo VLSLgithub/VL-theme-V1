@@ -127,32 +127,11 @@ body.has-post-thumbnail {
 	
 		a:not(.button) {
 
-			color: $quinary-color;
-			
-			&:after {
-				
-				@if lightness( $quinary-color ) < 65% {
-
-					border-bottom-color: $light-color;
-
-				}
-				@else {
-
-					border-bottom-color: $dark-color;
-
-				}
-				
-			}
+			@include light-or-dark-text( $quaternary-color );
 
 			&:hover, &:focus { 
 
-				color: scale-color( $quinary-color, $lightness: -15% );
-				
-				&:after {
-
-					border-bottom-color: scale-color( $quinary-color, $lightness: -15% );
-
-				}
+				color: $quinary-color;
 
 			}
 
