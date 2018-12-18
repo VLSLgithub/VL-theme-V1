@@ -69,6 +69,24 @@ while ( have_posts() ) : the_post(); ?>
 				<?php endforeach; ?>
 
 			</section>
+			
+			<?php 
+			
+			$before_call_to_action = rbm_cpts_get_field( 'before_call_to_action' ); 
+			
+			if ( $before_call_to_action ) : ?>
+			
+			<section id="before-call-to-action" class="row">
+				
+				<div class="small-12 columns">
+				
+				<?php echo apply_filters( 'the_content', $before_call_to_action ); ?>
+					
+				</div>
+			
+			</section>
+			
+			<?php endif; ?>
 
 			<section id="call-to-action" class="row expanded" data-equalizer data-equalize-on="large">
 
