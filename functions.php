@@ -311,3 +311,31 @@ function vibrant_life_get_asl_store_locator_stores() {
 	return $results;
 	
 }
+
+add_action( 'admin_menu', function() {
+	
+	if ( is_user_logged_in() ) {
+		$current_user       = wp_get_current_user();
+		$roles              = $current_user->roles;
+		$current_role = array_shift( $roles );
+	}
+
+	// Staging for some reason always had NULL as the Role. This fixes it.
+	// My Local environment worked just fine though, so maybe in most cases this won't be needed
+	if ( $current_role === NULL ) {
+
+		global $user_ID;
+
+		$user_data = get_userdata( $user_ID );
+		$user_role = array_shift( $user_data->roles );
+		$current_role = $user_role;
+
+	}
+	
+	if ( $current_role == 'contributor' ) {
+	
+		remove_menu_page( 'asl-plugin' );
+		
+	}
+	
+} );
