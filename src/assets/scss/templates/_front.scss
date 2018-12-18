@@ -202,6 +202,8 @@
 				
 				color: #fff;
 				
+				transition: color 1000ms;
+				
 				.color-overlay {
 					position: absolute;
 					top: 0;
@@ -211,7 +213,11 @@
 					@include background-opacity( #000, 0.3 );
 				}
 				
-				&:hover {
+				&:hover, &:focus, &:visited, &:active {
+					color: $quinary-color;
+				}
+				
+				&:hover, &:focus {
 					
 					//color: scale-color(#fff, $lightness: -15%);
 					
