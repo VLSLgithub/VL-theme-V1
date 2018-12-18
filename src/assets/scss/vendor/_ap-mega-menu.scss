@@ -524,3 +524,25 @@ height: auto;
 	}
 	
 }
+
+@media only screen and #{breakpoint( 1024 )} and #{breakpoint( 1231 down )} and #{breakpoint( landscape )} {
+	
+	#wpmm-wrap-primary {
+	
+		#wpmega-menu-primary {
+
+			& > li {
+
+				& > a {
+
+					font-size: .85rem;
+
+				}
+
+			}
+
+		}
+		
+	}
+	
+}
