@@ -77,6 +77,16 @@ body {
 					font-weight: map-get( $styles, 'font-weight' );
 				}
 				
+				em, strong {
+					
+					@if map-has-key( $styles, font-weight ) {
+						font-weight: map-get( $styles, 'font-weight' );
+					}
+					
+					color: inherit;
+					
+				}
+				
 			}
 			
 		}
