@@ -38,9 +38,13 @@ if ( has_post_thumbnail() ) : ?>
 				<div class="row">
 					<div class="small-12 columns">
 						
-						<h1 class="page-title"><?php the_title(); ?></h1>
+						<?php if ( apply_filters( 'vibrant_life_show_hero_title', true ) ) : ?>
+						
+							<h1 class="page-title"><?php the_title(); ?></h1>
 						
 						<?php 
+						
+						endif;
 						
 						$tagline = vibrant_life_get_field( 'hero_tagline' );
 						

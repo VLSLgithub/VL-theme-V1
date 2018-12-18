@@ -5,6 +5,8 @@ Template Name: Contact Us
 
 global $post;
 
+add_filter( 'vibrant_life_show_hero_title', '__return_false' ); 
+
 get_header(); 
 
 while ( have_posts() ) : the_post(); ?>
