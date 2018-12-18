@@ -123,6 +123,7 @@ require_once( 'library/shortcodes/vibrant-life-image-mask.php' );
 require_once( 'library/shortcodes/vibrant-life-row.php' );
 require_once( 'library/shortcodes/vibrant-life-column.php' );
 require_once( 'library/shortcodes/vibrant-life-phone-number.php' );
+require_once( 'library/shortcodes/vibrant-life-address.php' );
 
 // TinyMCE functionality
 require_once( 'library/admin/tinymce/localization.php' );
@@ -133,6 +134,7 @@ require_once( 'library/admin/tinymce/vibrant-life-image-mask.php' );
 require_once( 'library/admin/tinymce/vibrant-life-row.php' );
 require_once( 'library/admin/tinymce/vibrant-life-column.php' );
 require_once( 'library/admin/tinymce/vibrant-life-phone-number.php' );
+require_once( 'library/admin/tinymce/vibrant-life-address.php' );
 
 add_filter( 'template_include', 'vibrant_life_blog_template' );
 function vibrant_life_blog_template( $template ) {
@@ -227,5 +229,85 @@ function vibrant_life_thrive_font_in_title( $title ) {
 	if ( ! in_the_loop() ) return $title;
 	
 	return str_replace( 'THRIVE', '<span class="remachinescript">THRIVE</span>', $title );
+	
+}
+
+/**
+ * Get Data for a specific "Store"
+ * 
+ * @param		integer        $store_id Store ID
+ *                                        
+ * @since		{{VERSION}}
+ * @return 		boolean|Object False on failure, Store Data Object on success
+ */
+function vibrant_life_get_asl_store_locator_store( $store_id ) {
+	
+	if ( ! defined( 'AGILESTORELOCATOR_PREFIX' ) ) return false;
+	
+	global $wpdb;
+
+	$AGILESTORELOCATOR_PREFIX = AGILESTORELOCATOR_PREFIX;
+
+	$bound   = '';
+
+	$extra_sql = '';
+	$country_field = '';
+
+	$query   = "SELECT s.`id`, `title`,  `description`, `street`,  `city`,  `state`, `postal_code`, {$country_field} `lat`,`lng`,`phone`,  `fax`,`email`,`website`,`logo_id`,{$AGILESTORELOCATOR_PREFIX}storelogos.`path`,`open_hours`,
+				group_concat(category_id) as categories FROM {$AGILESTORELOCATOR_PREFIX}stores as s 
+				LEFT JOIN {$AGILESTORELOCATOR_PREFIX}storelogos ON logo_id = {$AGILESTORELOCATOR_PREFIX}storelogos.id
+				LEFT JOIN {$AGILESTORELOCATOR_PREFIX}stores_categories ON s.`id` = {$AGILESTORELOCATOR_PREFIX}stores_categories.store_id
+				$extra_sql
+				WHERE $store_id = s.`id` AND (is_disabled is NULL || is_disabled = 0) 
+				GROUP BY s.`id` ";
+
+	$query .= "LIMIT 1000";
+
+	$results = $wpdb->get_results($query);
+	
+	if ( isset( $results[0] ) ) {
+		return $results[0];
+	}
+	
+	return false;
+	
+}
+
+/**
+ * Get Data for all "Stores"
+ * 
+ * @access		{{VERSION}}
+ * @return  	boolean|Array False on failure, Array of Store Objects on Success
+ */
+function vibrant_life_get_asl_store_locator_stores() {
+	
+	if ( ! defined( 'AGILESTORELOCATOR_PREFIX' ) ) return false;
+	
+	global $wpdb;
+
+	$AGILESTORELOCATOR_PREFIX = AGILESTORELOCATOR_PREFIX;
+
+	$bound   = '';
+
+	$extra_sql = '';
+	$country_field = '';
+
+	$query   = "SELECT s.`id`, `title`,  `description`, `street`,  `city`,  `state`, `postal_code`, {$country_field} `lat`,`lng`,`phone`,  `fax`,`email`,`website`,`logo_id`,{$AGILESTORELOCATOR_PREFIX}storelogos.`path`,`open_hours`,
+				group_concat(category_id) as categories FROM {$AGILESTORELOCATOR_PREFIX}stores as s 
+				LEFT JOIN {$AGILESTORELOCATOR_PREFIX}storelogos ON logo_id = {$AGILESTORELOCATOR_PREFIX}storelogos.id
+				LEFT JOIN {$AGILESTORELOCATOR_PREFIX}stores_categories ON s.`id` = {$AGILESTORELOCATOR_PREFIX}stores_categories.store_id
+				$extra_sql
+				WHERE (is_disabled is NULL || is_disabled = 0) 
+				GROUP BY s.`id` ";
+
+	$query .= "LIMIT 1000";
+
+	$results = $wpdb->get_results($query);
+	
+	if ( empty( $results ) ) {
+		return false;
+	}
+	
+	return $results;
 	
 }
