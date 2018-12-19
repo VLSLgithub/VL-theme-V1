@@ -13,24 +13,6 @@
 					
 					text-shadow: 4px 4px 6px rgba(0,0,0,0.50);
 					
-					@include breakpoint( small only ) {
-						
-						font-size: 16px !important;
-						
-						&.remachinescript {
-							font-size: 32px !important;
-						}
-						
-					}
-					
-				}
-
-			}
-
-			@include breakpoint(small only) {
-
-				.tagline {
-					margin-top: -1rem;
 				}
 
 			}
