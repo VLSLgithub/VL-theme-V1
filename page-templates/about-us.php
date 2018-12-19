@@ -34,8 +34,16 @@ while ( have_posts() ) : the_post(); ?>
 					</div>
 
 				</div>
+				
+				<?php 
+				
+					$content_blocks = vibrant_life_get_field( 'interstitial_repeater' ); 
 
-				<?php foreach ( $content_blocks = vibrant_life_get_field( 'interstitial_repeater' ) as $index => $row ) : ?>
+					if ( ! $content_blocks ) $content_blocks = array();
+				
+				?>
+
+				<?php foreach ( $content_blocks as $index => $row ) : ?>
 
 					<div class="row block-<?php echo $index; ?>">
 
