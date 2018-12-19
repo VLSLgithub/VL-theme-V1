@@ -73,6 +73,27 @@
 		</div>
 	
 	</div>
+	
+	<div class="reveal" id="schedule-a-visit-modal" data-reveal>
+		
+		<?php $form_id = get_theme_mod( 'vibrant_life_schedule_a_visit_form', false ); 
+		
+		if ( $form_id ) { 
+			
+			echo do_shortcode( '[gravityform id="' . $form_id . '" title="true" description="false" ajax="true"]' );
+			
+		}
+		else {
+			_e( 'Please set a Form in the Customizer for the Schedule a Visit modal', 'vibrant-life-theme' );
+		}
+		
+		?>
+
+		<button class="close-button" data-close aria-label="<?php _e( 'Close modal', 'vibrant-life-theme' ); ?>" type="button">
+			<span aria-hidden="true">&times;</span>
+		</button>
+
+	</div>
 
 </footer>
 

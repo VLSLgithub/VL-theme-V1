@@ -16,3 +16,4 @@ import './lib/iframe-resize';
 import './lib/animations';
 import './lib/search-overlay';
 import './lib/navigation';
+import './lib/schedule-a-visit-modal';

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 44);
+/******/ 	return __webpack_require__(__webpack_require__.s = 45);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4614,7 +4614,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _whatInput = __webpack_require__(43);
+var _whatInput = __webpack_require__(44);
 
 var _whatInput2 = _interopRequireDefault(_whatInput);
 
@@ -4624,15 +4624,17 @@ var _foundationSites2 = _interopRequireDefault(_foundationSites);
 
 __webpack_require__(38);
 
-__webpack_require__(42);
+__webpack_require__(43);
 
 __webpack_require__(39);
 
 __webpack_require__(37);
 
-__webpack_require__(41);
+__webpack_require__(42);
 
 __webpack_require__(40);
+
+__webpack_require__(41);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12287,6 +12289,33 @@ function resizeIframe(iFrame) {
 
 	$(document).ready(function () {
 
+		$(document).on('click touch', '.menu-item.open-modal-schedule-a-visit > a', function (event) {
+
+			event.preventDefault();
+
+			var $modal = $('#schedule-a-visit-modal');
+
+			$modal.foundation('open');
+
+			// Ensure we're looking at the top of the Modal
+			$modal.closest('.reveal-overlay').scrollTop(0);
+
+			$(this).parent().removeClass('clicked');
+		});
+	});
+})(jQuery);
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+(function ($) {
+
+	$(document).ready(function () {
+
 		var $menu = $('.site-header .top-bar-right.search, .menu');
 		var $searchOverlay = $('#site-search');
 		var $searchField = $searchOverlay.find('input[name="s"]');
@@ -12445,7 +12474,7 @@ function resizeIframe(iFrame) {
 })(jQuery);
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12463,7 +12492,7 @@ function resizeIframe(iFrame) {
 })(jQuery);
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -12848,7 +12877,7 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(19);

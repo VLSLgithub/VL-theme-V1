@@ -28,6 +28,27 @@ add_action( 'customize_register', function( $wp_customize ) {
         'mime_type'  => 'image',
     ) ) );
 	
+	$forms = array( '' => __( 'Please activate Gravity Forms', 'vibrant-life-theme' ) );
+	
+	if ( class_exists( 'RGFormsModel' ) ) {
+		
+		$forms = wp_list_pluck( RGFormsModel::get_forms( null, 'title' ), 'title', 'id' );
+		
+	}
+	
+	$wp_customize->add_setting( 'vibrant_life_schedule_a_visit_form', array(
+            'default'     => false,
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vibrant_life_schedule_a_visit_form', array(
+        'type'       => 'select',
+        'label'      => __( 'Schedule a Visit Form', 'vibrant-life-theme' ),
+        'section'    => 'vibrant_life_customizer_section',
+        'settings'   => 'vibrant_life_schedule_a_visit_form',
+		'choices' => array( '' => __( 'Choose a Form', 'vibrant-life-theme' ) ) + $forms,
+    ) ) );
+	
 	$wp_customize->add_setting( 'vibrant_life_phone_number', array(
             'default'     => '(734) 913-0000',
             'transport'   => 'refresh',
