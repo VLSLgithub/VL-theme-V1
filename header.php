@@ -29,6 +29,7 @@
 	?>
 	
 	<body <?php body_class( $body_class ); ?>>
+		<?php do_action( 'vibrant_life_body_start' ); ?>
 
 	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 		
