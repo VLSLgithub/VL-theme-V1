@@ -26,12 +26,20 @@ function add_vibrant_life_column_shortcode( $atts, $content = '' ) {
 			'small' => 'small-12',
 			'medium' => 'medium-12',
 			'large' => 'large-12',
+			'equalizer' => false,
         ),
         $atts,
         'vibrant_life_column'
     );
     
     ob_start();
+	
+	if ( $atts['equalizer'] ) {
+		
+		// Pass equalizer attribute to child image masks
+		$content = preg_replace( '/\[vibrant_life_image_mask\s/is', '[vibrant_life_image_mask equalizer=1 ', $content );
+		
+	}
 	
 	?>
     

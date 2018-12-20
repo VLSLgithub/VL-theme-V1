@@ -31,6 +31,13 @@ function add_vibrant_life_row_shortcode( $atts, $content = '' ) {
     
     ob_start();
 	
+	if ( $atts['equalizer'] ) {
+	
+		// Pass equalizer attribute to child columns
+		$content = preg_replace( '/\[vibrant_life_column\s/is', '[vibrant_life_column equalizer=1 ', $content );
+		
+	}
+	
 	?>
     
     <div class="row expanded vibrant-life-row-shortcode<?php echo ( $atts['equalizer'] ) ? ' has-equalizer': ''; ?>">

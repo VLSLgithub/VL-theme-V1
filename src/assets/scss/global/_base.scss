@@ -43,14 +43,14 @@ div.image.with-image-tag {
 
 .row[data-equalizer] {
 	
-	.image-on-right, .image-on-left {
+	.columns[data-equalizer-watch], .image-on-right, .image-on-left {
 		
 		position: relative;
 		min-height: 25rem;
 		
 	}
 	
-	div.image {
+	div.image:not(.with-image-tag) {
 		
 		background-position: center center;
 		background-repeat: no-repeat;
