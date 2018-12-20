@@ -57,6 +57,7 @@ function vibrant_life_image_mask_tinymce_l10n( $l10n ) {
                 'half-circle-left' => __( 'Half Circle on the Left', 'vibrant-life-theme' ),
                 'half-circle-top' => __( 'Half Circle on the Top', 'vibrant-life-theme' ),
 				'half-circle-bottom' => __( 'Half Circle on the Bottom', 'vibrant-life-theme' ),
+				'circle-mask' => __( 'Full Circle', 'vibrant-life-theme' ),
 			),
         ),
 		'align' => array(
