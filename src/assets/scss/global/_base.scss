@@ -41,6 +41,32 @@ div.image.with-image-tag {
 	
 }
 
+.row[data-equalizer] {
+	
+	.image-on-right, .image-on-left {
+		
+		position: relative;
+		min-height: 25rem;
+		
+	}
+	
+	div.image {
+		
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		height: 100%;
+		width: auto;
+		
+	}
+	
+}
+
 html {
 	
 	@include breakpoint( fourk ) {

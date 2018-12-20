@@ -40,7 +40,7 @@ while ( have_posts() ) : the_post(); ?>
 
 					<?php foreach ( $content_blocks = vibrant_life_get_field( 'interstitial_repeater' ) as $index => $row ) : ?>
 
-						<div class="row block-<?php echo $index; ?>">
+						<div class="row block-<?php echo $index; ?>" data-equalizer>
 
 							<?php 
 
@@ -57,10 +57,9 @@ while ( have_posts() ) : the_post(); ?>
 
 							?>
 
-							<div class="<?php echo $left_class_name; ?>">
-
-								<div class="image with-image-tag">
-									<?php echo wp_get_attachment_image( $row['image'], 'full' ); ?>
+							<div class="<?php echo $left_class_name; ?>" data-equalizer-watch>
+								
+								<div class="image" style="background-image: url('<?php echo wp_get_attachment_image_src( $row['image'], 'full', false )[0]; ?>');">
 								</div>
 
 								<div class="show-for-medium">
@@ -79,7 +78,7 @@ while ( have_posts() ) : the_post(); ?>
 
 							</div>
 
-							<div class="<?php echo $right_class_name; ?>">
+							<div class="<?php echo $right_class_name; ?>" data-equalizer-watch>
 
 								<?php echo apply_filters( 'the_content', $row['content'] ); ?>
 
