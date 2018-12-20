@@ -1,0 +1,28 @@
+.vibrant-life-image-mask-shortcode {
+	
+	p:empty {
+		
+		display: none;
+		
+	}
+	
+	img {
+		padding: 0;
+	}
+	
+}
+
+.vibrant-life-row-shortcode[data-equalizer] {
+	
+	.vibrant-life-image-mask-shortcode {
+		
+		&, * {
+			
+			height: 100%;
+			width: auto;
+			
+		}
+		
+	}
+	
+}

@@ -49,6 +49,9 @@ function vibrant_life_row_tinymce_l10n( $l10n ) {
     
     $l10n['vibrant_life_row_shortcode'] = array(
         'tinymce_title' => __( 'Add Row', 'vibrant-life-theme' ),
+		'equalizer' => array(
+            'label' => __( 'Should all Columns be the same height?', 'vibrant-life-theme' ),
+        ),
 		'placeholder_text' => "<p>" . __( 'Place your Columns here', 'vibrant-life-theme' ) . "</p>",
     );
     

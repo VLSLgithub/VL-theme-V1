@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 45);
+/******/ 	return __webpack_require__(__webpack_require__.s = 47);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4614,7 +4614,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _whatInput = __webpack_require__(44);
+var _whatInput = __webpack_require__(46);
 
 var _whatInput2 = _interopRequireDefault(_whatInput);
 
@@ -4622,9 +4622,13 @@ var _foundationSites = __webpack_require__(20);
 
 var _foundationSites2 = _interopRequireDefault(_foundationSites);
 
-__webpack_require__(38);
+__webpack_require__(44);
 
 __webpack_require__(43);
+
+__webpack_require__(38);
+
+__webpack_require__(45);
 
 __webpack_require__(39);
 
@@ -4639,7 +4643,6 @@ __webpack_require__(41);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.$ = _jquery2.default;
-
 // If you want to pick and choose which modules to include, comment out the above and uncomment
 // the line below
 //import './lib/foundation-explicit-pieces';
@@ -12482,6 +12485,36 @@ function resizeIframe(iFrame) {
 
 (function ($) {
 
+	$('.vibrant-life-column-shortcode p').each(function () {
+		$(this).html($(this).html().trim());
+	});
+
+	$('.vibrant-life-column-shortcode p:empty').css('display', 'none');
+})(jQuery);
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+(function ($) {
+
+	$('.vibrant-life-row-shortcode.has-equalizer').attr('data-equalizer', true);
+
+	$('.vibrant-life-row-shortcode.has-equalizer .vibrant-life-column-shortcode').attr('data-equalizer-watch', true);
+})(jQuery);
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+(function ($) {
+
     if ($('.video-popover-container').length > 0 && $('.video-popover').length > 0) {
 
         $('.video-popover-container').on('click', function () {
@@ -12492,7 +12525,7 @@ function resizeIframe(iFrame) {
 })(jQuery);
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -12877,7 +12910,7 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(19);

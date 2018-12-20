@@ -23,6 +23,7 @@ function add_vibrant_life_row_shortcode( $atts, $content = '' ) {
     
     $atts = shortcode_atts(
         array( // a few default values
+			'equalizer' => false,
         ),
         $atts,
         'vibrant_life_row'
@@ -32,7 +33,7 @@ function add_vibrant_life_row_shortcode( $atts, $content = '' ) {
 	
 	?>
     
-    <div class="row expanded vibrant-life-row-shortcode">
+    <div class="row expanded vibrant-life-row-shortcode<?php echo ( $atts['equalizer'] ) ? ' has-equalizer': ''; ?>">
 		<?php echo do_shortcode( $content ); ?>
 	</div>
 

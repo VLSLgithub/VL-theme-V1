@@ -6,10 +6,25 @@
             editor.addButton( 'vibrant_life_row_shortcode', {
                 text: vibrant_life_tinymce_l10n.vibrant_life_row_shortcode.tinymce_title,
                 icon: false,
-                onclick: function() {
-                    editor.insertContent( '[vibrant_life_row]' + 
+				onclick: function() {
+                    editor.windowManager.open( {
+                        title: vibrant_life_tinymce_l10n.vibrant_life_row_shortcode.tinymce_title,
+                        body: [
+                            {
+                                type: 'checkbox',
+                                name: 'equalizer',
+                                label: vibrant_life_tinymce_l10n.vibrant_life_row_shortcode.equalizer.label,
+                            },
+                        ],
+                        onsubmit: function( e ) {
+                            editor.insertContent( '[vibrant_life_row' + 
+												 	( e.data.equalizer === true ? ' equalizer=1' : '' ) + 
+												 ']' + 
 										 		vibrant_life_tinymce_l10n.vibrant_life_row_shortcode.placeholder_text + 
 										 '[/vibrant_life_row]' );
+                        }
+
+                    } ); // Editor
 
                 }, // onclick
 

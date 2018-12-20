@@ -8,6 +8,9 @@ import Foundation from 'foundation-sites';
 // the line below
 //import './lib/foundation-explicit-pieces';
 
+import './lib/vibrant-life-row-shortcode';
+import './lib/vibrant-life-column-shortcode';
+
 $(document).foundation();
 
 import './lib/foundation-off-canvas';
