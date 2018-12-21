@@ -3,6 +3,8 @@
  * Custom Template File for the Blog Page
  */
 
+add_filter( 'vibrant_life_show_hero_title', '__return_false' );
+
 get_header(); ?>
 
 <div class="swirl-border">
@@ -10,8 +12,8 @@ get_header(); ?>
 	<section id="interstitial" class="interstitial row">
 
 		<div class="small-12 columns">
-			<h1><?php _e( 'The V Word: Vibrant Life News', 'vibrant-life-theme' ); ?></h1>
-			<?php echo apply_filters( 'the_content', __( 'The Vibrant Life Senior Living blog covers different topics related to senior living, memory care, healthy aging, and events around the Vibrant Life communities.', 'vibrant-life-theme' ) ); ?>
+			<h1><?php the_title(); ?></h1>
+			<?php echo apply_filters( 'the_content', vibrant_life_get_field( 'interstitial_content' ) ); ?>
 		</div>
 
 	</section>
