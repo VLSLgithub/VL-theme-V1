@@ -9,6 +9,7 @@
 
 register_nav_menus( array(
 	'primary'  => esc_html__( 'Primary', 'vibrant-life-theme' ),
+	'primary-mobile'  => esc_html__( 'Primary (Mobile Only)', 'vibrant-life-theme' ),
 	'top-bar-extra' => esc_html__( 'Top Bar', 'vibrant-life-theme' ),
 	'four-oh-four' => esc_html__( '404 Page', 'vibrant-life-theme' ),
 ));
@@ -42,7 +43,7 @@ if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 		wp_nav_menu( array(
 			'container'      => false,                         // Remove nav container
 			'menu_class'     => 'vertical menu',
-			'theme_location' => 'primary',
+			'theme_location' => 'primary-mobile',
 			'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			'fallback_cb'    => false,
 			'walker'         => new Foundationpress_Mobile_Walker(),

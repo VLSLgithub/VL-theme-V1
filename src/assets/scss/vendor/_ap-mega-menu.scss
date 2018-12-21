@@ -22,12 +22,12 @@ height: auto;
 	z-index: 42;
 }
 
-#wpmm-wrap-primary {
+#wpmm-wrap-primary, #wpmm-wrap-primary-mobile {
 
 	background: transparent;
 	box-shadow: none;
 
-	#wpmega-menu-primary {
+	#wpmega-menu-primary, #wpmega-menu-primary-mobile {
 		
 		li {
 			
@@ -301,11 +301,11 @@ height: auto;
 
 @include breakpoint(large) {
 
-	#wpmm-wrap-primary {
+	#wpmm-wrap-primary, #wpmm-wrap-primary-mobile {
 		
 		display: inline-block;
 
-		#wpmega-menu-primary {
+		#wpmega-menu-primary, #wpmega-menu-primary-mobile {
 
 			display: inline-block !important;
 
@@ -356,13 +356,13 @@ height: auto;
 
 @media only screen and (max-width: #{( map-get( $breakpoints, 'large' ) - 1 )}) {
 
-	#wpmm-wrap-primary {
+	#wpmm-wrap-primary, #wpmm-wrap-primary-mobile {
 
 		.wp-mega-toggle-block {
 			display: none;
 		}
 
-		#wpmega-menu-primary {
+		#wpmega-menu-primary, #wpmega-menu-primary-mobile {
 
 			display: block;
 
@@ -503,9 +503,9 @@ height: auto;
 
 .sticky-top-bar.is-stuck {
 	
-	#wpmm-wrap-primary {
+	#wpmm-wrap-primary, #wpmm-wrap-primary-mobile {
 
-		#wpmega-menu-primary {
+		#wpmega-menu-primary, #wpmega-menu-primary-mobile {
 
 			& > li {
 
@@ -527,9 +527,9 @@ height: auto;
 
 @media only screen and #{breakpoint( 1024 )} and #{breakpoint( 1231 down )} {
 	
-	#wpmm-wrap-primary {
+	#wpmm-wrap-primary, #wpmm-wrap-primary-mobile {
 	
-		#wpmega-menu-primary {
+		#wpmega-menu-primary, #wpmega-menu-primary-mobile {
 
 			& > li {
 
