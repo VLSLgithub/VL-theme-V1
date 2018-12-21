@@ -39,6 +39,21 @@ body.has-post-thumbnail {
 		
 		margin-top: -1rem;
 		
+		padding-top: 1rem;
+		
+	}
+	
+}
+
+.main-wrap.has-interstitial {
+	
+	max-width: none;
+	
+	#page-content {
+		
+		@include xy-grid-container;
+		@include xy-grid();
+		
 	}
 	
 }
