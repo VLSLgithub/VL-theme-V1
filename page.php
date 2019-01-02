@@ -25,7 +25,7 @@ do_action( 'foundationpress_before_content' ); ?>
 					</div>
 				</section>
 			
-				<div <?php post_class( array( 'expanded', 'row' ) ) ?> id="post-<?php the_ID(); ?>">
+				<div <?php post_class( array( 'row' ) ) ?> id="post-<?php the_ID(); ?>">
 					<div class="small-12 columns content">
 						<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 						<div class="entry-content">
