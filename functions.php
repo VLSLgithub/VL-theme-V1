@@ -369,3 +369,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <?php 
 	
 } );
+
+add_filter( 'p2p_relationships', function( $relationships ) {
+	
+	$relationships['page'] = 'facility';
+	
+	return $relationships;
+	
+} );

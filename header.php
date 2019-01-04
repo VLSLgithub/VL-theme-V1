@@ -109,18 +109,35 @@
 				
 				<div>
 					
-					<?php if ( function_exists( 'rbm_cpts_get_field' ) && 
+					<?php 
+					
+						$phone_number = '';
+					
+						if ( function_exists( 'rbm_cpts_get_field' ) && 
 							  is_single() && 
-							  get_post_type() == 'facility' &&
-							  $phone_number = rbm_cpts_get_field( 'phone_number' ) ) : ?>
+							  get_post_type() == 'facility' ) {
+							
+							$phone_number = rbm_cpts_get_field( 'phone_number' );
+							
+						}
+						elseif ( function_exists( 'rbm_cpts_get_p2p_parent' ) && 
+							   is_page() ) {
+							
+							$location_id = rbm_cpts_get_p2p_parent( 'facility' );
+							
+							$phone_number = rbm_cpts_get_field( 'phone_number', $location_id );
+							
+						}
 					
-						<?php echo vibrant_life_get_phone_number_link( $phone_number ); ?>
+						if ( $phone_number ) :
 					
-					<?php else : ?>
+							echo vibrant_life_get_phone_number_link( $phone_number );
+					
+						else : ?>
 
-						<?php echo vibrant_life_get_phone_number_link( get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ) ); ?>
+							<?php echo vibrant_life_get_phone_number_link( get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ) ); ?>
 					
-					<?php endif; ?>
+						<?php endif; ?>
 					
 				</div>
 
