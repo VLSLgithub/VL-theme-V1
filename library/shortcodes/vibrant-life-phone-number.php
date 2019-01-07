@@ -2,7 +2,7 @@
 /**
  * Adds the [vibrant_life_phone_number] shortcode
  *
- * @since   {{VERSION}}
+ * @since   1.0.0
  * @package VibrantLifeTheme2018
  * @subpackage  VibrantLifeTheme2018/library/shortcodes
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Add Phone Shortcode
  *
- * @since       {{VERSION}}
+ * @since       1.0.0
  * @return      HTML
  */
 add_shortcode( 'vibrant_life_phone_number', 'add_vibrant_life_phone_number_shortcode' );

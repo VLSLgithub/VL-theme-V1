@@ -205,7 +205,7 @@ function vibrant_life_get_phone_number_link( $phone_number, $extension = false, 
  * 
  * @param  string $content The Content
  *                             
- * @since {{VERSION}}
+ * @since 1.0.0
  * @return string The Content
  */
 add_filter( 'the_content', 'vibrant_life_fix_l_sep' );
@@ -221,7 +221,7 @@ function vibrant_life_fix_l_sep( $content ) {
  * 
  * @param		string $title Post Title
  *                            
- * @since		{{VERSION}}
+ * @since		1.0.0
  * @return		string Post Title
  */
 add_filter( 'the_title', 'vibrant_life_thrive_font_in_title' );
@@ -238,7 +238,7 @@ function vibrant_life_thrive_font_in_title( $title ) {
  * 
  * @param		integer        $store_id Store ID
  *                                        
- * @since		{{VERSION}}
+ * @since		1.0.0
  * @return 		boolean|Object False on failure, Store Data Object on success
  */
 function vibrant_life_get_asl_store_locator_store( $store_id ) {
@@ -277,7 +277,7 @@ function vibrant_life_get_asl_store_locator_store( $store_id ) {
 /**
  * Get Data for all "Stores"
  * 
- * @access		{{VERSION}}
+ * @access		1.0.0
  * @return  	boolean|Array False on failure, Array of Store Objects on Success
  */
 function vibrant_life_get_asl_store_locator_stores() {

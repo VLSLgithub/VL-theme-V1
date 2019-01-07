@@ -2,7 +2,7 @@
 /**
  * Add a TinyMCE button to create [vibrant_life_row] Shortcodes
  *
- * @since   {{VERSION}}
+ * @since   1.0.0
  * @package VibrantLifeTheme2018
  * @subpackage  VibrantLifeTheme2018/library/admin/tinymce
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Add Button Shortcode to TinyMCE
  *
- * @since       {{VERSION}}
+ * @since       1.0.0
  * @return      void
  */
 add_action( 'admin_init', 'add_vibrant_life_row_tinymce_filters' );
@@ -41,7 +41,7 @@ function add_vibrant_life_row_tinymce_filters() {
 /**
  * Add Localized Text for our TinyMCE Button
  *
- * @since       {{VERSION}}
+ * @since       1.0.0
  * @return      Array Localized Text
  */
 add_filter( 'vibrant_life_tinymce_l10n', 'vibrant_life_row_tinymce_l10n' );

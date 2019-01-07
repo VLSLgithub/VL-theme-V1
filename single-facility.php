@@ -1,7 +1,7 @@
 <?php
 /**
  * Single Facility Template
- * @since {{VERSION}}
+ * @since 1.0.0
  *
  * @package VibrantLifeTheme2018
  */

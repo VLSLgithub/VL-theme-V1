@@ -2,7 +2,7 @@
 /**
  * Customizer Additions
  *
- * @since   {{VERSION}}
+ * @since   1.0.0
  * @package VibrantLifeTheme2018
  * @subpackage VibrantLifeTheme2018/library
  */
