@@ -15,7 +15,7 @@ add_filter( 'gform_pre_render_2', 'vibrant_life_populate_schedule_a_visit', 10, 
  * @param		array   $field_values An array of dynamic population parameter keys with their corresponding values to be populated
  *                                                                                                                   
  * @access		public
- * @since		{{VERSION}}
+ * @since		1.0.1
  * @return		array   Modified Form
  */
 function vibrant_life_populate_schedule_a_visit( $form, $ajax, $field_values ) {
