@@ -86,7 +86,7 @@ add_filter( 'gform_notification_2', 'vibrant_life_route_schedule_a_visit_emails'
  * @param		array $form         The form that was submitted
  * @param		array $entry        The entry data that was submitted
  * 
- * @since		{{VERSION}}
+ * @since		1.0.2
  * @return		array The filtered Notification
  */
 function vibrant_life_route_schedule_a_visit_emails( $notification, $form, $entry ) {
