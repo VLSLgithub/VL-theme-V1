@@ -137,6 +137,9 @@ require_once( 'library/admin/tinymce/vibrant-life-column.php' );
 require_once( 'library/admin/tinymce/vibrant-life-phone-number.php' );
 require_once( 'library/admin/tinymce/vibrant-life-address.php' );
 
+// Schedule a Visit
+require_once( 'library/gravity-forms.php' );
+
 add_filter( 'template_include', 'vibrant_life_blog_template' );
 function vibrant_life_blog_template( $template ) {
 	
