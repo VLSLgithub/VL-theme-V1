@@ -226,9 +226,11 @@ while ( have_posts() ) : the_post(); ?>
 
 								<div class="<?php echo $right_class_name; ?>">
 
-									<a href="<?php the_permalink(); ?>">
-										<h3 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h3>
-									</a>
+									<h3 id="post-<?php the_ID(); ?>">
+										<a href="<?php the_permalink(); ?>">
+											<?php the_title(); ?>
+										</a>
+									</h3>
 
 									<?php foundationpress_entry_meta(); ?>
 
