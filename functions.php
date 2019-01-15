@@ -388,7 +388,7 @@ add_filter( 'p2p_relationships', function( $relationships ) {
  * 
  * @param		integer         $post_id Post ID
  *                                       
- * @since		{{VERSION}}
+ * @since		1.0.3
  * @return 		integer|boolean Post ID on success, false on failure
  */
 function vibrant_life_get_associated_location( $post_id = null ) {

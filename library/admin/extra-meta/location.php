@@ -2,7 +2,7 @@
 /**
  * Location extra meta.
  *
- * @since   {{VERSION}}
+ * @since   1.0.3
  * @package VibrantLifeTheme2018
  * @subpackage  VibrantLifeTheme2018/library/admin/extra-meta
  */
