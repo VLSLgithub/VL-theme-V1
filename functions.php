@@ -117,6 +117,7 @@ require_once( 'library/admin/extra-meta/blog.php' );
 require_once( 'library/admin/extra-meta/about-us.php' );
 require_once( 'library/admin/extra-meta/contact-us.php' );
 require_once( 'library/admin/extra-meta/template-full-width-interstitial.php' );
+require_once( 'library/admin/extra-meta/location.php' );
 
 // Shortcodes
 require_once( 'library/shortcodes/vibrant-life-button.php' );
@@ -262,7 +263,7 @@ function vibrant_life_get_asl_store_locator_store( $store_id ) {
 				LEFT JOIN {$AGILESTORELOCATOR_PREFIX}storelogos ON logo_id = {$AGILESTORELOCATOR_PREFIX}storelogos.id
 				LEFT JOIN {$AGILESTORELOCATOR_PREFIX}stores_categories ON s.`id` = {$AGILESTORELOCATOR_PREFIX}stores_categories.store_id
 				$extra_sql
-				WHERE $store_id = s.`id` AND (is_disabled is NULL || is_disabled = 0) 
+				WHERE '{$store_id}' = s.`id` AND (is_disabled is NULL || is_disabled = 0) 
 				GROUP BY s.`id` ";
 
 	$query .= "LIMIT 1000";
@@ -380,3 +381,27 @@ add_filter( 'p2p_relationships', function( $relationships ) {
 	return $relationships;
 	
 } );
+
+/**
+ * Finds the associtaed Location for a particular Page
+ * Returns the Post ID if it is already a Location
+ * 
+ * @param		integer         $post_id Post ID
+ *                                       
+ * @since		{{VERSION}}
+ * @return 		integer|boolean Post ID on success, false on failure
+ */
+function vibrant_life_get_associated_location( $post_id = null ) {
+	
+	if ( ! $post_id ) $post_id = get_the_ID();
+	
+	if ( get_post_type() == 'facility' ) return $post_id;
+	
+	if ( function_exists( 'rbm_cpts_get_p2p_parent' ) && 
+		is_page() ) {
+		return (int) rbm_cpts_get_p2p_parent( 'facility' );
+	}
+	
+	return false;
+	
+}
