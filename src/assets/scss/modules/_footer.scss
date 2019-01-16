@@ -1,6 +1,16 @@
 .footer-container {
+	
 	margin: 0 auto;
 	background-color: $primary-color;
+	
+	strong, em {
+		color: inherit;
+	}
+	
+	strong {
+		font-weight: bold;
+	}
+	
 }
 
 .footer-top {
@@ -76,6 +86,8 @@
 	}
 	
 	& > .content {
+		
+		position: relative;
 		
 		top: 0;
 		right: 0;
