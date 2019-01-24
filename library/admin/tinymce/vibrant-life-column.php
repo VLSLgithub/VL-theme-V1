@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'admin_init', 'add_vibrant_life_column_tinymce_filters' );
 function add_vibrant_life_column_tinymce_filters() {
     
-    if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) {
+    if ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) ) {
         
         add_filter( 'mce_buttons', function( $buttons ) {
             array_push( $buttons, 'vibrant_life_column_shortcode' );

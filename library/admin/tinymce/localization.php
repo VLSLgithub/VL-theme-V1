@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'before_wp_tiny_mce', 'vibrant_life_localize_tinymce' );
 function vibrant_life_localize_tinymce() {
     
-    if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) :
+    if ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) ) :
     
         $object_name = apply_filters( 'vibrant_life_tinymce_l10n_object_name', 'vibrant_life_tinymce_l10n' );
 
