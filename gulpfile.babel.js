@@ -135,6 +135,7 @@ const webpack = {
     },
     externals: {
       jquery: 'jQuery',
+      lodash: 'lodash',
     },
   },
 

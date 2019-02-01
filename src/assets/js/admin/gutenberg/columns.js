@@ -1,4 +1,3 @@
-import { times } from 'lodash';
 import classnames from 'classnames';
 import memoize from 'memize';
 
@@ -12,7 +11,7 @@ const ALLOWED_BLOCKS = [ 'vibrant-life/column' ];
  * @return {Object[]} Columns layout configuration.
  */
 const getColumnsTemplate = memoize( ( columns ) => {
-	return times( columns, () => [ 'vibrant-life/column' ] );
+	return lodash.times( columns, () => [ 'vibrant-life/column' ] );
 } );
 
 ( function( blocks, editor, i18n, element, components, compose, _ ) {
@@ -31,7 +30,7 @@ const getColumnsTemplate = memoize( ( columns ) => {
 
 	registerBlockType( 'vibrant-life/columns', {
 		
-		title: 'Columns',
+		title: 'Vibrant Life Columns',
 
 		icon: <SVG viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><Path fill="none" d="M0 0h24v24H0V0z" /><G><Path d="M21 4H3L2 5v14l1 1h18l1-1V5l-1-1zM8 18H4V6h4v12zm6 0h-4V6h4v12zm6 0h-4V6h4v12z" /></G></SVG>,
 
@@ -154,8 +153,8 @@ const getColumnsTemplate = memoize( ( columns ) => {
 	// Use only our own
 	// Script must require wp-edit-post
 	// https://github.com/WordPress/gutenberg/issues/4848#issuecomment-388174948
-	window._wpLoadGutenbergEditor.then( function() {
-		unregisterBlockType( 'core/columns' );	
+	$( window ).on( 'load', function() {
+		wp.blocks.unregisterBlockType( 'core/columns' );	
 	} );
 
 } )(

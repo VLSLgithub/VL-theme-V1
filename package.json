@@ -20,16 +20,9 @@
     "responsive"
   ],
   "dependencies": {
-    "@wordpress/blocks": "^5.0.0",
-    "@wordpress/components": "^5.0.0",
-    "@wordpress/editor": "^6.0.0",
-    "@wordpress/element": "^2.1.5",
-    "@wordpress/i18n": "^3.0.1",
-    "@wordpress/rich-text": "^1.0.2",
     "classnames": "^2.2.6",
     "foundation-sites": "6.4.1",
     "jquery": "~3.0.0",
-    "lodash": "^4.17.11",
     "memize": "^1.0.5",
     "motion-ui": "~1.2.2",
     "what-input": "^4.1.3"
