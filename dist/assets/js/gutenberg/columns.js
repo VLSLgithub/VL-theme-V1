@@ -115,7 +115,7 @@ var getColumnsTemplate = (0, _memize2.default)(function (columns) {
 
 	registerBlockType('vibrant-life/columns', {
 
-		title: 'Vibrant Life Columns',
+		title: 'Columns',
 
 		icon: wp.element.createElement(
 			SVG,
@@ -132,19 +132,19 @@ var getColumnsTemplate = (0, _memize2.default)(function (columns) {
 
 		attributes: {
 			smallColumns: {
-				type: 'number',
+				type: 'string',
 				default: '1'
 			},
 			mediumColumns: {
-				type: 'number',
+				type: 'string',
 				default: '1'
 			},
 			largeColumns: {
-				type: 'number',
+				type: 'string',
 				default: '1'
 			},
 			xlargeColumns: {
-				type: 'number',
+				type: 'string',
 				default: '1'
 			}
 		},
@@ -240,8 +240,7 @@ var getColumnsTemplate = (0, _memize2.default)(function (columns) {
 	});
 
 	// Use only our own
-	// Script must require wp-edit-post
-	// https://github.com/WordPress/gutenberg/issues/4848#issuecomment-388174948
+	//  https://github.com/WordPress/gutenberg/issues/11723#issuecomment-439628591
 	$(window).on('load', function () {
 		wp.blocks.unregisterBlockType('core/columns');
 	});

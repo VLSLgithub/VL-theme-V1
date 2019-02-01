@@ -30,7 +30,7 @@ const getColumnsTemplate = memoize( ( columns ) => {
 
 	registerBlockType( 'vibrant-life/columns', {
 		
-		title: 'Vibrant Life Columns',
+		title: 'Columns',
 
 		icon: <SVG viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><Path fill="none" d="M0 0h24v24H0V0z" /><G><Path d="M21 4H3L2 5v14l1 1h18l1-1V5l-1-1zM8 18H4V6h4v12zm6 0h-4V6h4v12zm6 0h-4V6h4v12z" /></G></SVG>,
 
@@ -38,19 +38,19 @@ const getColumnsTemplate = memoize( ( columns ) => {
 		
 		attributes: {
 			smallColumns: {
-				type: 'number',
+				type: 'string',
 				default: '1',
 			},
 			mediumColumns: {
-				type: 'number',
+				type: 'string',
 				default: '1',
 			},
 			largeColumns: {
-				type: 'number',
+				type: 'string',
 				default: '1',
 			},
 			xlargeColumns: {
-				type: 'number',
+				type: 'string',
 				default: '1',
 			},
 		},
@@ -151,8 +151,7 @@ const getColumnsTemplate = memoize( ( columns ) => {
 	} );
 	
 	// Use only our own
-	// Script must require wp-edit-post
-	// https://github.com/WordPress/gutenberg/issues/4848#issuecomment-388174948
+	//  https://github.com/WordPress/gutenberg/issues/11723#issuecomment-439628591
 	$( window ).on( 'load', function() {
 		wp.blocks.unregisterBlockType( 'core/columns' );	
 	} );
