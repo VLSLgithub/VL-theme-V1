@@ -67,9 +67,9 @@ function add_vibrant_life_address_shortcode( $atts, $content = '' ) {
 				<span itemprop="longitude"><?php esc_html_e( $store->lng ); ?></span>  
 			</span>
 			<br />
-			<?php _e( 'Phone:', 'vibrant-life-theme' ); ?> <span itemprop="tel"><?php esc_html_e( vibrant_life_get_phone_number_link( $store->phone ) ); ?></span>
+			<?php _e( 'Phone:', 'vibrant-life-theme' ); ?> <span itemprop="tel"><?php echo vibrant_life_get_phone_number_link( $store->phone ); ?></span>
 			<?php if ( ! empty( $store->fax ) ) : ?>
-			<br /><?php _e( 'Fax:', 'vibrant-life-theme' ); ?> <span itemprop="tel"><?php esc_html_e( vibrant_life_get_phone_number_link( $store->fax ) ); ?></span>
+			<br /><?php _e( 'Fax:', 'vibrant-life-theme' ); ?> <span itemprop="tel"><?php echo vibrant_life_get_phone_number_link( $store->fax ); ?></span>
 			<?php endif; ?>
 			<?php if ( ! empty( $store->email ) ) : ?>
 			<br /><br /><?php _e( 'Email:', 'vibrant-life-theme' ); ?> <span itemprop="email"><a href="mailto:<?php esc_html_e( $store->email ); ?>"><?php esc_html_e( $store->email ); ?></a></span>
