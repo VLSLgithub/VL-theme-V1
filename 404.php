@@ -23,10 +23,10 @@ get_header(); ?>
 
 						<blockquote>
 							<p>
-								<?php _e( 'First you forget names, then you forget faces… next you forget to pull your zipper up and finally, you forget to pull it down.', 'vibrant-life-theme' ); ?>
+								<?php echo get_theme_mod( 'vibrant_life_404_quote_text', __( 'First you forget names, then you forget faces… next you forget to pull your zipper up and finally, you forget to pull it down.', 'vibrant-life-theme' ) ); ?>
 							</p>
 							<footer>
-								<?php _e( '~ George Burns', 'vibrant-life-theme' ); ?>
+								<?php echo '~ ' . get_theme_mod( 'vibrant_life_404_quote_author', __( 'George Burns', 'vibrant-life-theme' ) ); ?>
 							</footer>
 						</blockquote>
 

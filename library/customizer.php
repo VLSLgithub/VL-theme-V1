@@ -15,18 +15,13 @@ add_action( 'customize_register', function( $wp_customize ) {
             'priority'   => 30,
         ) 
     );
-	
-	$wp_customize->add_setting( 'vibrant_life_404_hero', array(
-            'default'     => 1,
-            'transport'   => 'refresh',
+
+    // 404 Page options
+    $wp_customize->add_section( 'vibrant_life_404_section' , array(
+            'title'      => __( '404 Page Settings', 'vibrant-life-theme' ),
+            'priority'   => 30,
         ) 
     );
-    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'vibrant_life_404_hero', array(
-        'label'      => __( '404 Hero Image', 'vibrant-life-theme' ),
-        'section'    => 'vibrant_life_customizer_section',
-        'settings'   => 'vibrant_life_404_hero',
-        'mime_type'  => 'image',
-    ) ) );
 	
 	$forms = array( '' => __( 'Please activate Gravity Forms', 'vibrant-life-theme' ) );
 	
@@ -131,6 +126,42 @@ add_action( 'customize_register', function( $wp_customize ) {
         'label'        => __( 'Show RSS Button', 'vibrant-life-theme' ),
         'section'    => 'vibrant_life_customizer_section',
         'settings'   => 'vibrant_life_rss_show',
+    ) ) );
+
+    $wp_customize->add_setting( 'vibrant_life_404_hero', array(
+            'default'     => 1,
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'vibrant_life_404_hero', array(
+        'label'      => __( '404 Hero Image', 'vibrant-life-theme' ),
+        'section'    => 'vibrant_life_404_section',
+        'settings'   => 'vibrant_life_404_hero',
+        'mime_type'  => 'image',
+    ) ) );
+
+    $wp_customize->add_setting( 'vibrant_life_404_quote_text', array(
+            'default'     => __( 'First you forget names, then you forget faces… next you forget to pull your zipper up and finally, you forget to pull it down.', 'vibrant-life-theme' ),
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vibrant_life_404_quote_text', array(
+        'type' => 'textarea',
+        'label'        => __( 'Quote Text', 'vibrant-life-theme' ),
+        'section'    => 'vibrant_life_404_section',
+        'settings'   => 'vibrant_life_404_quote_text',
+    ) ) );
+
+    $wp_customize->add_setting( 'vibrant_life_404_quote_author', array(
+            'default'     => __( 'George Burns', 'vibrant-life-theme' ),
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vibrant_life_404_quote_author', array(
+        'type' => 'text',
+        'label'        => __( 'Quote Author', 'vibrant-life-theme' ),
+        'section'    => 'vibrant_life_404_section',
+        'settings'   => 'vibrant_life_404_quote_author',
     ) ) );
     
 } );
