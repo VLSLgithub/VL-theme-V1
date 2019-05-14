@@ -15,12 +15,45 @@
  * @since FoundationPress 1.0.0
  */
 
+global $wp_query;
+
 get_header(); ?>
 
 <div class="swirl-border">
 	<div class="main-wrap full-width">
 		<main class="main-content">
 		<?php if ( have_posts() ) : ?>
+
+			<h1 class="page-title">
+				<?php if ( $location_slug = $wp_query->get( 'vibrant_life_location' ) ) : 
+
+					$location_id = get_posts( array(
+						'post_type' => 'facility',
+						'name' => $location_slug,
+						'posts_per_page' => 1,
+						'fields' => 'ids',
+					) );
+
+					if ( ! empty( $location_id ) ) {
+
+						$location_id = $location_id[0];
+
+					}
+					else { 
+						$location_id = false;
+					}
+
+					_e( 'Our Staff', 'vibrant-life-theme' );
+
+					if ( $location_id ) :
+
+						_e( ' at ', 'vibrant-life-theme' );
+						echo get_the_title( $location_id );
+
+					endif;
+
+				endif; ?>
+			</h1>
 
 			<div class="row">
 

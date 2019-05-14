@@ -225,12 +225,13 @@
 			}
 		
 			if ( ! is_404() && 
-				get_post_type() !== 'post' ) {
+				get_post_type() !== 'post' && 
+				get_post_type() !== 'staff' ) {
 
 				include_once THEME_DIR . '/template-parts/featured-image-tagline.php';
 				
 			}
-			else {
+			else if ( get_post_type() !== 'staff' ) {
 		
 				include_once THEME_DIR . '/template-parts/featured-image.php';
 		

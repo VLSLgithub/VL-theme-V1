@@ -11,7 +11,7 @@ get_header(); ?>
 <main class="main-content swirl-border">
 	<?php while ( have_posts() ) : the_post(); ?>
 	
-		<?php get_template_part( 'template-parts/content', '' ); ?>
+		<?php get_template_part( 'template-parts/content', get_post_type() ); ?>
 	
 		<section class="row navigation-container">
 			<div class="small-12 columns">

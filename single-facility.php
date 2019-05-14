@@ -101,6 +101,25 @@ while ( have_posts() ) : the_post(); ?>
 
 			</section>
 
+			<?php $staff = rbm_cpts_get_p2p_children( 'staff' ); 
+
+			if ( $staff ) : ?>
+
+				<section id="location-staff" class="row expanded" data-equalizer data-equalize-on="large">
+
+					<div class="small-12 medium-12 large-6 columns text-container" data-equalizer-watch>
+						<?php echo apply_filters( 'the_content', rbm_cpts_get_field( 'staff_location_content', get_the_ID(), '<p style="text-align: center;">[vibrant_life_button url="' . get_the_permalink( get_the_ID() ) . 'staff/" color="tertiary" hollow="true" class="animate-on-scroll fade-in"]' . __( 'Our Staff', 'cpt-facilities' ) . '[/vibrant_life_button]</p>' ) ); ?>
+					</div>
+
+					<div class="small-12 medium-12 large-6 columns image-container" data-equalizer-watch>
+						<div class="image" style="background-image: url('<?php echo wp_get_attachment_image_src( rbm_cpts_get_field( 'staff_location_image' ), 'full', false )[0]; ?>');">
+						</div>
+					</div>
+
+				</section>
+
+			<?php endif; ?>
+
 		</div>
 
 		<?php if ( $video_url = rbm_cpts_get_field( 'video_url' ) ) : ?>

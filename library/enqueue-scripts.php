@@ -80,9 +80,9 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		// Enqueue FontAwesome from CDN. Uncomment the line below if you don't need FontAwesome.
 		wp_enqueue_script(
 			'fontawesome',
-			'//use.fontawesome.com/releases/v5.0.3/js/all.js',
+			'//use.fontawesome.com/releases/v5.8.2/js/all.js',
 			array(),
-			'5.0.3',
+			'5.8.2',
 			false
 		);
 

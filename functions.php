@@ -197,7 +197,12 @@ function vibrant_life_get_phone_number_link( $phone_number, $extension = false, 
         $tel_link = $tel_link . ',' . $extension;
     }
     
-    if ( $phone_icon ) $phone_icon = '<span class="fas fa-phone"></span> ';
+    if ( $phone_icon && $phone_icon === true ) {
+		$phone_icon = '<span class="fas fa-phone"></span> ';
+	}
+	elseif ( $phone_icon ) {
+		$phone_icon = '<span class="' . $phone_icon . '"></span> ';
+	}
     
     return "<a href='$tel_link' class='phone-number-link'>$phone_icon$link_text</a>";
     
