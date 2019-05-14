@@ -47,7 +47,7 @@ function _vibrant_life_get_custom_tinymce_colors( $context = 'default' ) {
 		"0085cf", __( 'Vibrant Life Blue', 'vibrant-life-theme' ),
 		"dc4a00", __( 'Vibrant Life Orange', 'vibrant-life-theme' ),
 		"fcd400", __( 'Vibrant Life Yellow', 'vibrant-life-theme' ),
-		"05679D", __( 'Dark Blue', 'vibrant-life-theme' ),
+		"1E468C", __( 'Dark Blue', 'vibrant-life-theme' ),
 		"F5A623", __( 'Goldenrod', 'vibrant-life-theme' ),
 		"222222", __( 'Body Copy Text Color', 'vibrant-life-theme' ),
 		"ffffff", __( 'White', 'vibrant-life-theme' ),
