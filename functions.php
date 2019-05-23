@@ -322,6 +322,32 @@ function vibrant_life_get_asl_store_locator_stores() {
 	
 }
 
+/**
+ * Gets API Key from the Agile Store Locator Plugin
+ * 
+ * @since	{{VERSION}}
+ * @return	string API Key
+ */
+function get_asl_google_maps_api_key() {
+
+	if ( ! defined( 'AGILESTORELOCATOR_PREFIX' ) ) return false;
+
+	global $wpdb;
+
+	$AGILESTORELOCATOR_PREFIX = AGILESTORELOCATOR_PREFIX;
+
+	$query = "SELECT `value` FROM {$AGILESTORELOCATOR_PREFIX}configs WHERE `key` = 'api_key'";
+
+	$results = $wpdb->get_results( $query );
+
+	if ( empty( $results ) ) {
+		return false;
+	}
+	
+	return $results[0]->value;
+
+}
+
 add_action( 'admin_menu', function() {
 	
 	if ( is_user_logged_in() ) {

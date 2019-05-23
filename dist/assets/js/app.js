@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 47);
+/******/ 	return __webpack_require__(__webpack_require__.s = 48);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4614,7 +4614,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _whatInput = __webpack_require__(46);
+var _whatInput = __webpack_require__(47);
 
 var _whatInput2 = _interopRequireDefault(_whatInput);
 
@@ -4622,23 +4622,25 @@ var _foundationSites = __webpack_require__(20);
 
 var _foundationSites2 = _interopRequireDefault(_foundationSites);
 
-__webpack_require__(44);
+__webpack_require__(45);
 
-__webpack_require__(43);
+__webpack_require__(44);
 
 __webpack_require__(38);
 
-__webpack_require__(45);
+__webpack_require__(46);
 
 __webpack_require__(39);
 
 __webpack_require__(37);
 
+__webpack_require__(43);
+
+__webpack_require__(41);
+
 __webpack_require__(42);
 
 __webpack_require__(40);
-
-__webpack_require__(41);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12270,6 +12272,81 @@ function resizeIframe(iFrame) {
 
 (function ($) {
 
+    // The built-in Google Maps examples for some reason don't work, but the way that the Store plugin does it on the admin side does
+    // So we're going to copy/past parts of their code to use. 
+
+    if ($('body.single-facility').length < 0) return;
+
+    var apiKey = vibrantLife.asl_google_maps_api_key;
+
+    if (!apiKey) return;
+
+    var store = vibrantLife.current_store;
+
+    if (!store || typeof store == 'undefined') return;
+
+    var map_div = document.getElementById('map_canvas');
+
+    var latlng = new google.maps.LatLng(store.lat, store.lng),
+        mapOptions = {
+        zoom: 14,
+        minZoom: 8,
+        center: latlng,
+        //maxZoom: 10,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles: [{ "stylers": [{ "saturation": -100 }, { "gamma": 1 }] }, { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.business", "elementType": "labels.text", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.business", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.place_of_worship", "elementType": "labels.text", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.place_of_worship", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "elementType": "geometry", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "water", "stylers": [{ "visibility": "on" }, { "saturation": 50 }, { "gamma": 0 }, { "hue": "#50a5d1" }] }, { "featureType": "administrative.neighborhood", "elementType": "labels.text.fill", "stylers": [{ "color": "#333333" }] }, { "featureType": "road.local", "elementType": "labels.text", "stylers": [{ "weight": 0.5 }, { "color": "#333333" }] }, { "featureType": "transit.station", "elementType": "labels.icon", "stylers": [{ "gamma": 1 }, { "saturation": 50 }] }],
+        draggable: true
+    };
+
+    var map = new google.maps.Map(map_div, mapOptions);
+
+    var map_marker = new google.maps.Marker({
+        draggable: false,
+        position: latlng,
+        map: map
+    });
+
+    var days = {
+        0: 'sun',
+        1: 'mon',
+        2: 'tue',
+        3: 'wed',
+        4: 'thu',
+        5: 'fri',
+        6: 'sat'
+    };
+
+    var content = '' + '<h3>' + store.title + '</h3>' + '<div class="infowindowContent">' + '<div class="info-addr">' + (store.description ? '<div class="address" style="margin-bottom: 10px">' + store.description + '</div>' : '') + '<div class="address"><span class="glyphicon icon-location"></span>' + store.street + "<br />" + store.city + ', ' + store.state + ' ' + store.postal_code + '</div>' + '<br />' + '<div class="phone"><span class="glyphicon icon-phone-outline"></span><b>Phone: </b><a href="tel:' + store.phone.replace(/\D/ig, '') + '">' + store.phone + '</a></div>' + '<br />' + (store.email ? '<div class="phone"><span class="glyphicon icon-at"></span><a href="mailto:' + store.email + '" style="text-transform: lowercase">' + store.email + '</a></div><br />' : '') + (store.open_hours ? '<div class="p-time"><span class="glyphicon icon-clock-1"></span>' + JSON.parse(store.open_hours)[days[new Date().getDay()]] + '</div><br />' : '') + '<div class="address"><a target="_blank" href="https://www.google.com/maps/place/' + encodeURIComponent(store.street + ' ' + store.city + ', ' + store.state + ' ' + store.postal_code) + '/">' + vibrantLife.i18n.directions + '</a>' + '</div>' + '</div>';
+
+    var info_window = new google.maps.InfoWindow({
+        content: content
+    });
+
+    map_marker.addListener('click', function () {
+        info_window.open(map, map_marker);
+    });
+
+    if (vibrantLife.asl_url !== false) {
+
+        var marker_icon = new google.maps.MarkerImage(vibrantLife.asl_url + 'admin/images/pin1.png');
+        marker_icon.size = new google.maps.Size(24, 39);
+        marker_icon.anchor = new google.maps.Point(24, 39);
+
+        map_marker.setIcon(marker_icon);
+    }
+
+    map.panTo(latlng);
+})(jQuery);
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+(function ($) {
+
 	$(document).ready(function () {
 
 		$(document).on('click touch', '.mobile-off-canvas-menu li.menu-item > a, .site-navigation li.menu-item > a', function (event) {
@@ -12282,7 +12359,7 @@ function resizeIframe(iFrame) {
 })(jQuery);
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12323,7 +12400,7 @@ function resizeIframe(iFrame) {
 })(jQuery);
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12491,7 +12568,7 @@ function resizeIframe(iFrame) {
 })(jQuery);
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12507,7 +12584,7 @@ function resizeIframe(iFrame) {
 })(jQuery);
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12521,7 +12598,7 @@ function resizeIframe(iFrame) {
 })(jQuery);
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12539,7 +12616,7 @@ function resizeIframe(iFrame) {
 })(jQuery);
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -12924,7 +13001,7 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(19);

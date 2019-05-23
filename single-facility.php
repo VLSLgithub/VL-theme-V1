@@ -122,6 +122,12 @@ while ( have_posts() ) : the_post(); ?>
 
 		</div>
 
+		<section id="map" class="row expanded small-collapse">
+
+			<div id="map_canvas"></div>
+
+		</section>
+
 		<?php if ( $video_url = rbm_cpts_get_field( 'video_url' ) ) : ?>
 
 			<section id="video" class="row small-collapse">
