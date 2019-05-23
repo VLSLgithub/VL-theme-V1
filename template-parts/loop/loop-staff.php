@@ -10,7 +10,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'small-12', 'medium-3', 'columns' ) ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'small-12', $medium_class, 'columns' ) ); ?>>
 	<section class="narrow-title">
 		<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
 			<div class="half-circle-bottom">

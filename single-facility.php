@@ -108,7 +108,7 @@ while ( have_posts() ) : the_post(); ?>
 				<section id="location-staff" class="row expanded" data-equalizer data-equalize-on="large">
 
 					<div class="small-12 medium-12 large-6 columns text-container" data-equalizer-watch>
-						<?php echo apply_filters( 'the_content', rbm_cpts_get_field( 'staff_location_content', get_the_ID(), '<p style="text-align: center;">[vibrant_life_button url="' . get_the_permalink( get_the_ID() ) . 'staff/" color="tertiary" hollow="true" class="animate-on-scroll fade-in"]' . __( 'Our Staff', 'cpt-facilities' ) . '[/vibrant_life_button]</p>' ) ); ?>
+						<?php echo apply_filters( 'the_content', rbm_cpts_get_field( 'staff_location_content', get_the_ID(), '<p>[vibrant_life_staff featured=1]</p><p style="text-align: center;">[vibrant_life_button url="' . get_the_permalink( get_the_ID() ) . 'staff/" color="tertiary" hollow="true" class="animate-on-scroll fade-in"]' . __( 'Our Staff', 'cpt-facilities' ) . '[/vibrant_life_button]</p>' ) ); ?>
 					</div>
 
 					<div class="small-12 medium-12 large-6 columns image-container" data-equalizer-watch>

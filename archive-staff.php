@@ -52,14 +52,18 @@ get_header(); ?>
 
 					endif;
 
-				endif; ?>
+				endif; 
+
+				$medium_class = 'medium-3';
+				
+				?>
 			</h1>
 
 			<div class="row">
 
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'template-parts/loop/loop', 'staff' ); ?>
+					<?php include locate_template( 'template-parts/loop/loop-staff.php', false, false ); ?>
 				<?php endwhile; ?>
 
 			</div>

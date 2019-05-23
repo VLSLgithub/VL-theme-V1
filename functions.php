@@ -118,6 +118,7 @@ require_once( 'library/admin/extra-meta/about-us.php' );
 require_once( 'library/admin/extra-meta/contact-us.php' );
 require_once( 'library/admin/extra-meta/template-full-width-interstitial.php' );
 require_once( 'library/admin/extra-meta/location.php' );
+require_once( 'library/admin/extra-meta/staff.php' );
 
 // Shortcodes
 require_once( 'library/shortcodes/vibrant-life-button.php' );
@@ -126,6 +127,7 @@ require_once( 'library/shortcodes/vibrant-life-row.php' );
 require_once( 'library/shortcodes/vibrant-life-column.php' );
 require_once( 'library/shortcodes/vibrant-life-phone-number.php' );
 require_once( 'library/shortcodes/vibrant-life-address.php' );
+require_once( 'library/shortcodes/vibrant-life-staff.php' );
 
 // TinyMCE functionality
 require_once( 'library/admin/tinymce/localization.php' );
@@ -137,6 +139,7 @@ require_once( 'library/admin/tinymce/vibrant-life-row.php' );
 require_once( 'library/admin/tinymce/vibrant-life-column.php' );
 require_once( 'library/admin/tinymce/vibrant-life-phone-number.php' );
 require_once( 'library/admin/tinymce/vibrant-life-address.php' );
+require_once( 'library/admin/tinymce/vibrant-life-staff.php' );
 
 // Schedule a Visit
 require_once( 'library/gravity-forms.php' );
