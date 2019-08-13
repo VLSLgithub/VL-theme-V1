@@ -1,129 +1,125 @@
-.single-facility {
-	
-	section {
+section {
 		
-		&:last-of-type {
-			margin-bottom: 0;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+	
+}
+
+.swirl-border {
+	margin-bottom: 3rem;
+}
+
+#interstitial {
+	
+	@include breakpoint( medium ) {
+		margin-bottom: 0;
+	}
+	
+	// This targets mainly small, older phones like the iPhone 5 in Landscape
+	@media only screen and #{breakpoint( small only )} and #{breakpoint( landscape )} {
+
+		.medium-3 {
+			width: ( ( 3/12 ) * 100 ) + 0%;
 		}
+
+		.medium-9 {
+			width: ( ( 9/12 ) * 100 ) + 0%;
+		}
+
+	}
+	
+}
+
+#after-interstitial {
+	
+	max-width: $global-width * ( 5/6 );
+	
+	.columns {
+		position: relative;
+	}
+	
+	.circle-button-container {
+		
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
 		
 	}
 	
-	.swirl-border {
-		margin-bottom: 3rem;
-	}
-	
-	#interstitial {
-		
-		@include breakpoint( medium ) {
-			margin-bottom: 0;
-		}
-		
-		// This targets mainly small, older phones like the iPhone 5 in Landscape
-		@media only screen and #{breakpoint( small only )} and #{breakpoint( landscape )} {
-
-			.medium-3 {
-				width: ( ( 3/12 ) * 100 ) + 0%;
-			}
-
-			.medium-9 {
-				width: ( ( 9/12 ) * 100 ) + 0%;
-			}
-
-		}
-		
-	}
-	
-	#after-interstitial {
-		
-		max-width: $global-width * ( 5/6 );
+	@include breakpoint( small only ) {
 		
 		.columns {
-			position: relative;
+			margin-bottom: 1rem;
 		}
 		
-		.circle-button-container {
-			
+		img {
+			clip-path: url('#half-circle-bottom');
+		}
+		
+	}
+	
+}
+
+#call-to-action {
+	
+	.image-container {
+		
+		position: relative;
+		min-height: 25rem;
+		
+		.image {
+		
+			@extend .half-circle-right;
+
+			background-position: 0% 80%;
+			background-repeat: no-repeat;
+			background-size: cover;
 			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+
+			@include breakpoint(medium) {
+				background-position: 0% 0%;
+			}
 			
 		}
 		
 		@include breakpoint( small only ) {
-			
-			.columns {
-				margin-bottom: 1rem;
-			}
-			
-			img {
-				clip-path: url('#half-circle-bottom');
-			}
+		
+			margin-bottom: 2rem;
 			
 		}
 		
 	}
 	
-	#call-to-action {
+	.text-container {
 		
-		.image-container {
-			
-			position: relative;
-			min-height: 25rem;
-			
-			.image {
-			
-				@extend .half-circle-right;
-
-				background-position: 0% 80%;
-				background-repeat: no-repeat;
-				background-size: cover;
-				position: absolute;
-				top: 0;
-				right: 0;
-				left: 0;
-				bottom: 0;
-
-				@include breakpoint(medium) {
-					background-position: 0% 0%;
-				}
-				
-			}
-			
-			@include breakpoint( small only ) {
-			
-				margin-bottom: 2rem;
-				
-			}
-			
-		}
-		
-		.text-container {
-			
-			@include breakpoint(medium) {
-				padding: rem-calc(60) rem-calc(30);
-			}
-			
+		@include breakpoint(medium) {
+			padding: rem-calc(60) rem-calc(30);
 		}
 		
 	}
 	
-	#video {
+}
+
+#video {
+	
+	h2 {
+		margin-bottom: 3rem;
+	}
+	
+}
+
+section {
+	
+	&:last-of-type {
 		
-		h2 {
-			margin-bottom: 3rem;
-		}
+		padding-bottom: 0;
 		
 	}
 	
-	section {
-		
-		&:last-of-type {
-			
-			padding-bottom: 0;
-			
-		}
-		
-	}
-
 }
