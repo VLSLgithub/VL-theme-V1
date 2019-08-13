@@ -119,6 +119,7 @@ require_once( 'library/admin/extra-meta/contact-us.php' );
 require_once( 'library/admin/extra-meta/template-full-width-interstitial.php' );
 require_once( 'library/admin/extra-meta/location.php' );
 require_once( 'library/admin/extra-meta/landing-page.php' );
+require_once( 'library/admin/extra-meta/staff.php' );
 
 // Shortcodes
 require_once( 'library/shortcodes/vibrant-life-button.php' );
@@ -127,6 +128,7 @@ require_once( 'library/shortcodes/vibrant-life-row.php' );
 require_once( 'library/shortcodes/vibrant-life-column.php' );
 require_once( 'library/shortcodes/vibrant-life-phone-number.php' );
 require_once( 'library/shortcodes/vibrant-life-address.php' );
+require_once( 'library/shortcodes/vibrant-life-staff.php' );
 
 // TinyMCE functionality
 require_once( 'library/admin/tinymce/localization.php' );
@@ -138,6 +140,7 @@ require_once( 'library/admin/tinymce/vibrant-life-row.php' );
 require_once( 'library/admin/tinymce/vibrant-life-column.php' );
 require_once( 'library/admin/tinymce/vibrant-life-phone-number.php' );
 require_once( 'library/admin/tinymce/vibrant-life-address.php' );
+require_once( 'library/admin/tinymce/vibrant-life-staff.php' );
 
 // Schedule a Visit
 require_once( 'library/gravity-forms.php' );
@@ -198,7 +201,12 @@ function vibrant_life_get_phone_number_link( $phone_number, $extension = false, 
         $tel_link = $tel_link . ',' . $extension;
     }
     
-    if ( $phone_icon ) $phone_icon = '<span class="fas fa-phone"></span> ';
+    if ( $phone_icon && $phone_icon === true ) {
+		$phone_icon = '<span class="fas fa-phone"></span> ';
+	}
+	elseif ( $phone_icon ) {
+		$phone_icon = '<span class="' . $phone_icon . '"></span> ';
+	}
     
     return "<a href='$tel_link' class='phone-number-link'>$phone_icon$link_text</a>";
     
@@ -318,6 +326,32 @@ function vibrant_life_get_asl_store_locator_stores() {
 	
 }
 
+/**
+ * Gets API Key from the Agile Store Locator Plugin
+ * 
+ * @since	{{VERSION}}
+ * @return	string API Key
+ */
+function get_asl_google_maps_api_key() {
+
+	if ( ! defined( 'AGILESTORELOCATOR_PREFIX' ) ) return false;
+
+	global $wpdb;
+
+	$AGILESTORELOCATOR_PREFIX = AGILESTORELOCATOR_PREFIX;
+
+	$query = "SELECT `value` FROM {$AGILESTORELOCATOR_PREFIX}configs WHERE `key` = 'api_key'";
+
+	$results = $wpdb->get_results( $query );
+
+	if ( empty( $results ) ) {
+		return false;
+	}
+	
+	return $results[0]->value;
+
+}
+
 add_action( 'admin_menu', function() {
 	
 	if ( is_user_logged_in() ) {
@@ -404,5 +438,155 @@ function vibrant_life_get_associated_location( $post_id = null ) {
 	}
 	
 	return false;
+	
+}
+
+/**
+ * Returns a numeric index to use for sorting on the initial page load
+ * To be stored as Post Meta based on the attached Category (Loop through them all, find whichever matching category has the highest index, and save that one)
+ * 
+ * @since		{{VERSION}}
+ * @return		array Sorting Key
+ */
+function vibrant_life_get_staff_sorting_key() {
+
+	$terms = vibrant_life_get_taxonomy_list_recursive( 0, 'position' );
+	
+	return apply_filters( 'vibrant_life_get_staff_sorting_key', $terms );
+	
+}
+
+/**
+ * Gets a flat array of Terms in a Taxonomy ordered by their Term Order
+ *
+ * @param   integer  $term_id   Parent Term to get all Child Terms of. Pass in 0 to get all Terms in a Taxonomy.
+ * @param   string   $taxonomy  Taxonomy Name
+ * @param   array    &$sorted   Array of sorted Term IDs
+ *
+ * @return  array               Array of sorted Term IDs
+ */
+function vibrant_life_get_taxonomy_list_recursive( $term_id, $taxonomy, &$sorted = array() ) {
+
+	// We need the term_order key, so we cannot only pull in the Term ID
+	$terms = get_terms( $taxonomy, array( 'parent' => $term_id, 'hide_empty' => false ) );
+
+	usort( $terms, 'vibrant_life_sort_by_term_order' );
+
+	foreach ( $terms as $term ) {
+
+		$sorted[] = $term->term_id;
+
+		vibrant_life_get_taxonomy_list_recursive( $term->term_id, $taxonomy, $sorted );
+
+	}
+
+	return $sorted;
+
+}
+
+/**
+ * Sort an array of Term Objects by Term Order
+ *
+ * @param   object  $a  WP_Term
+ * @param   object  $b  WP_Term
+ *
+ * @return  boolean     Whether to move it forward or backward in the ordering
+ */
+function vibrant_life_sort_by_term_order( $a, $b ) {
+
+	return $a->term_order > $b->term_order;
+
+}
+
+add_action( 'save_post', 'vibrant_life_save_staff_sorting_key' );
+
+/**
+ * On Staff Save, update the hidden Staff Sorting value
+ * 
+ * @param		integer $post_id Post ID
+ *                               
+ * @since		{{VERSION}}
+ */
+function vibrant_life_save_staff_sorting_key( $post_id ) {
+	
+	if ( get_post_type( $post_id ) !== 'staff' ) 
+		return;
+	
+	// Autosave, do nothing
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+        return;
+	
+	// Check user permissions
+	if ( ! current_user_can( 'edit_post', $post_id ) )
+        return;
+	
+	// Return if it's a post revision
+	if ( false !== wp_is_post_revision( $post_id ) )
+				return;
+
+	if ( isset( $_POST['radio_tax_input'] ) && isset( $_POST['radio_tax_input']['position'] ) ) {
+		$_POST['tax_input']['position'] = $_POST['radio_tax_input']['position'];
+	}
+	
+	if ( ! isset( $_POST['tax_input'] ) || ! isset( $_POST['tax_input']['position'] ) ) {
+		$update = update_post_meta( $post_id, 'staff_sort_order', 9001 );
+		return;
+	}
+	
+	$sort_value = 0;
+	
+	$sorting_key = vibrant_life_get_staff_sorting_key();
+	
+	foreach ( $_POST['tax_input']['position'] as $term_id ) {
+		
+		$index = array_search( $term_id, $sorting_key );
+		
+		if ( $index !== false ) {
+			
+			$index = $index + 1; // Cannot zero-index otherwise we may not actually save a value
+
+			if ( $index > $sort_value ) {
+
+				$sort_value = $index;
+
+			}
+			
+		}
+		
+	}
+	
+	if ( $sort_value > 0 ) {
+		$update = update_post_meta( $post_id, 'staff_sort_order', (int) $sort_value );
+	}
+	else {
+		// If no sorting key found, make sure these ones are last in the list
+		$update = update_post_meta( $post_id, 'staff_sort_order', 9001 );
+	}
+	
+}
+
+add_action( 'pre_get_posts', 'vibrant_life_staff_ordering' );
+
+/**
+ * Orders Staff by their Postition, then by their Last Name
+ *
+ * @param   object  $query  WP_Query
+ *
+ * @since	{{VERSION}}
+ * @return  void
+ */
+function vibrant_life_staff_ordering( $query ) {
+	
+	if ( isset( $_GET['orderby'] ) ) return;
+
+	if ( ! is_archive() ) return;
+
+	if ( $query->get( 'post_type' ) !== 'staff' ) return;
+	
+	$query->set( 'meta_key', 'staff_sort_order' );
+	$query->set( 'orderby', array( 
+		'meta_value_num' => 'ASC',
+		'title' => 'ASC',
+	) );
 	
 }

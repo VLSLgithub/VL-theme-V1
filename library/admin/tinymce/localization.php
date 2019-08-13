@@ -76,6 +76,7 @@ function vibrant_life_get_wysiwyg_options( $context = 'default' ) {
 				'vibrant_life_column_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-column.js',
 				'vibrant_life_phone_number_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-phone-number.js',
 				'vibrant_life_address_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-address.js',
+				'vibrant_life_staff_shortcode_script' => THEME_URL . '/dist/assets/js/tinymce/vibrant-life-staff.js',
 			),
 		),
 	), $context );
@@ -100,6 +101,7 @@ function _vibrant_life_get_wysiwyg_shortcode_buttons( $context = 'default' ) {
 		'vibrant_life_column_shortcode',
 		'vibrant_life_phone_number_shortcode',
 		'vibrant_life_address_shortcode',
+		'vibrant_life_staff_shortcode',
 	), $context );
 	
 	if ( ! empty( $shortcode_buttons ) ) {

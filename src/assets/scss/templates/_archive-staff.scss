@@ -1,0 +1,24 @@
+body.post-type-archive-staff, .vibrant-life-staff-shortcode {
+
+    .staff {
+
+        a {
+
+            color: $primary-color;
+            text-decoration: none;
+
+            transition: color 1000ms;
+
+            &:hover, &:focus {
+                color: $quinary-color;
+            }
+
+            .entry-title {
+                color: inherit;
+            }
+
+        }
+
+    }
+
+}

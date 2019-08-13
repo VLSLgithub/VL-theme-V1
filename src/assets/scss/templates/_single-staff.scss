@@ -4,6 +4,19 @@ body.single-staff {
 
         padding-top: 6rem;
 
+        .image-container {
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .content {
+
+            margin-top: 1rem;
+
+        }
+
     }
 
 }
