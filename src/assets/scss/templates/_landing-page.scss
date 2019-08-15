@@ -1,5 +1,17 @@
 .page-template-landing-page {
 
+    section {
+			
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		
+    }
+    
+    .swirl-border {
+		margin-bottom: 3rem;
+	}
+
     .featured-hero {
         height: 100vh;
     }
@@ -41,5 +53,23 @@
         }
         
     }
+
+    #video {
+		
+		h2 {
+			margin-bottom: 3rem;
+		}
+		
+	}
+
+    section {
+		
+		&:last-of-type {
+			
+			padding-bottom: 0;
+			
+		}
+		
+	}
 
 }
