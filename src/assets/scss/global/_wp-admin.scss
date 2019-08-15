@@ -10,7 +10,7 @@ body.admin-bar {
 
       margin-top: rem-calc( 46 ) !important;
 
-      @include breakpoint( large ) {
+      @include breakpoint( medium ) {
         margin-top: rem-calc( 32 ) !important;
       }
 

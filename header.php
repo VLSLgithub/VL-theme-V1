@@ -232,7 +232,12 @@
 				get_post_type() !== 'post' && 
 				get_post_type() !== 'staff' ) {
 
-				include_once THEME_DIR . '/template-parts/featured-image-tagline.php';
+				if ( get_post_meta( get_the_ID(), '_wp_page_template', true ) !== 'page-templates/landing-page.php' ) {
+					include_once THEME_DIR . '/template-parts/featured-image-tagline.php';
+				}
+				else {
+					include_once THEME_DIR . '/template-parts/landing-page-featured-image-tagline.php';
+				}
 				
 			}
 			else if ( get_post_type() !== 'staff' ) {
