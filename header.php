@@ -34,122 +34,126 @@
 	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 		
 	<header class="site-header" role="banner">
+
+		<?php if ( get_post_meta( get_the_ID(), '_wp_page_template', true ) !== 'page-templates/landing-page.php' ) : ?>
 		
-		<div class="top-bar extra">
+			<div class="top-bar extra">
 
-			<div class="top-bar-left">
-				<?php if ( is_single() && 
-						  get_post_type() == 'facility' ) : ?>
-					<?php printf( __( 'Welcome to Vibrant Life - %s', 'vibrant-life-theme' ), preg_replace( '/Vibrant\sLife\s+/i', '', get_the_title() ) ); ?>
-				<?php else : ?>
-					<?php _e( 'Welcome to Vibrant Life', 'vibrant-life-theme' ); ?>
-				<?php endif; ?>
-			</div>
-			
-			<?php wp_nav_menu( array(
-				'container'      => false,
-				'menu_class'     => 'menu',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s top-bar-extra-menu hide-for-small-only">%3$s</ul>',
-				'theme_location' => 'top-bar-extra',
-				'depth'          => 1,
-				'walker'         => new Foundationpress_Top_Bar_Walker(),
-			) ); ?>
-
-			<div class="top-bar-right social">
-
-				<?php 
-					$social_accounts = array(
-						'vibrant_life_facebook' => array( 
-							'label' => 'Facebook',
-							'icon' => 'facebook-square',
-						),
-						'vibrant_life_twitter' => array( 
-							'label' => 'Twitter',
-							'icon' => 'twitter-square',
-						),
-						'vibrant_life_pinterest' => array( 
-							'label' => 'Pinterest',
-							'icon' => 'pinterest-square',
-						),
-						'vibrant_life_linkedin' => array( 
-							'label' => 'LinkedIn',
-							'icon' => 'linkedin-square',
-						),
-						'vibrant_life_instagram' => array( 
-							'label' => 'Instagram',
-							'icon' => 'instagram',
-						),
-					);
-
-				foreach ( $social_accounts as $key => $social ) :
-					if ( get_theme_mod( $key, '' ) !== '' ) : ?>
+				<div class="top-bar-left">
+					<?php if ( is_single() && 
+							get_post_type() == 'facility' ) : ?>
+						<?php printf( __( 'Welcome to Vibrant Life - %s', 'vibrant-life-theme' ), preg_replace( '/Vibrant\sLife\s+/i', '', get_the_title() ) ); ?>
+					<?php else : ?>
+						<?php _e( 'Welcome to Vibrant Life', 'vibrant-life-theme' ); ?>
+					<?php endif; ?>
+				</div>
 				
-						<div>
+				<?php wp_nav_menu( array(
+					'container'      => false,
+					'menu_class'     => 'menu',
+					'items_wrap'     => '<ul id="%1$s" class="%2$s top-bar-extra-menu hide-for-small-only">%3$s</ul>',
+					'theme_location' => 'top-bar-extra',
+					'depth'          => 1,
+					'walker'         => new Foundationpress_Top_Bar_Walker(),
+				) ); ?>
 
-							<a class="social-icon" href="<?php echo get_theme_mod( $key, '' ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with us on %s', 'vibrant-life-theme' ), $social['label'] ); ?>">
-								<span class="fab fa-fw fa-2x fa-<?php echo $social['icon']; ?>"></span>
-							</a>
-							
-						</div>
+				<div class="top-bar-right social">
 
-					<?php endif;
-				endforeach;
-
-				if ( get_theme_mod( 'vibrant_life_rss_show', false ) === true ) : ?>
-
-					<a class="social-icon" href="<?php bloginfo( 'rss2_url' ); ?>" title="<?php _e( 'Get our RSS Feed', 'vibrant-life-theme' ); ?>">
-						<span class="fas fa-fw fa-rss-square"></span>
-					</a>
-
-				<?php endif; ?>
-
-			</div>
-
-			<div class="top-bar-right phone">
-				
-				<div>
-					
 					<?php 
+						$social_accounts = array(
+							'vibrant_life_facebook' => array( 
+								'label' => 'Facebook',
+								'icon' => 'facebook-square',
+							),
+							'vibrant_life_twitter' => array( 
+								'label' => 'Twitter',
+								'icon' => 'twitter-square',
+							),
+							'vibrant_life_pinterest' => array( 
+								'label' => 'Pinterest',
+								'icon' => 'pinterest-square',
+							),
+							'vibrant_life_linkedin' => array( 
+								'label' => 'LinkedIn',
+								'icon' => 'linkedin-square',
+							),
+							'vibrant_life_instagram' => array( 
+								'label' => 'Instagram',
+								'icon' => 'instagram',
+							),
+						);
+
+					foreach ( $social_accounts as $key => $social ) :
+						if ( get_theme_mod( $key, '' ) !== '' ) : ?>
 					
-						$location_id = vibrant_life_get_associated_location();
-					
-						if ( $location_id && 
-							function_exists( 'rbm_cpts_get_field' ) ) :
-					
-							$phone_number = rbm_cpts_get_field( 'phone_number', $location_id );
-					
-							if ( $phone_number ) {
-					
-								echo vibrant_life_get_phone_number_link( $phone_number );
+							<div>
+
+								<a class="social-icon" href="<?php echo get_theme_mod( $key, '' ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with us on %s', 'vibrant-life-theme' ), $social['label'] ); ?>">
+									<span class="fab fa-fw fa-2x fa-<?php echo $social['icon']; ?>"></span>
+								</a>
 								
-							}
-							else {
-								echo vibrant_life_get_phone_number_link( get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ) ); 
-							}
-					
-						else : ?>
+							</div>
 
-							<?php echo vibrant_life_get_phone_number_link( get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ) ); ?>
-					
-						<?php endif; ?>
-					
+						<?php endif;
+					endforeach;
+
+					if ( get_theme_mod( 'vibrant_life_rss_show', false ) === true ) : ?>
+
+						<a class="social-icon" href="<?php bloginfo( 'rss2_url' ); ?>" title="<?php _e( 'Get our RSS Feed', 'vibrant-life-theme' ); ?>">
+							<span class="fas fa-fw fa-rss-square"></span>
+						</a>
+
+					<?php endif; ?>
+
 				</div>
 
-			</div>
-			
-			<div class="top-bar-right search">
+				<div class="top-bar-right phone">
+					
+					<div>
+						
+						<?php 
+						
+							$location_id = vibrant_life_get_associated_location();
+						
+							if ( $location_id && 
+								function_exists( 'rbm_cpts_get_field' ) ) :
+						
+								$phone_number = rbm_cpts_get_field( 'phone_number', $location_id );
+						
+								if ( $phone_number ) {
+						
+									echo vibrant_life_get_phone_number_link( $phone_number );
+									
+								}
+								else {
+									echo vibrant_life_get_phone_number_link( get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ) ); 
+								}
+						
+							else : ?>
+
+								<?php echo vibrant_life_get_phone_number_link( get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ) ); ?>
+						
+							<?php endif; ?>
+						
+					</div>
+
+				</div>
 				
-				<div>
-
-					<button class="header-button open-search" data-open-search aria-label="<?php _e( 'Expand search', 'vibrant-life-theme' ); ?>" aria-controls="site-search">
-						<span class="fas fa-fw fa-search" aria-hidden="true"></span>
-					</button>
+				<div class="top-bar-right search">
 					
+					<div>
+
+						<button class="header-button open-search" data-open-search aria-label="<?php _e( 'Expand search', 'vibrant-life-theme' ); ?>" aria-controls="site-search">
+							<span class="fas fa-fw fa-search" aria-hidden="true"></span>
+						</button>
+						
+					</div>
+
 				</div>
 
 			</div>
 
-		</div>
+		<?php endif; ?>
 
 		<div id="sticky-anchor">
 			<?php // This allows the Sticky Menu Bar to only become stuck once it hits the top of the screen ?>
