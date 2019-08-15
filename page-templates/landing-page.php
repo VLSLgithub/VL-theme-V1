@@ -18,6 +18,32 @@ add_filter( 'body_class', function( $body_classes ) {
 
 } );
 
+add_filter( 'wp_get_nav_menu_items', 'vibrant_life_landing_page_menu_changes', 10, 3 );
+
+/**
+ * Only show the Schedule a Visit button in the Nav Menu on the Landing Page
+ *
+ * @param   array   $menu_items Array of Menu Item Objects
+ * @param   object  $menu       Menu Object
+ * @param   array   $args       Menu Item Args
+ *
+ * @since	{{VERSION}}
+ * @return  array               Menu Item Objects
+ */
+function vibrant_life_landing_page_menu_changes( $menu_items, $menu, $args ) {
+
+	if ( get_post_meta( get_the_ID(), '_wp_page_template', true ) !== 'page-templates/landing-page.php' ) return $menu_items;
+
+	if ( $menu->slug !== 'primary-mobile-only' && $menu->slug !== 'primary' ) return $menu_items;
+
+	$menu_items = array_filter( $menu_items, function( $menu_item ) {
+		return in_array( 'open-modal-schedule-a-visit', $menu_item->classes );
+	} );
+
+	return $menu_items;
+
+}
+
 get_header(); 
 
 while ( have_posts() ) : the_post(); ?>

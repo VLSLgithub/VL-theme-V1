@@ -12,47 +12,51 @@
 </div><!-- Close container -->
 
 <footer class="footer-container">
+
+	<?php if ( get_post_meta( get_the_ID(), '_wp_page_template', true ) !== 'page-templates/landing-page.php' ) : ?>
 	
-	<div class="footer-top">
+		<div class="footer-top">
 
-		<div class="expanded row flourishes small-collapse">
+			<div class="expanded row flourishes small-collapse">
 
-			<div class="flourish flourish-left small-12 large-6 text-left columns">
+				<div class="flourish flourish-left small-12 large-6 text-left columns">
 
-				<?php include THEME_DIR . '/dist/assets/images/flourish.svg'; ?>
+					<?php include THEME_DIR . '/dist/assets/images/flourish.svg'; ?>
+
+				</div>
+
+				<div class="flourish flourish-right large-6 columns text-right show-for-large">
+
+					<?php include THEME_DIR . '/dist/assets/images/flourish.svg'; ?>
+
+				</div>
 
 			</div>
 
-			<div class="flourish flourish-right large-6 columns text-right show-for-large">
-
-				<?php include THEME_DIR . '/dist/assets/images/flourish.svg'; ?>
-
+			<div class="content">
+				
+				<div class="row">
+					
+					<div class="small-12 medium-6 columns footer-contact">
+						<?php include THEME_DIR . '/dist/assets/images/logo-blank.svg'; ?>
+						<?php dynamic_sidebar( 'footer-left' ); ?>
+					</div>
+				
+					<div class="small-12 medium-3 columns footer-menu">
+						<?php dynamic_sidebar( 'footer-center' ); ?>
+					</div>
+					
+					<div class="small-12 medium-3 columns footer-menu">
+						<?php dynamic_sidebar( 'footer-right' ); ?>
+					</div>
+					
+				</div>
+				
 			</div>
-
+			
 		</div>
 
-		<div class="content">
-			
-			<div class="row">
-				
-				<div class="small-12 medium-6 columns footer-contact">
-					<?php include THEME_DIR . '/dist/assets/images/logo-blank.svg'; ?>
-					<?php dynamic_sidebar( 'footer-left' ); ?>
-				</div>
-			
-				<div class="small-12 medium-3 columns footer-menu">
-					<?php dynamic_sidebar( 'footer-center' ); ?>
-				</div>
-				
-				<div class="small-12 medium-3 columns footer-menu">
-					<?php dynamic_sidebar( 'footer-right' ); ?>
-				</div>
-				
-			</div>
-			
-		</div>
-		
-	</div>
+	<?php endif; ?>
 	
 	<div class="footer-bottom expanded row">
 		

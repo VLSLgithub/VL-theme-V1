@@ -1,11 +1,45 @@
 .page-template-landing-page {
 
-    section {
-			
-		&:last-of-type {
-			margin-bottom: 0;
-		}
-		
+    // Make the Nav always look like the shrunk one. This includes all but the color changes
+    .sticky-top-bar {
+
+        .svg-container {
+            margin-top: .1rem;
+            margin-bottom: -.1rem;
+        }
+
+        @media only screen and (max-width: #{( map-get( $breakpoints, 'large' ) - 1 )}) {
+
+            .svg-container {
+
+                &.small-version {
+                    display: inline-block;
+                }
+
+            }
+
+        }
+
+        @include breakpoint( large ) {
+
+            .top-bar-title {
+				margin-top: -1.5rem;
+				margin-bottom: -1.5rem;
+            }
+            
+            .svg-container {
+
+				svg {
+
+					width: 50%;
+					height: auto;
+
+				}
+
+			}
+
+        }
+
     }
     
     .swirl-border {
@@ -13,7 +47,7 @@
 	}
 
     .featured-hero {
-        height: 100vh;
+        height: 116vh;
     }
 
     &.interstitial-disabled {
@@ -58,16 +92,6 @@
 		
 		h2 {
 			margin-bottom: 3rem;
-		}
-		
-	}
-
-    section {
-		
-		&:last-of-type {
-			
-			padding-bottom: 0;
-			
 		}
 		
 	}
