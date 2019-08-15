@@ -47,7 +47,38 @@
 	}
 
     .featured-hero {
-        height: 116vh;
+
+        height: 170vh;
+
+        @include breakpoint( medium ) {
+            height: 270vh;
+        }
+
+        @media #{$ipad-portrait} {
+            height: 120vh;
+        }
+
+        @include breakpoint( large ) {
+            height: 150vh;
+        }
+
+        .gform_wrapper {
+
+            background-color: #fff;
+            padding: rem-calc( 15 );
+
+            border: rem-calc( 2 ) solid $quinary-color;
+
+            * {
+                text-shadow: none;
+            }
+
+        }
+
+    }
+
+    .title-hero .marketing .tagline .row .columns *:first-child {
+        margin-top: 0;
     }
 
     &.interstitial-disabled {
