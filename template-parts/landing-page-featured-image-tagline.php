@@ -36,7 +36,7 @@ if ( has_post_thumbnail() ) : ?>
 
 			<div class="small-12 columns tagline">
 				<div class="row">
-					<div class="small-12 medium-6 columns">
+					<div class="small-12 medium-8 columns">
 						
 						<?php if ( apply_filters( 'vibrant_life_show_hero_title', true ) ) : ?>
 						
@@ -61,7 +61,7 @@ if ( has_post_thumbnail() ) : ?>
                         </div>
 						
 					</div>
-					<div class="small-12 medium-6 columns">
+					<div class="small-12 medium-4 columns">
 
 						<?php $form_id = get_theme_mod( 'vibrant_life_schedule_a_visit_form', false ); 
 			
