@@ -73,6 +73,41 @@
                 text-shadow: none;
             }
 
+            .gform_heading {
+
+                margin-bottom: .5rem;
+
+            }
+
+            ul li.gfield {
+
+                margin-top: .25rem;
+
+                label {
+                    font-size: .85rem;
+	                line-height: .8;
+                }
+
+                .ginput_container {
+
+                    margin-top: .25rem;
+
+                    label {
+                        margin-bottom: .25rem;
+                    }
+
+                }
+
+                select, input, textarea {
+                    margin-bottom: .25rem;
+                }
+
+            }
+
+            .gform_footer {
+                margin-top: 0;
+            }
+
         }
 
     }
