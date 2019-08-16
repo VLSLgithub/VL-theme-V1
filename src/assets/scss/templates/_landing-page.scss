@@ -48,18 +48,26 @@
 
     .featured-hero {
 
-        height: 170vh;
+        height: 140vh;
 
         @include breakpoint( medium ) {
-            height: 270vh;
+            height: 190vh;
         }
 
         @media #{$ipad-portrait} {
-            height: 120vh;
+            height: 95vh;
         }
 
         @include breakpoint( large ) {
-            height: 150vh;
+            height: 116vh;
+        }
+
+        @include breakpoint( teneighty ) {
+            height: 118vh;
+        }
+
+        @include breakpoint( fourk ) {
+            height: 121vh;
         }
 
         .gform_wrapper {
