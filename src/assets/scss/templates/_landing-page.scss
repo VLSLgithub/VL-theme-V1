@@ -51,7 +51,7 @@
         height: 140vh;
 
         @include breakpoint( medium ) {
-            height: 190vh;
+            height: 200vh;
         }
 
         @media #{$ipad-portrait} {
@@ -92,7 +92,6 @@
 
                 label {
                     font-size: .85rem;
-	                line-height: .8;
                 }
 
                 .ginput_container {
