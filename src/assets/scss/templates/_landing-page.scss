@@ -48,29 +48,71 @@
 
     .featured-hero {
 
-        height: 170vh;
+        height: 140vh;
 
         @include breakpoint( medium ) {
-            height: 270vh;
+            height: 190vh;
         }
 
         @media #{$ipad-portrait} {
-            height: 120vh;
+            height: 95vh;
         }
 
         @include breakpoint( large ) {
-            height: 150vh;
+            height: 116vh;
+        }
+
+        @include breakpoint( teneighty ) {
+            height: 118vh;
+        }
+
+        @include breakpoint( fourk ) {
+            height: 121vh;
         }
 
         .gform_wrapper {
 
-            background-color: #fff;
-            padding: rem-calc( 15 );
+            label, .gform_title, .gfield_required {
+                color: #fff;
+            }
 
-            border: rem-calc( 2 ) solid $quinary-color;
-
-            * {
+            *:not(label):not(.gform_title):not(.gfield_required) {
                 text-shadow: none;
+            }
+
+            .gform_heading {
+
+                margin-bottom: .5rem;
+
+            }
+
+            ul li.gfield {
+
+                margin-top: .25rem;
+
+                label {
+                    font-size: .85rem;
+	                line-height: .8;
+                }
+
+                .ginput_container {
+
+                    margin-top: .25rem;
+
+                    label {
+                        margin-bottom: .25rem;
+                    }
+
+                }
+
+                select, input, textarea {
+                    margin-bottom: .25rem;
+                }
+
+            }
+
+            .gform_footer {
+                margin-top: 0;
             }
 
         }
