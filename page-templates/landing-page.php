@@ -56,7 +56,9 @@ while ( have_posts() ) : the_post(); ?>
 
 				<section id="interstitial" class="row interstitial">
 
-						<div class="small-12 medium-3 columns">
+					<div data-equalizer data-equalize-on="medium">
+
+						<div class="small-12 medium-3 columns" data-equalizer-watch>
 
 							<div class="image with-image-tag circle-mask">
 								<?php echo wp_get_attachment_image( vibrant_life_get_field( 'interstitial_image' ), 'full' ); ?>
@@ -64,11 +66,17 @@ while ( have_posts() ) : the_post(); ?>
 
 						</div>
 
-						<div class="small-12 medium-9 columns">
+						<div class="small-12 medium-9 columns" data-equalizer-watch>
 
-							<?php the_content(); ?>
+							<div class="text">
+
+								<?php the_content(); ?>
+
+							</div>
 
 						</div>
+
+					</div>
 
 				</section>
 
