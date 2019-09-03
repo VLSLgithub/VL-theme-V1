@@ -277,10 +277,13 @@
 
 		.top-bar-title {
 			margin-top: -1rem;
-			margin-bottom: -1rem;
+			margin-bottom: .75rem;
 		}
 
 		.svg-container {
+
+			margin-top: -.5rem;
+            margin-bottom: -1rem;
 
 			svg {
 
@@ -312,7 +315,15 @@
 
 			}
 
+			.top-bar-title {
+				margin-top: 1rem;
+				margin-bottom: -1.4rem;
+			}
+			
 			.svg-container {
+	
+				margin-top: -2.25rem;
+				margin-bottom: 1.25rem;
 
 				svg {
 
@@ -320,7 +331,7 @@
 					height: auto;
 
 				}
-
+	
 			}
 
 		}
