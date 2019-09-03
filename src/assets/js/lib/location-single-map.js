@@ -3,7 +3,7 @@
     // The built-in Google Maps examples for some reason don't work, but the way that the Store plugin does it on the admin side does
     // So we're going to copy/past parts of their code to use. 
 
-    if ( $( 'body.single-facility' ).length < 0 ) return;
+    if ( $( 'body.single-facility' ).length == 0 ) return;
 
     let apiKey = vibrantLife.asl_google_maps_api_key;
 
