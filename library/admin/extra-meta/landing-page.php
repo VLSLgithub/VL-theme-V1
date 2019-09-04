@@ -28,7 +28,7 @@ function vibrant_life_is_editing_landing_page() {
     
     if ( is_admin() && 
         isset( $_REQUEST['post'] ) && 
-        get_post_meta( $_REQUEST['post'], '_wp_page_template', true ) == 'page-templates/landing-page.php' ) {
+        vibrant_life_is_landing_page( $_REQUEST['post'] ) ) {
         return true;
     }
     

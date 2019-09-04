@@ -34,10 +34,10 @@
 	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 		
 	<header class="site-header" role="banner">
-
-		<?php if ( get_post_meta( get_the_ID(), '_wp_page_template', true ) !== 'page-templates/landing-page.php' ) : ?>
 		
-			<div class="top-bar extra">
+		<div class="top-bar extra">
+
+			<?php if ( ! vibrant_life_is_landing_page() ) : ?>
 
 				<div class="top-bar-left">
 					<?php if ( is_single() && 
@@ -107,38 +107,42 @@
 
 				</div>
 
-				<div class="top-bar-right phone">
-					
-					<div>
-						
-						<?php 
-						
-							$location_id = vibrant_life_get_associated_location();
-						
-							if ( $location_id && 
-								function_exists( 'rbm_cpts_get_field' ) ) :
-						
-								$phone_number = rbm_cpts_get_field( 'phone_number', $location_id );
-						
-								if ( $phone_number ) {
-						
-									echo vibrant_life_get_phone_number_link( $phone_number );
-									
-								}
-								else {
-									echo vibrant_life_get_phone_number_link( get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ) ); 
-								}
-						
-							else : ?>
+			<?php endif; ?>
 
-								<?php echo vibrant_life_get_phone_number_link( get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ) ); ?>
-						
-							<?php endif; ?>
-						
-					</div>
-
-				</div>
+			<div class="top-bar-right phone">
 				
+				<div>
+					
+					<?php 
+					
+						$location_id = vibrant_life_get_associated_location();
+					
+						if ( $location_id && 
+							function_exists( 'rbm_cpts_get_field' ) ) :
+					
+							$phone_number = rbm_cpts_get_field( 'phone_number', $location_id );
+					
+							if ( $phone_number ) {
+					
+								echo vibrant_life_get_phone_number_link( $phone_number );
+								
+							}
+							else {
+								echo vibrant_life_get_phone_number_link( get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ) ); 
+							}
+					
+						else : ?>
+
+							<?php echo vibrant_life_get_phone_number_link( get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' ) ); ?>
+					
+						<?php endif; ?>
+					
+				</div>
+
+			</div>
+
+			<?php if ( ! vibrant_life_is_landing_page() ) : ?>
+			
 				<div class="top-bar-right search">
 					
 					<div>
@@ -151,9 +155,9 @@
 
 				</div>
 
-			</div>
+			<?php endif; ?>
 
-		<?php endif; ?>
+		</div>
 
 		<div id="sticky-anchor">
 			<?php // This allows the Sticky Menu Bar to only become stuck once it hits the top of the screen ?>
@@ -231,7 +235,7 @@
 			if ( ! is_404() && 
 				get_post_type() !== 'post' ) {
 
-				if ( get_post_meta( get_the_ID(), '_wp_page_template', true ) !== 'page-templates/landing-page.php' ) {
+				if ( ! vibrant_life_is_landing_page() ) {
 					include_once THEME_DIR . '/template-parts/featured-image-tagline.php';
 				}
 				else {

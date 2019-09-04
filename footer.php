@@ -13,7 +13,7 @@
 
 <footer class="footer-container">
 
-	<?php if ( get_post_meta( get_the_ID(), '_wp_page_template', true ) !== 'page-templates/landing-page.php' ) : ?>
+	<?php if ( ! vibrant_life_is_landing_page() ) : ?>
 	
 		<div class="footer-top">
 

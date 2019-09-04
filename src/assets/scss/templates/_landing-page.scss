@@ -1,5 +1,16 @@
 .page-template-landing-page {
 
+    .top-bar-right.phone {
+
+        @include breakpoint( small only ) {
+
+            float: none;
+            width: 100%;
+
+        }
+
+    }
+
     // Make the Nav always look like the shrunk one. This includes all but the color changes
     .sticky-top-bar {
 
