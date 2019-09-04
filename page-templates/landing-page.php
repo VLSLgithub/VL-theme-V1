@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Landing Page
- * @since {{VERSION}}
+ * @since 1.0.9
  *
  * @package VibrantLifeTheme2018
  */
@@ -27,12 +27,12 @@ add_filter( 'wp_get_nav_menu_items', 'vibrant_life_landing_page_menu_changes', 1
  * @param   object  $menu       Menu Object
  * @param   array   $args       Menu Item Args
  *
- * @since	{{VERSION}}
+ * @since	1.0.9
  * @return  array               Menu Item Objects
  */
 function vibrant_life_landing_page_menu_changes( $menu_items, $menu, $args ) {
 
-	if ( get_post_meta( get_the_ID(), '_wp_page_template', true ) !== 'page-templates/landing-page.php' ) return $menu_items;
+	if ( ! vibrant_life_is_landing_page() ) return $menu_items;
 
 	if ( $menu->slug !== 'primary-mobile-only' && $menu->slug !== 'primary' ) return $menu_items;
 

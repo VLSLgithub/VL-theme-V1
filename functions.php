@@ -588,5 +588,25 @@ function vibrant_life_staff_ordering( $query ) {
 		'meta_value_num' => 'ASC',
 		'title' => 'ASC',
 	) );
+
+}
 	
+/**
+ * Shorthand to determine if a Page is a Landing Page
+ *
+ * @param   interger  $post_id  WP_Post ID
+ *
+ * @since	{{VERSION}}
+ * @return  boolean             True/False
+ */
+function vibrant_life_is_landing_page( $post_id = null ) {
+
+	if ( ! $post_id ) $post_id = get_the_ID();
+
+	if ( get_post_meta( get_the_ID(), '_wp_page_template', true ) == 'page-templates/landing-page.php' ) {
+		return true;
+	}
+
+	return false;
+
 }

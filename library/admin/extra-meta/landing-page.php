@@ -2,7 +2,7 @@
 /**
  * Landing Page Template extra meta.
  *
- * @since   {{VERSION}}
+ * @since   1.0.9
  * @package VibrantLifeTheme2018
  * @subpackage  VibrantLifeTheme2018/library/admin/extra-meta
  */
@@ -21,14 +21,14 @@ add_action( 'edit_form_after_title', 'vibrant_life_landing_page_above_editor' );
 /**
  * Determine if we're editing the Landing Page Template
  * 
- * @since       {{VERSION}}
+ * @since       1.0.9
  * @return      boolean Whether we're editing the Landing Page Template or not
  */
 function vibrant_life_is_editing_landing_page() {
     
     if ( is_admin() && 
         isset( $_REQUEST['post'] ) && 
-        get_post_meta( $_REQUEST['post'], '_wp_page_template', true ) == 'page-templates/landing-page.php' ) {
+        vibrant_life_is_landing_page( $_REQUEST['post'] ) ) {
         return true;
     }
     
@@ -39,7 +39,7 @@ function vibrant_life_is_editing_landing_page() {
 /**
  * Remove Supports from the Landing Page Template
  * 
- * @since       {{VERSION}}
+ * @since       1.0.9
  * @return      void
  */
 function vibrant_life_remove_landing_page_supports() {
@@ -55,7 +55,7 @@ function vibrant_life_remove_landing_page_supports() {
 /**
  * Needs to be called at do_meta_boxes since it is created at a different time than Supports Metaboxes
  * 
- * @since       {{VERSION}}
+ * @since       1.0.9
  * @return      void
  */
 function vibrant_life_remove_landing_page_metaboxes() {
@@ -69,7 +69,7 @@ function vibrant_life_remove_landing_page_metaboxes() {
 /**
  * Create Metaboxes for the Landing Page Template
  * 
- * @since       {{VERSION}}
+ * @since       1.0.9
  * @return      void
  */
 function vibrant_life_add_landing_page_metaboxes() {
