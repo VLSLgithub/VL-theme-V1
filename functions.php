@@ -419,7 +419,7 @@ function vibrant_life_get_associated_location( $post_id = null ) {
  *
  * @param   interger  $post_id  WP_Post ID
  *
- * @since	{{VERSION}}
+ * @since	1.0.10
  * @return  boolean             True/False
  */
 function vibrant_life_is_landing_page( $post_id = null ) {
