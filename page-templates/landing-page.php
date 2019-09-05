@@ -40,6 +40,50 @@ function vibrant_life_landing_page_menu_changes( $menu_items, $menu, $args ) {
 		return in_array( 'open-modal-schedule-a-visit', $menu_item->classes );
 	} );
 
+	$location_id = vibrant_life_get_associated_location();
+	$phone_number_default = get_theme_mod( 'vibrant_life_phone_number', '(734) 913-0000' );
+	$phone_number = $phone_number_default;
+					
+	if ( $location_id && 
+		function_exists( 'rbm_cpts_get_field' ) ) :
+
+		$phone_number = rbm_cpts_get_field( 'phone_number', $location_id );
+
+		if ( ! $phone_number ) {
+
+			$phone_number = $phone_number_default;
+			
+		}
+
+	endif;
+
+
+	// Now we're going to create a fake Menu Item. This is normally a WP_Post object, but it can be any Object technically
+
+	$phone_number_menu_item = new stdClass();
+
+	$phone_number_menu_item->url = vibrant_life_get_phone_number_link( $phone_number, false, '', false, false );
+
+	// This is probably the simplest way to ensure we maintain the correct format for the text
+	ob_start();
+	echo vibrant_life_get_phone_number_link( $phone_number, false, '', false, true );
+	$text = ob_get_clean();
+	$phone_number_menu_item->title = strip_tags( $text );
+
+	$phone_number_menu_item->menu_item_parent = 0;
+
+	$phone_number_menu_item->classes = 'hide-for-small-only';
+
+	$phone_number_menu_item->type = 'custom';
+	$phone_number_menu_item->object = 'custom';
+
+	$phone_number_menu_item->menu_order = 1;
+	$phone_number_menu_item->db_id = 0;
+	$phone_number_menu_item->object_id = 0;
+	$phone_number_menu_item->ID = 0;
+
+	$menu_items = array_merge( array( $phone_number_menu_item ), $menu_items );
+
 	return $menu_items;
 
 }

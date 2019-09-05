@@ -1,11 +1,33 @@
 .page-template-landing-page {
 
+    @media #{$ipad-portrait} {
+
+        .top-bar.show-for-small-only {
+            display: block !important;
+        }
+
+    }
+
     .top-bar-right.phone {
 
         @include breakpoint( small only ) {
 
             float: none;
             width: 100%;
+
+        }
+
+        @media #{$ipad-portrait} {
+
+            float: none;
+            width: 100%;
+            text-align: center;
+
+            div {
+                &:before {
+                    content: none;
+                }
+            }
 
         }
 
@@ -51,6 +73,16 @@
 				}
 
 			}
+
+        }
+
+    }
+
+    @media #{$ipad-portrait} {
+
+        .hide-for-small-only.menu-item {
+
+            display: none !important;
 
         }
 
