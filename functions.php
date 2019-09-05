@@ -168,10 +168,11 @@ function vibrant_life_blog_template( $template ) {
  * @param		string  $extension    Optional Extension to auto-dial to
  * @param		string  $link_text    Text to use instead of the Phone Number
  * @param		boolean $phone_icon   Whether to auto-include a Font Awesome Phone Icon or not
+ * @param		boolean $echo         Whether to echo out the HTML. False returns the Tel Link
  *                                                                                    
  * @return		string  tel: Link
  */
-function vibrant_life_get_phone_number_link( $phone_number, $extension = false, $link_text = '', $phone_icon = false ) {
+function vibrant_life_get_phone_number_link( $phone_number, $extension = false, $link_text = '', $phone_icon = false, $echo = true ) {
     
     $trimmed_phone_number = preg_replace( '/\D/', '', trim( $phone_number ) );
     
@@ -198,9 +199,15 @@ function vibrant_life_get_phone_number_link( $phone_number, $extension = false, 
         $tel_link = $tel_link . ',' . $extension;
     }
     
-    if ( $phone_icon ) $phone_icon = '<span class="fas fa-phone"></span> ';
+	if ( $phone_icon ) $phone_icon = '<span class="fas fa-phone"></span> ';
+	
+	if ( $echo ) {
     
-    return "<a href='$tel_link' class='phone-number-link'>$phone_icon$link_text</a>";
+		return "<a href='$tel_link' class='phone-number-link'>$phone_icon$link_text</a>";
+		
+	}
+
+	return $tel_link;
     
 }
 

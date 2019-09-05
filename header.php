@@ -35,7 +35,7 @@
 		
 	<header class="site-header" role="banner">
 		
-		<div class="top-bar extra">
+		<div class="top-bar extra<?php echo ( vibrant_life_is_landing_page() ) ? ' show-for-small-only' : ''; ?>">
 
 			<?php if ( ! vibrant_life_is_landing_page() ) : ?>
 
