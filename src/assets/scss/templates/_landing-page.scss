@@ -94,13 +94,29 @@
 
     .featured-hero {
 
-        height: 140vh;
+        height: 150vh;
 
         @include breakpoint( medium ) {
             height: 200vh;
         }
 
-        @media #{$ipad-portrait} {
+        @include iphone-five-portrait() {
+            height: 200vh;
+        }
+
+        @include iphone-five-landscape() {
+            height: 325vh;
+        }
+
+        @include iphone-six-seven-eight-portrait() {
+            height: 175vh;
+        }
+
+        @include iphone-six-seven-eight-landscape() {
+            height: 225vh;
+        }
+
+        @include ipad-portrait() {
             height: 95vh;
         }
 
@@ -182,9 +198,13 @@
 
         .text {
 
-            position: relative;
-			top: 50%;
-			transform: translateY(-50%);
+            @include breakpoint( medium ) {
+
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+
+            }
 
         }
 

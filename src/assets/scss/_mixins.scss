@@ -173,3 +173,67 @@
 	box-shadow: inset rem-calc(0) rem-calc(1) rem-calc(140) rgba(#000, 1);
 	
 }
+
+@mixin ipad-portrait() {
+    
+  @media only screen and (min-width: #{map-get( $breakpoints, 'medium' )}) and (max-width: 768px) and (orientation: portrait) {
+      
+      @content;
+      
+  }
+  
+}
+
+@mixin ipad-landscape() {
+    
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+      
+      @content;
+      
+  }
+  
+}
+
+// This is stuff like the iPhone 5 which are laughably small compared to more modern phones
+@mixin iphone-five-portrait() {
+
+  @media only screen and (max-width: 320px) and (orientation: portrait) {
+      
+    @content;
+    
+  }
+
+}
+
+// This is stuff like the iPhone 5 which are laughably small compared to more modern phones
+@mixin iphone-five-landscape() {
+
+  @media only screen and (max-width: 568px) and (orientation: landscape) {
+      
+    @content;
+    
+  }
+
+}
+
+// This is stuff like the iPhone 6/7/8 which are laughably small compared to more modern phones
+@mixin iphone-six-seven-eight-portrait() {
+
+  @media only screen and (min-width: 321px) and (max-width: 375px) and (orientation: portrait) {
+      
+    @content;
+    
+  }
+
+}
+
+// This is stuff like the iPhone 6/7/8 which are laughably small compared to more modern phones
+@mixin iphone-six-seven-eight-landscape() {
+
+  @media only screen and (min-width: 569px) and (max-width: 667px) and (orientation: landscape) {
+      
+    @content;
+    
+  }
+
+}
