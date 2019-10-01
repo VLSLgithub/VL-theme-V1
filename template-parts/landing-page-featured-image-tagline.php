@@ -67,7 +67,7 @@ if ( has_post_thumbnail() ) : ?>
 			
 							if ( $form_id ) { 
 								
-								echo do_shortcode( '[gravityform id="' . $form_id . '" title="true" description="false" ajax="true"]' );
+								echo do_shortcode( '[gravityform id="' . $form_id . '" title="true" description="false" ajax="false"]' );
 								
 							}
 							else {

@@ -72,6 +72,23 @@ function vibrant_life_populate_schedule_a_visit( $form, $ajax, $field_values ) {
 		wp_reset_postdata();
 		
 	}
+
+	foreach ( $form['fields'] as &$field ) {
+
+		if ( $field->id !== 6 ) continue; // Our Hidden Field is #6
+
+		if ( vibrant_life_is_landing_page() ) {
+			
+			// We need to define both cases since it is passed by reference. We want each rendering to be unique
+			if ( ! $ajax ) {
+				$field->defaultValue = '1';
+			}
+			else {
+				$field->defaultValue = '0';
+			}
+		}
+
+	}
 	
 	return $form;
 	
