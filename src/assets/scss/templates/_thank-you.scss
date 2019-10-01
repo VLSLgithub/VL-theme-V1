@@ -1,0 +1,33 @@
+.page-template-thank-you {
+
+    #news {
+            
+        .post {
+            
+            margin-bottom: 2rem;
+            
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+            
+            @include breakpoint( small only ) {
+            
+                .columns {
+
+                    &:first-of-type {
+                        margin-bottom: 2rem;
+                    }
+
+                }
+                
+            }
+            
+        }
+        
+        .button {
+            text-transform: uppercase;
+        }
+        
+    }
+
+}
