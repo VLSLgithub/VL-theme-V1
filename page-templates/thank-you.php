@@ -34,7 +34,7 @@ do_action( 'foundationpress_before_content' ); ?>
                     <div class="small-12 medium-6 columns">
 
                         <p>
-                            <?php _e( 'Pick up where you left off. Pick a link or search here:', 'vibrant-life-theme' ); ?>
+                            <?php _e( 'Learn more about Vibrant Life Senior Living. Pick a link, search a topic of interest, or read one of our recent blog articles.', 'vibrant-life-theme' ); ?>
                         </p>
 
                         <?php wp_nav_menu( array(
