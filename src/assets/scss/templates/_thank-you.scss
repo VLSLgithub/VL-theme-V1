@@ -30,4 +30,85 @@
         
     }
 
+    .search-toggle.menu-item {
+
+		line-height: 2.5;
+
+	}
+	
+	button {
+		
+		padding: $menu-items-padding;
+		
+		&:hover {
+			cursor: pointer;
+		}
+		
+	}
+	
+	#menu-404-menu {
+		
+		background: #fff;
+		border-radius:  0.25rem;
+		padding: 1rem;
+		
+		a {
+			
+			color: $dark-color;
+			font-family: $header-font-family;
+
+			&:hover, &:focus {
+				@include light-or-dark-text( $quaternary-color );
+			}
+
+			font-weight: bold;
+			line-height: 1;
+			border-radius: 0.25rem;
+
+			&:hover:not(.button), &:focus:not(.button) {
+
+				box-shadow: rem-calc(4) rem-calc(4) rem-calc(4) rgba(#000, 0.5);
+				background-color: $quaternary-color;
+
+			}
+			
+		}
+		
+		button {
+			
+			svg path {
+				
+				fill: $dark-color;
+				
+			}
+			
+			&:hover, &:focus {
+				
+				svg path {
+				
+					fill: $anchor-color-hover;
+						
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+	.interstitial {
+		
+		// This targets mainly small, older phones like the iPhone 5 in Landscape
+		@media only screen and #{breakpoint( small only )} and #{breakpoint( landscape )} {
+
+			.medium-6 {
+
+				width: ( ( 6/12 ) * 100 ) + 0%;
+
+			}
+
+		}
+		
+	}
+
 }
