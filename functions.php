@@ -403,14 +403,16 @@ function vibrant_life_get_associated_location( $post_id = null ) {
 	
 	if ( ! $post_id ) $post_id = get_the_ID();
 	
-	if ( get_post_type() == 'facility' ) return $post_id;
-	
 	if ( function_exists( 'rbm_cpts_get_p2p_parent' ) && 
 		is_page() ) {
-		return (int) rbm_cpts_get_p2p_parent( 'facility' );
+		$post_id = (int) rbm_cpts_get_p2p_parent( 'facility' );
 	}
+
+	$post_id = apply_filters( 'vibrant_life_get_associated_location', $post_id );
+
+	if ( get_post_type( $post_id ) !== 'facility' ) return false;
 	
-	return false;
+	return $post_id;
 	
 }
 

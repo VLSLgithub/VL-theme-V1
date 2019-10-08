@@ -5,6 +5,29 @@ Template Name: Thank You
 
 global $post;
 
+// Grab the selected item from the Form
+add_filter( 'vibrant_life_get_associated_location', function( $post_id ) {
+
+    $location = new WP_Query( array(
+		'post_type' => 'facility',
+		'posts_per_page' => 1,
+		'fields' => 'ids',
+		'meta_query' => array(
+			'relationship' => 'AND',
+			array(
+				'key' => 'rbm_cpts_short_name',
+				'value' => ( isset( $_GET['community'] ) && $_GET['community'] ) ? $_GET['community'] : '',
+				'compare' => '=',
+			),
+		),
+	) );
+	
+    if ( ! $location->have_posts() ) return $post_id;
+	
+	return $location->posts[0];
+
+} );
+
 add_filter( 'vibrant_life_show_hero_title', '__return_false' ); 
 
 get_header();
