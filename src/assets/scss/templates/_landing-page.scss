@@ -152,6 +152,14 @@
 
                 margin-top: .25rem;
 
+                @include breakpoint( medium ) {
+
+                    &.gf_right_half {
+                        margin-top: 0;
+                    }
+
+                }
+
                 label {
                     font-size: .85rem;
                 }
