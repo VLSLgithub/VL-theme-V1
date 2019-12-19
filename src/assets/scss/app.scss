@@ -39,6 +39,7 @@ $dark-color: #222;
 @include foundation-dropdown-menu;
 @include foundation-sticky;
 @include foundation-reveal;
+@include foundation-pagination;
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
