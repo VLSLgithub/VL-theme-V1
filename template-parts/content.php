@@ -28,7 +28,9 @@
 	
 	<section class="entry-content row">
 		<div class="small-12 columns">
+			<?php add_filter('the_content', 'sfsi_social_buttons_below'); ?>
 			<?php the_content(); ?>
+			<?php remove_filter('the_content', 'sfsi_social_buttons_below'); ?>
 			<?php edit_post_link( __( '(Edit)', 'vibrant-life-theme' ), '<span class="edit-link">', '</span>' ); ?>
 		</div>
 	</section>

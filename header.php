@@ -8,6 +8,8 @@
  * @since FoundationPress 1.0.0
  */
 
+remove_filter('the_content', 'sfsi_social_buttons_below');
+
 ?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> >

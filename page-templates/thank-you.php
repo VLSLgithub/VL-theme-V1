@@ -49,7 +49,9 @@ do_action( 'foundationpress_before_content' ); ?>
 
                         <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 						<div class="entry-content">
-							<?php the_content(); ?>
+                            <?php add_filter('the_content', 'sfsi_social_buttons_below'); ?>
+                            <?php the_content(); ?>
+                            <?php remove_filter('the_content', 'sfsi_social_buttons_below'); ?>
 						</div>
 
                     </div>

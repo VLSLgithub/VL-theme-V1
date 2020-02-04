@@ -982,7 +982,9 @@ get_header(); ?>
 			</div><!-- Close main-wrap -->
 
 		<div class="entry-content">
+			<?php add_filter('the_content', 'sfsi_social_buttons_below'); ?>
 			<?php the_content(); ?>
+			<?php remove_filter('the_content', 'sfsi_social_buttons_below'); ?>
 		</div>
 
 	<?php endwhile; ?>

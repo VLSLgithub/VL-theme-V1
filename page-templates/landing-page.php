@@ -114,7 +114,9 @@ while ( have_posts() ) : the_post(); ?>
 
 							<div class="text">
 
-								<?php the_content(); ?>
+							<?php add_filter('the_content', 'sfsi_social_buttons_below'); ?>
+							<?php the_content(); ?>
+							<?php remove_filter('the_content', 'sfsi_social_buttons_below'); ?>
 
 							</div>
 
