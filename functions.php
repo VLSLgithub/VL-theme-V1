@@ -435,3 +435,10 @@ function vibrant_life_is_landing_page( $post_id = null ) {
 	return false;
 
 }
+
+// This breaks RBM FH, so we have to tell it to stop
+add_action( 'wp_print_scripts', function() {
+	if ( class_exists( 'Nelio_AB_Testing' ) ) {
+		wp_dequeue_script( 'nab-post-experiment-management' );
+	}
+} );
