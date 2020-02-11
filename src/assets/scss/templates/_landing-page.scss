@@ -134,6 +134,11 @@
 
         .gform_wrapper {
 
+            .validation_error {
+                padding: .5rem 0;
+                margin-bottom: 1rem;
+            }
+
             label, .gform_title, .gfield_required {
                 color: #fff;
             }
@@ -176,6 +181,16 @@
 
                 select, input, textarea {
                     margin-bottom: .25rem;
+                }
+
+                &.gfield_error {
+
+                    padding: 0;
+
+                    .validation_message {
+                        padding-top: .5rem;
+                    }
+
                 }
 
             }
