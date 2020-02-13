@@ -4,8 +4,7 @@
  */
 
 // Populate Schedule a Visit Form
-// Gravity Form ID is 2
-add_filter( 'gform_pre_render_2', 'vibrant_life_populate_schedule_a_visit', 10, 3 );
+add_filter( 'gform_pre_render', 'vibrant_life_populate_schedule_a_visit', 10, 3 );
 
 /**
  * Pre-populate the Schedule a Visit Form
@@ -20,6 +19,8 @@ add_filter( 'gform_pre_render_2', 'vibrant_life_populate_schedule_a_visit', 10, 
 function vibrant_life_populate_schedule_a_visit( $form, $ajax, $field_values ) {
 	
 	global $post;
+
+	if ( (int) vibrant_life_get_schedule_a_visit_form( $post->ID ) !== (int) $form['id'] ) return $form;
 	
 	$locations = new WP_Query( array(
 		'post_type' => 'facility',
@@ -94,7 +95,7 @@ function vibrant_life_populate_schedule_a_visit( $form, $ajax, $field_values ) {
 	
 }
 
-add_filter( 'gform_notification_2', 'vibrant_life_route_schedule_a_visit_emails', 10, 3 );
+add_filter( 'gform_notification', 'vibrant_life_route_schedule_a_visit_emails', 10, 3 );
 
 /**
  * Send Email Notifications to the correct person based on the selected Location
@@ -107,6 +108,10 @@ add_filter( 'gform_notification_2', 'vibrant_life_route_schedule_a_visit_emails'
  * @return		array The filtered Notification
  */
 function vibrant_life_route_schedule_a_visit_emails( $notification, $form, $entry ) {
+
+	global $post;
+
+	if ( (int) vibrant_life_get_schedule_a_visit_form( $post->ID ) !== (int) $form['id'] ) return $notification;
 	
 	if ( ! function_exists( 'rbm_cpts_get_field' ) ) return $notification;
 	
