@@ -441,7 +441,7 @@ function vibrant_life_is_landing_page( $post_id = null ) {
  *
  * @param   integer  $post_id  WP_Post ID. Optional
  *
- * @since	{{VERSION}}
+ * @since	1.0.20
  * @return  integer            Gravity Forms Post ID
  */
 function vibrant_life_get_schedule_a_visit_form( $post_id = null ) {
