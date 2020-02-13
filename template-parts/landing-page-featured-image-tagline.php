@@ -63,7 +63,7 @@ if ( has_post_thumbnail() ) : ?>
 					</div>
 					<div class="small-12 medium-5 columns">
 
-						<?php $form_id = get_theme_mod( 'vibrant_life_schedule_a_visit_form', false ); 
+						<?php $form_id = vibrant_life_get_schedule_a_visit_form(); 
 			
 							if ( $form_id ) { 
 								

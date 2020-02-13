@@ -436,6 +436,28 @@ function vibrant_life_is_landing_page( $post_id = null ) {
 
 }
 
+/**
+ * Allow an easy way to grab the Schedule a Visit form to use, as well as a way to override it via a Filter if needed
+ *
+ * @param   integer  $post_id  WP_Post ID. Optional
+ *
+ * @since	{{VERSION}}
+ * @return  integer            Gravity Forms Post ID
+ */
+function vibrant_life_get_schedule_a_visit_form( $post_id = null ) {
+
+	if ( ! $post_id ) $post_id = get_the_ID();
+
+	$form = get_theme_mod( 'vibrant_life_schedule_a_visit_form', false );
+
+	if ( $override = vibrant_life_get_field( 'schedule_a_visit_form', $post_id ) ) {
+		$form = $override;
+	}
+
+	return apply_filters( 'vibrant_life_get_schedule_a_visit_form', $form, $post_id );
+
+}
+
 // This breaks RBM FH, so we have to tell it to stop
 add_action( 'wp_print_scripts', function() {
 	if ( class_exists( 'Nelio_AB_Testing' ) ) {

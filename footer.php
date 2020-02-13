@@ -80,7 +80,7 @@
 	
 	<div class="reveal" id="schedule-a-visit-modal" data-reveal>
 		
-		<?php $form_id = get_theme_mod( 'vibrant_life_schedule_a_visit_form', false ); 
+		<?php $form_id = vibrant_life_get_schedule_a_visit_form(); 
 		
 		if ( $form_id ) { 
 			

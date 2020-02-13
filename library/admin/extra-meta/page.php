@@ -32,6 +32,14 @@ function vibrant_life_add_page_metaboxes() {
 		'normal',
 		'high'
 	);
+
+	add_meta_box(
+		'vibrant-life-schedule-a-visit-form',
+		__( 'Schedule a Visit Form Override', 'vibrant-life-theme' ),
+		'vibrant_life_schedule_a_visit_form_override',
+		'page',
+		'side'
+	);
 	
 	// Each page except the Home Page
 	if ( vibrant_life_is_editing_home() ) return;
@@ -61,4 +69,28 @@ function vibrant_life_hero_metabox_content( $post_id ) {
 	
 	vibrant_life_init_field_group( 'hero' );
 	
+}
+
+function vibrant_life_schedule_a_visit_form_override( $post_id ) {
+
+	$forms = array( '' => __( 'Please activate Gravity Forms', 'vibrant-life-theme' ) );
+	
+	if ( class_exists( 'RGFormsModel' ) ) {
+		
+		$forms = wp_list_pluck( RGFormsModel::get_forms( null, 'title' ), 'title', 'id' );
+		
+	}
+
+	vibrant_life_do_field_select( array(
+		'label' => '<strong>' . __( 'Form to use instead of the one defined in the Customizer', 'vibrant-life-theme' ) . '</strong>',
+		'name' => 'schedule_a_visit_form',
+		'group' => 'schedule_a_visit_form',
+		'default' => get_theme_mod( 'vibrant_life_schedule_a_visit_form', false ),
+		'description_tip' => false,
+		'description_placement' => 'after_label',
+		'options' => $forms,
+	) );
+	
+	vibrant_life_init_field_group( 'schedule_a_visit_form' );
+
 }
