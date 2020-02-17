@@ -479,7 +479,7 @@ if ( class_exists( 'Nelio_AB_Testing' ) ) {
  * @param   string   $field_name  The field name. This does _not_ include the prefix
  * @param   integer  $post_id     Post ID of the Control Page
  *
- * @since	{{VERSION}}
+ * @since	1.0.21
  * @return  mixed               The saved value
  */
 function vibrant_life_fix_repeater_fields_saved_values_on_ab_testing( $value, $field_name, $post_id ) {
