@@ -464,3 +464,82 @@ add_action( 'wp_print_scripts', function() {
 		wp_dequeue_script( 'nab-post-experiment-management' );
 	}
 } );
+
+if ( class_exists( 'Nelio_AB_Testing' ) ) {
+
+	add_filter( 'vibrant_life_rbm_fh_get_meta_field', 'vibrant_life_fix_repeater_fields_saved_values_on_ab_testing', 10, 3 );
+
+}
+
+/**
+ * Force Nelio to play nicely with RBM FH Repeater fields on the Frontend
+ * It works just fine for all other Field Types and even in the Preview, but for some reason not on the frontend while a test is running
+ *
+ * @param   mixed    $value       The saved value
+ * @param   string   $field_name  The field name. This does _not_ include the prefix
+ * @param   integer  $post_id     Post ID of the Control Page
+ *
+ * @since	{{VERSION}}
+ * @return  mixed               The saved value
+ */
+function vibrant_life_fix_repeater_fields_saved_values_on_ab_testing( $value, $field_name, $post_id ) {
+
+	$query = new WP_Query( array(
+		'post_type' => 'nab_experiment',
+		'post_status' => 'any',
+		'post_per_page' => 1,
+		'fields' => 'ids',
+		'meta_query' => array(
+			'relationship' => 'AND',
+			array(
+				'key'     => '_nab_tested_post_id',
+				'value'   => $post_id,
+				'compare' => '=',
+			)
+		)
+	) );
+
+	if ( ! $query->have_posts() ) return $value;
+
+	$experiment = nab_get_experiment( $query->posts[0] );
+
+	$alternatives = $experiment->get_alternatives();
+
+	$alternative_post_id = false;
+
+	// If you view the Alternative from the Test Page
+	if ( isset( $_GET['alternative'] ) && $_GET['alternative'] ) {
+
+		$alternative_id = $_GET['alternative'];
+
+		$alternative = array_values( array_filter( $alternatives, function( $item ) use ( $alternative_id ) {
+			return $alternative_id == $item['id'];
+		} ) );
+
+		if ( isset( $alternative[0] ) && $alternative[0] ) {
+			$alternative = $alternative[0];
+		}
+
+	}
+	else { // If you are a user who visits the page
+
+		$runtime = Nelio_AB_Testing_Runtime::instance();
+		$nab_query_arg = $runtime->get_nab_query_arg();
+
+		if ( false === $nab_query_arg ) return $value;
+
+		$alternative = $alternatives[ $nab_query_arg % count( $alternatives ) ];
+
+	}
+
+	if ( isset( $alternative['attributes'] ) && $alternative['attributes'] ) {
+		if ( isset( $alternative['attributes']['postId'] ) && $alternative['attributes']['postId'] ) {
+			$alternative_post_id = $alternative['attributes']['postId'];
+		}
+	}
+
+	if ( ! $alternative_post_id ) return $value;
+
+	return get_post_meta( $alternative_post_id, 'vibrant_life_' . $field_name, true );
+
+}
