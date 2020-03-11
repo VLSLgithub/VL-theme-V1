@@ -34,6 +34,10 @@ remove_filter('the_content', 'sfsi_social_buttons_below');
 		<?php do_action( 'vibrant_life_body_start' ); ?>
 
 	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
+
+	<?php if ( function_exists( 'vl_show_inset_alerts' ) ) {
+			vl_show_inset_alerts();
+	} ?>
 		
 	<header class="site-header" role="banner">
 		

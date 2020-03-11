@@ -1,6 +1,6 @@
 @mixin light-or-dark-text( $color ) {
 
-  @if lightness( $color ) < 65% {
+  @if lightness( $color ) < 45% {
 
     color: $light-color;
 
@@ -164,6 +164,23 @@
 			
 		}
 		
+	}
+	
+}
+
+@mixin hollow-button( $color ) {
+	
+	color: $color;
+	background: transparent;
+	border-width: 1px;
+	border-color: $color;
+	font-weight: 600;
+
+	&:hover, &:focus {
+
+		background-color: $color;
+		@include light-or-dark-text( $color );
+
 	}
 	
 }

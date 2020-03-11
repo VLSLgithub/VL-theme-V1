@@ -9,7 +9,7 @@
 
       border-width: 0.25em;
       border-color: $color;
-	  border-radius: 0.25rem;
+	    border-radius: 0.25rem;
 
       @include foundation-button-fix( $color );
 

@@ -64,6 +64,9 @@ $body-font-family: $font-family-serif;
 // Forms
 $input-border-width: 0;
 
+$column-gutter: rem-calc(30);
+$total-columns: 12;
+
 // Converted to Foundation 6 format
 $header-styles: (
   small: (

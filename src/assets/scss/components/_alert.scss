@@ -1,0 +1,419 @@
+/*
+Alert styling.
+
+@since {{VERSION}}
+*/
+
+@include breakpoint(medium) {
+    
+    .vl-alert.inset-banner .vl-alert-content {
+        
+        margin-left: 0;
+        
+    }
+    
+    .vl-alerts-container {
+        
+        position: relative;
+        
+        .vl-alert.inset-banner {
+            
+            z-index: 9;
+            width: 100%;
+
+            .vl-alert-container {
+
+                @include grid-row( 12, null, 'expand' );
+                
+                .vl-alert-content {
+                    overflow: auto;
+                }
+
+                .vl-alert-text-container {
+                    @include grid-column( 11 );
+                }
+
+                .vl-alert-button-container {
+
+                    text-align: center;
+                    @include grid-column( 1 );
+
+                    .vl-alert-button {
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        transform: translateY( -50% );
+
+                        $gutter-type: 'margin';
+                        $gutters: $grid-margin-gutters;
+                        $gutter-position: right;
+                        $operator: '';
+                        
+                        // Output our margin gutters.
+                        @if (type-of($gutters) == 'map') {
+                            
+                            $gutter: rem-calc( map-get( $gutters, 'small' ) ) / 2;
+
+                            // Loop through each gutter position
+                            @each $value in $gutter-position {
+                                #{$gutter-type}-#{$value}: #{ $gutter };
+                            }
+                        }
+                        @elseif (type-of($gutters) == 'number') {
+                            $gutter: rem-calc($gutters) / 2;
+
+                            // Loop through each gutter position
+                            @each $value in $gutter-position {
+                                #{$gutter-type}-#{$value}: #{ $gutter };
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+        
+    }
+    
+}
+
+.vl-alert {
+	position: relative;
+	width: $grid-row-width;
+	max-width: 100%;
+	margin: 0 auto;
+	font-size: 1.2em;
+
+	&.inset-banner, &.pop-up {
+
+        $button-colors: (
+            primary: $primary-color,
+            secondary: $secondary-color,
+            tertiary: $tertiary-color,
+            quaternary: $quaternary-color,
+            quinary: $quinary-color,
+        );
+
+        @each $name, $color in $button-colors {
+
+            &.#{$name}-background {
+        
+                .vl-alert-button {
+
+                    $button-color: map-get-next( $button-colors, $name );
+
+                    @include button( false, $button-color );
+                    @include foundation-button-fix( $button-color );
+
+                    border: 0.25em solid $button-color;
+                    border-radius: 0.25rem;
+
+                    &:hover, &:focus {
+
+                        background: #fff;
+                        color: $button-color;
+                        border-width: 0.25em;
+
+                    }
+
+                }
+        
+            }
+        
+        }
+
+		.vl-alert-content {
+			padding-left: $column-gutter / 2;
+			line-height: rem-calc( 35 );
+
+			@include breakpoint(medium) {
+				margin-left: grid-calc(4, $total-columns);
+			}
+		}
+
+		.vl-alert-icon {
+			font-size: 1.3em;
+			margin-right: 0.3em;
+			vertical-align: middle;
+		}
+
+		.vl-alert-button {
+			text-transform: uppercase;
+			margin-left: 0.3em;
+			text-decoration: none !important;
+
+			@include breakpoint(small only) {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
+		}
+
+	}
+
+	&.inset-banner {
+
+        padding-top: 1rem;
+        overflow: auto;
+		
+		.vl-alert-button {
+			
+			font-size: inherit;
+            position: relative;
+			
+        }
+        
+        &:after {
+            clear: both;
+        }
+
+	}
+
+	&.pop-up {
+
+		margin: 0;
+		width: 100%;
+		overflow: auto;
+		
+		@include breakpoint(small only) {
+			
+			h1, h2, h3, h4, h5, h6 {
+				color: #fff;
+			}
+			
+		}
+
+		.vl-alert-content {
+
+			margin: 0 auto;
+			
+			padding: 0;
+			
+			.row {
+
+				padding: rem-calc( 15 );
+				
+			}
+
+			.vl-alert-icon {
+				margin-top: 0.35em;
+				vertical-align: top;
+
+				@include breakpoint(medium) {
+
+					&.show-for-medium {
+						display: inline-block !important;
+					}
+
+				}
+
+			}
+
+			.vl-alert-image, .text-content, .text-content > * {
+				display: inline-block;
+			}
+
+			.vl-alert-text > p:first-of-type {
+				display: inline-block;
+			}
+
+			@media only screen and (max-width: 389px) {
+
+				.small-icon-container {
+					padding: 0;
+				}
+
+			}
+			
+			.text-content {
+			
+				@include breakpoint(small only) {
+					padding-left: 1rem;
+				}
+
+			}
+
+		}
+
+		.vl-alert-button {
+
+			&.close-button {
+
+				@include breakpoint(small only) {
+					top: 0;
+					bottom: auto;
+				}
+
+			}
+
+			&.call-to-action {
+				position: relative;
+				margin-bottom: 0;
+
+				margin-left: 0;
+
+			}
+
+		}
+
+		@include breakpoint(small only) {
+			padding: 0;
+		}
+
+		.vl-alert-button:not(.call-to-action) {
+			display: inline-block;
+			opacity: 0.6;
+			color: $light-color;
+			background: $primary-color;
+
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+
+		.vl-alert-button {
+			padding: 0.3em 0.5em;
+		}
+			
+        .call-to-action {
+            
+                @include breakpoint(small only) {
+                
+                @include button( false, #fff );
+                @include hollow-button( #fff );
+                margin-bottom: 0;
+                
+            }
+            
+        }
+		
+		.call-to-action {
+			
+			@include breakpoint(medium) {
+				
+				@include button( false, #344cb5 );
+				bottom: -0.202rem;
+				
+				&.show-for-medium-up {
+				
+					display: inline-block !important;
+					
+				}
+				
+			}
+			
+		}
+		
+		.vl-alert-close {
+			
+			@include breakpoint(medium) {
+			
+				right: -4.3rem !important;
+				
+			}
+			
+		}
+
+	}
+	
+	// These are the old styles
+	@include breakpoint(medium) {
+		
+		&.pop-up {
+			position: fixed;
+			display: table;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			max-width: none;
+			background: rgba(#000, 0.5) !important;
+			z-index: 500;
+
+			.vl-alert-container {
+			  margin: 0;
+			  padding: 0;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			  top: 50%;
+				transform: translateY(-50%);
+			  text-align: center;
+				
+			}
+
+			.vl-alert-content {
+			  position: relative;
+			  max-width: 100%;
+			  margin: auto;
+			  background: $light-color;
+			  color: $secondary-color;
+			  text-align: left;
+				width: rem-calc( 500 );
+
+			  .vl-alert-text {
+				display: block;
+			  }
+
+			  .vl-alert-icon {
+				display: none;
+			  }
+			}
+
+			.vl-alert-close {
+			  position: absolute;
+			  top: 0;
+			  right: 0;
+
+			  &:hover {
+				opacity: 1;
+			  }
+			}
+		  }
+		
+	}
+
+}
+
+.accordion-navigation {
+	.vl-alert {
+		top: auto;
+	}
+}
+
+// Various page layouts affect the alert left margin
+body {
+	&.single-animal {
+		.vl-alert.inset-banner {
+			.vl-alert-content {
+
+				@include breakpoint(medium) {
+					margin-left: grid-calc(3, $total-columns);
+				}
+			}
+		}
+	}
+}
+
+.site-page-content {
+	.vl-alert.inset-banner {
+		.vl-alert-content {
+			margin-left: 0;
+		}
+	}
+}
+
+body:not(.home) {
+
+	.vl-alert.pop-up {
+		top: 0;
+	}
+
+}
