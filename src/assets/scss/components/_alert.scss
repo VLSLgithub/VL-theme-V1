@@ -30,42 +30,52 @@ Alert styling.
                 }
 
                 .vl-alert-text-container {
-                    @include grid-column( 11 );
+
+                    @include grid-column( 12 );
+
+                    @include breakpoint( large ) {
+                        @include grid-column( 10.5 );
+                    }
+
                 }
 
                 .vl-alert-button-container {
 
                     text-align: center;
-                    @include grid-column( 1 );
+
+                    @include breakpoint( medium down ) {
+                        position: relative;
+                    }
+
+                    @include grid-column( 12 );
+
+                    @include breakpoint( large ) {
+                        @include grid-column( 1.5 );
+                    }
 
                     .vl-alert-button {
                         position: absolute;
                         top: 50%;
                         right: 0;
                         transform: translateY( -50% );
-
-                        $gutter-type: 'margin';
-                        $gutters: $grid-margin-gutters;
-                        $gutter-position: right;
-                        $operator: '';
                         
-                        // Output our margin gutters.
-                        @if (type-of($gutters) == 'map') {
-                            
-                            $gutter: rem-calc( map-get( $gutters, 'small' ) ) / 2;
+                        @if type-of( $grid-column-gutter ) == 'map' {
 
-                            // Loop through each gutter position
-                            @each $value in $gutter-position {
-                                #{$gutter-type}-#{$value}: #{ $gutter };
+                            @each $breakpoint, $value in $grid-column-gutter {
+                
+                                @include breakpoint( $breakpoint ) {
+                                    
+                                    margin-right: #{ rem-calc( $value ) };
+                
+                                }
+                
                             }
+                
                         }
-                        @elseif (type-of($gutters) == 'number') {
-                            $gutter: rem-calc($gutters) / 2;
+                        @else {
 
-                            // Loop through each gutter position
-                            @each $value in $gutter-position {
-                                #{$gutter-type}-#{$value}: #{ $gutter };
-                            }
+                            margin-right: #{ rem-calc( $grid-column-gutter ) };
+                
                         }
 
                     }
