@@ -23,7 +23,7 @@ aside.sidebar {
 
 		}
 
-		.current-menu-ancestor {
+		.current-menu-ancestor, .current-menu-item {
 
 			& > a, .sub-menu li > a {
 				@include menu-state-active;
@@ -35,6 +35,10 @@ aside.sidebar {
 
 			background-color: $menu-item-background-active;
 			
+		}
+
+		.sub-menu .sub-menu {
+			margin-left: $list-side-margin;
 		}
 
 	}
