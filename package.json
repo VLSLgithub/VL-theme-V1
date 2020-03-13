@@ -1,7 +1,7 @@
 {
   "name": "VibrantLifeTheme2018",
   "title": "VibrantLifeTheme2018",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "license": "MIT",
   "main": "gulpfile.js",
   "scripts": {
