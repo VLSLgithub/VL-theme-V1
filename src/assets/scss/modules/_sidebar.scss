@@ -23,9 +23,11 @@ aside.sidebar {
 
 		}
 
-		.current-menu-ancestor > a {
+		.current-menu-ancestor {
 
-			@include menu-state-active;
+			& > a, .sub-menu li > a {
+				@include menu-state-active;
+			}
 
 		}
 
