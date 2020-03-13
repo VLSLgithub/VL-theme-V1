@@ -9,5 +9,32 @@ aside.sidebar {
 		}
 		
 	}
+
+	.menu {
+
+		@include menu-direction( vertical );
+
+		.sub-menu {
+			@extend .menu;
+
+			li > a {
+				padding-left: $list-side-margin;
+			}
+
+		}
+
+		.current-menu-ancestor > a {
+
+			@include menu-state-active;
+
+		}
+
+		.is-active {
+
+			background-color: $menu-item-background-active;
+			
+		}
+
+	}
 	
 }
