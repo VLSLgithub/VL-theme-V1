@@ -216,15 +216,23 @@ while ( have_posts() ) : the_post(); ?>
 
 								?>
 
-								<div class="<?php echo $left_class_name; ?>">
+								<?php if ( has_post_thumbnail() ) : ?>
 
-									<div class="image with-image-tag">
-										<?php echo wp_get_attachment_image( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>
+									<div class="<?php echo $left_class_name; ?>">
+
+										<div class="image with-image-tag">
+											<?php echo wp_get_attachment_image( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>
+										</div>
+
 									</div>
 
-								</div>
+									<div class="<?php echo $right_class_name; ?>">
 
-								<div class="<?php echo $right_class_name; ?>">
+								<?php else : ?>
+
+									<div class="small-12 columns">
+
+								<?php endif; ?>
 
 									<h3 id="post-<?php the_ID(); ?>">
 										<a href="<?php the_permalink(); ?>">
@@ -248,7 +256,11 @@ while ( have_posts() ) : the_post(); ?>
 
 					<?php 
 
-						$index++;
+						if ( has_post_thumbnail() ) {
+
+							$index++;
+
+						}
 
 					endwhile; ?>
 

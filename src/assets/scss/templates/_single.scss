@@ -11,6 +11,20 @@
 		}
 		
 	}
+
+	&:not(.has-post-thumbnail) {
+
+		.swirl-border {
+
+			& > .post {
+
+				padding-top: 6rem;
+
+			}
+
+		}
+
+	}
 	
 	article {
 	
